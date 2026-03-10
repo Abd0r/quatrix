@@ -1,0 +1,58 @@
+                                 OpenRAIL-M License
+                              Version 1.0, August 2022
+
+Copyright (c) 2024-2025 Syed Abdur Rehman Ali
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+                            USE RESTRICTIONS
+
+You agree NOT to use the Software, or any derivative works thereof, for any
+of the following purposes:
+
+1. Military weapons systems, autonomous lethal weapons, or any application
+   designed to cause physical harm to humans.
+
+2. Mass surveillance, tracking, or profiling of individuals without their
+   explicit informed consent.
+
+3. Generation of content that sexually exploits minors (CSAM).
+
+4. Deliberate spread of disinformation or coordinated inauthentic behavior
+   at scale.
+
+5. Any application that violates applicable local, national, or international
+   law.
+
+                            ATTRIBUTION
+
+Any public deployment or publication using this architecture must clearly
+credit:
+
+  Quatrix Architecture by Syed Abdur Rehman Ali
+  https://github.com/Abd0r/quatrix
+
+                            DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+                            CONTACT
+
+Syed Abdur Rehman Ali
+Email: ra2157218@gmail.com
+GitHub: https://github.com/Abd0r
+HuggingFace: https://huggingface.co/Abd0r
