@@ -109,36 +109,7 @@ out = model(input_ids, pixel_values=pixel_values)
 | Image data | ~550K image-text pairs (VQAv2, GQA, TextVQA, DocVQA, ScienceQA, CLEVR) |
 | Status | GRPO reasoning training in progress |
 
-### Training Stages
-
-**Stage 1 — Pretraining**
-
-3 epochs of progressive context expansion on ~3.2M mixed samples:
-
-| Epoch | Context | Purpose |
-|-------|---------|---------|
-| 1 | 256 tokens | Short pattern warmup |
-| 2 | 1024 tokens | Medium context |
-| 3 | 5120 tokens | Full context |
-
-Optimizer: Muon (lr=3e-3) + AdamW (lr=3e-4), cosine decay.
-
-**Stage 2 — SFT**
-
-6 epochs of supervised finetuning on instruction + reasoning data. Final checkpoint: `epsft6-step46003`.
-
-Optimizer: Muon (lr=1.5e-3) + AdamW (lr=1.5e-4).
-
-**Stage 3 — GRPO (in progress)**
-
-R1-style group relative policy optimization on math problems. Pure ground-truth reward — no neural scoring, no heuristics.
-
-- G=8 completions per prompt, 10K steps
-- Reward: `\boxed{X}` or `#### X` required for format credit; exact number match for accuracy
-- KL penalty β=0.001, curriculum ordering (easy→hard by prompt length)
-- Vision frozen — language-only training
-
-Empirical results will be reported in a follow-up paper once training is complete.
+Trained from scratch in three stages: pretraining on ~3.2M mixed text + image samples, supervised finetuning on instruction and reasoning data, and ongoing GRPO reasoning training (R1-style, math domain). Empirical results will be reported in a follow-up paper once training is complete.
 
 ---
 
