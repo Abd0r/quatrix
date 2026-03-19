@@ -131,7 +131,7 @@ out = model(input_ids, pixel_values=pixel_values)
 | Modalities | Text + Image (VLM) |
 | Training | From scratch, single RTX 4050 6GB |
 | Data | ~3.2M text samples + ~550K image-text pairs |
-| Status | **R1-style GRPO in progress (Math+Code reasoning)** |
+| Status | **GRPO reasoning training in progress (inspired by DeepSeek R1)** |
 
 A proof-of-concept (earlier smaller run — 1M diverse samples, 3 pretraining epochs, 256 context limit) scored **48.8% HumanEval Pass@1** — matching GPT-3.5 (175B) at **3500× fewer parameters**.
 
@@ -201,7 +201,7 @@ total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
 
 | Model | Params | Modalities | Status |
 |-------|--------|-----------|--------|
-| Berry-Q0 | 50M | Text + Vision | 🔥 R1-style GRPO (Math+Code) in progress |
+| Berry-Q0 | 50M | Text + Vision | GRPO reasoning training in progress (inspired by DeepSeek R1) |
 | Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned — target: beat R1 across benchmarks |
 | Berry-Q2 | ~500M | Full multimodal + Robotics + Agents | 📋 Planned |
 
