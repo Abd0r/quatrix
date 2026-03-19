@@ -89,25 +89,49 @@ pip install quatrix
 
 ```python
 from quatrix import QuatrixLM, QuatrixConfig
-
-cfg = QuatrixConfig(
-    vocab_size=50257,
-    hidden_size=512,
-    num_layers=7,
-    max_seq_len=5120,
-    q_rank=64,
-    use_vision=True,
-)
-model = QuatrixLM(cfg)  # ~50M params
-
 import torch
+
+# Text only
+cfg = QuatrixConfig(vocab_size=50257, hidden_size=512, num_layers=7,
+                    max_seq_len=5120, q_rank=64)
+model = QuatrixLM(cfg)  # ~44M params
 input_ids = torch.randint(0, 50257, (1, 10))
 out = model(input_ids)
 logits = out['logits']  # [B, L, vocab_size]
 
-# Multimodal
+# Text + Vision
+cfg = QuatrixConfig(vocab_size=50257, hidden_size=512, num_layers=7,
+                    max_seq_len=5120, q_rank=64, use_vision=True)
+model = QuatrixLM(cfg)  # ~50M params
 pixel_values = torch.randn(1, 3, 224, 224)
 out = model(input_ids, pixel_values=pixel_values)
+
+# Text + Vision + Audio
+cfg = QuatrixConfig(vocab_size=50257, hidden_size=512, num_layers=7,
+                    max_seq_len=5120, q_rank=64, use_vision=True, use_audio=True)
+model = QuatrixLM(cfg)
+mel = torch.randn(1, 1, 80, 3000)  # [B, 1, n_mels, time_frames]
+out = model(input_ids, pixel_values=pixel_values, mel=mel)
+
+# World Model
+from quatrix import WorldModel
+cfg = QuatrixConfig(vocab_size=50257, hidden_size=512, num_layers=7,
+                    max_seq_len=5120, q_rank=64, use_world_model=True)
+model = QuatrixLM(cfg)
+world = WorldModel(lm_hidden=512, action_dim=256)
+hidden_states = model.get_hidden_states(input_ids)         # [B, L, H]
+state, action_logits, next_state, reward = world(hidden_states)
+```
+
+### Built-in training script
+
+```bash
+# Quick demo — downloads TinyShakespeare, trains on CPU/GPU
+python -m quatrix.train
+
+# Custom config
+python -m quatrix.train --steps 2000 --hidden 512 --layers 7  # Berry-Q0 size
+python -m quatrix.train --data myfile.txt                      # your own text
 ```
 
 ---
