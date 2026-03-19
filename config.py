@@ -21,5 +21,7 @@ class QuatrixConfig:
     tie_embeddings: bool = True
     use_gradient_checkpointing: bool = False
 
-    # Vision (multimodal) — QuatrixVision, no external dependencies
-    use_vision: bool = False
+    # Modality plugins — all self-contained, no external dependencies
+    use_vision:      bool = False   # QuatrixVision — image patches
+    use_audio:       bool = False   # QuatrixAudio  — mel-spectrogram patches
+    use_world_model: bool = False   # QuatrixWorld  — state-action-transition plugin
