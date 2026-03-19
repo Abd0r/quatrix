@@ -52,6 +52,20 @@ QuatrixVision (image encoder)
 ├── M × QCompassBi blocks (bidirectional, no causal mask)
 ├── LayerNorm
 └── Linear projection → LM hidden dim
+
+QuatrixAudio (audio encoder)
+├── Mel-spectrogram patch embedding (16×16 freq×time patches)
+├── Positional embeddings
+├── 3 × QCompassBi blocks (bidirectional, no causal mask)
+├── LayerNorm
+└── Linear projection → LM hidden dim
+  (audio tokens prepended to text tokens, same as vision)
+
+QuatrixWorld (world model plugin — wraps QuatrixLM)
+├── StateEncoder: QCompassBi aggregates token sequence → state vector
+├── ActionHead: predicts action distribution from state
+├── TransitionModel: 4 × QCompassBi blocks, predicts s' = f(s, a)
+└── RewardHead (optional): estimates scalar value for RL fine-tuning
 ```
 
 ---
