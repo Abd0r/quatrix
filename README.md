@@ -69,6 +69,10 @@ QuatrixVision (image encoder)
 
 ## Quick Start
 
+```bash
+pip install quatrix
+```
+
 ```python
 from quatrix import QuatrixLM, QuatrixConfig
 
