@@ -13,7 +13,7 @@ class QuatrixConfig:
     """
     vocab_size: int = 50257       # GPT-2 default
     hidden_size: int = 512
-    num_layers: int = 7           # 8 LM layers + 4 vision layers ≈ 50M total
+    num_layers: int = 7           # 7 LM layers + 3 vision layers ≈ 50M total
     max_seq_len: int = 5120       # 5K context (5120 = 5 × 1024)
     q_rank: int = 64              # compass projection rank
     ffn_ratio: int = 4            # FFN hidden = hidden_size * ffn_ratio
