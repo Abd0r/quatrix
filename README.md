@@ -23,7 +23,7 @@ action = Linear(x, q_rank)           # "Where can I go? What's available?"
 nav    = softmax(state @ action.T / sqrt(q_rank))
 output = out_proj(nav @ x)           # gather from x directly — no V projection
 ```
-Two projections instead of three. Value-based: navigates to what is *useful*.
+Three projections instead of four. Value-based: navigates to what is *useful*.
 
 **No V projection** means the content being mixed is `x` itself — unchanged. Standard attention projects `x → V` before mixing, giving the model a learned "what to output" transform independent of "what to attend to." Q-Compass removes this: routing intelligence lives entirely in the navigation weights.
 
@@ -215,7 +215,7 @@ total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
 
 ## Why Quatrix?
 
-- **Simpler** — 2 projections per layer vs 4 in standard attention
+- **Simpler** — 3 projections per layer vs 4 in standard attention (no V matrix)
 - **Grounded** — Q(s,a) has theoretical roots in RL, not just empirical tricks
 - **Universal** — same block for text, images, audio, world modeling
 - **Efficient** — 3500× parameter efficiency demonstrated on HumanEval
