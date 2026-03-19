@@ -202,8 +202,8 @@ total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
 | Model | Params | Modalities | Status |
 |-------|--------|-----------|--------|
 | Berry-Q0 | 50M | Text + Vision | GRPO reasoning training in progress (inspired by DeepSeek R1) |
-| Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned — target: beat R1 across benchmarks |
-| Berry-Q2 | ~500M | Full multimodal + Robotics + Agents | 📋 Planned |
+| Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned |
+| Berry-Q2 | ~500M | Scaling | 📋 Planned |
 
 ---
 
