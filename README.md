@@ -18,12 +18,14 @@ Three projections. Similarity-based: attends to what *looks similar*.
 
 **Q-Compass computes:**
 ```
-state  = Linear(x, q_rank)      # "Where am I? What do I need?"
-action = Linear(x, q_rank)      # "Where can I go? What's available?"
+state  = Linear(x, q_rank)           # "Where am I? What do I need?"
+action = Linear(x, q_rank)           # "Where can I go? What's available?"
 nav    = softmax(state @ action.T / sqrt(q_rank))
-output = nav @ x                # gather directly — no V projection
+output = out_proj(nav @ x)           # gather from x directly — no V projection
 ```
-Two projections. Value-based: navigates to what is *useful*.
+Two projections instead of three. Value-based: navigates to what is *useful*.
+
+**No V projection** means the content being mixed is `x` itself — unchanged. Standard attention projects `x → V` before mixing, giving the model a learned "what to output" transform independent of "what to attend to." Q-Compass removes this: routing intelligence lives entirely in the navigation weights.
 
 **Key difference:** No Value projection. The content being mixed is `x` itself — raw, unchanged. The navigation weights encode all routing intelligence. This forces the model to **compose** answers rather than **retrieve** them.
 
@@ -43,14 +45,18 @@ QuatrixLM (language model)
 └── Output Head (tied to embeddings)
 
 VisionEncoder (image plugin)
-├── Conv2d patch embedding (16×16 patches)
-├── Positional embeddings
-└── M × QuatrixVisionBlock (QCompassBi — bidirectional)
+├── Conv2d patch embedding (16×16 patches → 196 patches)
+├── Positional embeddings (196 learned positions)
+├── M × QuatrixVisionBlock (QCompassBi — bidirectional)
+├── LayerNorm
+└── Linear projection (384 → lm_hidden)
 
 AudioEncoder (audio plugin)
-├── Mel-spectrogram patch embedding
+├── Conv2d mel-spectrogram patch embedding (16×16 time-freq patches)
 ├── Positional embeddings
-└── M × QuatrixVisionBlock (QCompassBi — bidirectional)
+├── M × QuatrixVisionBlock (QCompassBi — bidirectional)
+├── LayerNorm
+└── Linear projection (384 → lm_hidden)
 
 WorldModel (world model plugin)
 ├── StateEncoder   — compress token sequence → state vector
