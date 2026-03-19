@@ -62,7 +62,8 @@ QuatrixVision (image encoder)
 |----------|--------|--------|
 | Text | `QuatrixLM` | Production |
 | Vision | `QuatrixVision` | Production |
-| Audio | planned | Future work |
+| Audio | planned | Future work (Berry-Q1) |
+| World Model | planned | Future work (Berry-Q1) |
 
 ---
 
