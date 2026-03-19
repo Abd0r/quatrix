@@ -138,9 +138,9 @@ https://zenodo.org/records/19104202
 
 **Syed Abdur Rehman Ali**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Abd0r-181717?style=flat&logo=github)](https://github.com/Abd0r)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-Abd0r-FFD21E?style=flat&logo=huggingface&logoColor=black)](https://huggingface.co/Abd0r)
-[![X](https://img.shields.io/badge/X-SyedAbdurR2hman-000000?style=flat&logo=x)](https://x.com/SyedAbdurR2hman)
+[![GitHub](https://img.shields.io/badge/GitHub-Abd0r-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Abd0r)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Abd0r-FFD21E?style=for-the-badge&logoColor=black)](https://huggingface.co/Abd0r)
+[![X](https://img.shields.io/badge/X%20%2F%20Twitter-SyedAbdurR2hman-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/SyedAbdurR2hman)
 
 ---
 
