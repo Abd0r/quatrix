@@ -197,41 +197,11 @@ total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
 
 ---
 
-## Q-Play — Self Distillation (Planned)
-
-After GRPO, Berry-Q0 undergoes **Q-Play** — a novel self-distillation paradigm inspired by AlphaGo Zero:
-
-**Two Berry-Q0 instances compete 1v1:**
-
-```
-Prover  → generates a solution + reasoning chain
-Skeptic → tries to find a flaw, contradiction, or counterexample
-
-Prover wins  (+1) if Skeptic cannot disprove the solution
-Skeptic wins (+1) if it finds a valid logical flaw
-```
-
-**Key properties:**
-- No ground truth needed — logical consistency is the sole judge
-- Binary +1/-1 reward — clean, impossible to hack
-- Prover learns airtight reasoning; Skeptic learns critical thinking
-- Co-evolutionary arms race — each pushes the other into harder territory
-- ~33s/round on RTX 4050 → 500K rounds in ~6 days
-
-**Domains:** Math, Code, Science — fully verifiable, ideal for adversarial proof/disproof dynamics.
-
-**Emergent behavior:** As both models strengthen, reasoning quality escalates beyond what any fixed reward function could incentivize. Analogous to AlphaGo Zero discovering superhuman moves — but for general multi-domain reasoning.
-
-The deployed model is the **Prover** — which only asserts what it can defend against the strongest possible attack.
-
----
-
 ## Quasar Series Roadmap
 
 | Model | Params | Modalities | Status |
 |-------|--------|-----------|--------|
 | Berry-Q0 | 50M | Text + Vision | 🔥 R1-style GRPO (Math+Code) in progress |
-| Berry-Q0 Final | 50M | Text + Vision | 📋 Post GRPO → Q-Play |
 | Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned — target: beat R1 across benchmarks |
 | Berry-Q2 | ~500M | Full multimodal + Robotics + Agents | 📋 Planned |
 
