@@ -126,16 +126,103 @@ out = model(input_ids, pixel_values=pixel_values)
 | Property | Value |
 |----------|-------|
 | Architecture | QuatrixLM + QuatrixVision |
-| Parameters | ~50M (45.4M LM + 4.6M Vision) |
+| Parameters | ~50M (44M LM + 5.5M Vision + 0.4M projection) |
 | Context | 5120 tokens |
 | Modalities | Text + Image (VLM) |
 | Training | From scratch, single RTX 4050 6GB |
 | Data | ~3.2M text samples + ~550K image-text pairs |
-| Status | **Currently training** |
+| Status | **R1-style GRPO in progress (Math+Code reasoning)** |
 
-Berry-Q0 proof-of-concept (earlier, smaller run) scored **48.8% HumanEval Pass@1** — matching GPT-3.5 (175B) at **3500× fewer parameters**.
+A proof-of-concept (earlier smaller run — 1M diverse samples, 3 pretraining epochs, 256 context limit) scored **48.8% HumanEval Pass@1** — matching GPT-3.5 (175B) at **3500× fewer parameters**.
 
-Weights and paper releasing soon on HuggingFace: [huggingface.co/Abd0r](https://huggingface.co/Abd0r)
+---
+
+## Berry-Q0 Training Journey
+
+### Stage 1 — Pretraining (`train_berry_multimodal.py`)
+
+3 epochs of progressive context training on ~3.2M mixed text + image samples:
+
+| Epoch | Context | Batch | Purpose |
+|-------|---------|-------|---------|
+| 1 | 256 tokens | 26 | Fast warmup, short patterns |
+| 2 | 1024 tokens | 5 | Medium context |
+| 3 | 5120 tokens | 1 | Full 5K context |
+
+**Data:** FineWeb-Edu 500K, C4 300K, NuminaMath+OpenR1+OpenMathInstruct ~600K, Magicoder 75K, GitHub code 300K, SmolTalk 300K, OASST2 100K, hh-rlhf 100K, ArXiv 197K, VQAv2, GQA, TextVQA, DocVQA, ScienceQA, and more.
+
+**Optimizer:** Muon (21.2M params, lr=3e-3) + AdamW (28.8M params, lr=3e-4), cosine decay, warmup 500 steps.
+
+### Stage 2 — SFT (`train_berry_multimodal.py`)
+
+6 epochs of supervised finetuning on curated instruction + reasoning data:
+
+- **Epochs 1–4:** 512-token context, 150K samples/epoch (instruction + reasoning mix)
+- **Epochs 5–6:** 5120-token long context, 50K samples/epoch
+
+**Categories:** SmolTalk, OASST2, hh-rlhf, GPT4-LLM, OpenHermes, CodeAlpaca, CodeFeedback, Glaive function-calling, HelpSteer, Prosocial, DEITA, OpenR1, OpenThoughts, NuminaMath, GSM8K, ARC, HellaSwag, TriviaQA, and more.
+
+**LR:** 1.5e-3 / 1.5e-4 (2x lower than pretraining). Final checkpoint: `checkpoint-epsft6-step46003`.
+
+### Stage 3 — GRPO (`train_berry_grpo.py`) — In Progress
+
+**R1-style reasoning training** — Math + Code only, pure ground truth binary reward. Inspired by DeepSeek R1's approach: no complex reward stacks, no hackable heuristics. Only verifiable correctness.
+
+| Domain | Samples | Reward |
+|--------|---------|--------|
+| Math | 40K | Exact number match (binary 0/1) |
+| Code | 35K | Execution pass rate (sandboxed subprocess) |
+
+**Config:**
+- G=8 completions/prompt, 25K steps, 512 max tokens
+- KL penalty β=0.001 (R1 exact value), grad_accum=2
+- Temperature=1.0 (R1 style — full exploration)
+- Vision params frozen (4.6M) — language-only training
+
+**Reward function (`rewards/accuracy_reward.py`):**
+```
+fmt_reward  = 1.0 if reasoning pattern + answer pattern present, else 0.5/0.0
+acc_reward  = 1.0 if correct answer, else 0.0
+total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
+```
+- Math: exact number extraction + match (`\boxed{}`, `#### X`, `the answer is X`)
+- Code: sandboxed subprocess execution, recursionlimit=1000
+- Diversity penalty: rewards × 0.05 if all G=8 completions near-identical (exploit detection)
+
+**Prompt format:** `user: [problem]\nassistant: <think>\n` — triggers model's trained CoT format learned during SFT on OpenThoughts/OpenR1 data.
+
+**Advantage computation:** Standard within-group normalization (R1 style) — no rolling baseline. `adv = (r - mean_G) / (std_G + ε)`. Prevents collapse from stale historical baselines.
+
+**Optimizer:** Muon (2.5e-4) + AdamW (2.5e-5) — 6x lower than SFT LR, warmup 100 steps.
+
+---
+
+## Q-Play — Self Distillation (Planned)
+
+After GRPO, Berry-Q0 undergoes **Q-Play** — a novel self-distillation paradigm inspired by AlphaGo Zero:
+
+**Two Berry-Q0 instances compete 1v1:**
+
+```
+Prover  → generates a solution + reasoning chain
+Skeptic → tries to find a flaw, contradiction, or counterexample
+
+Prover wins  (+1) if Skeptic cannot disprove the solution
+Skeptic wins (+1) if it finds a valid logical flaw
+```
+
+**Key properties:**
+- No ground truth needed — logical consistency is the sole judge
+- Binary +1/-1 reward — clean, impossible to hack
+- Prover learns airtight reasoning; Skeptic learns critical thinking
+- Co-evolutionary arms race — each pushes the other into harder territory
+- ~33s/round on RTX 4050 → 500K rounds in ~6 days
+
+**Domains:** Math, Code, Science — fully verifiable, ideal for adversarial proof/disproof dynamics.
+
+**Emergent behavior:** As both models strengthen, reasoning quality escalates beyond what any fixed reward function could incentivize. Analogous to AlphaGo Zero discovering superhuman moves — but for general multi-domain reasoning.
+
+The deployed model is the **Prover** — which only asserts what it can defend against the strongest possible attack.
 
 ---
 
@@ -143,9 +230,10 @@ Weights and paper releasing soon on HuggingFace: [huggingface.co/Abd0r](https://
 
 | Model | Params | Modalities | Status |
 |-------|--------|-----------|--------|
-| Berry-Q0 | 50M | Text + Vision | 🔥 Training |
-| Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned |
-| Berry-Q2 | ~500M | Full multimodal + Robotics | 📋 Planned |
+| Berry-Q0 | 50M | Text + Vision | 🔥 R1-style GRPO (Math+Code) in progress |
+| Berry-Q0 Final | 50M | Text + Vision | 📋 Post GRPO → Q-Play |
+| Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned — target: beat R1 across benchmarks |
+| Berry-Q2 | ~500M | Full multimodal + Robotics + Agents | 📋 Planned |
 
 ---
 
