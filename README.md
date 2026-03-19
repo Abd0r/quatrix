@@ -2,9 +2,11 @@
 
 > *"Where transformers retrieve by similarity, Quatrix navigates by value."*
 
-**Quatrix** is a novel neural architecture that replaces standard attention with **Q-Compass navigation** — a mechanism grounded in reinforcement learning theory rather than similarity matching.
+**Quatrix** is a novel neural architecture that replaces standard multi-head attention with **Q-Compass** — a sequence mixing mechanism grounded in reinforcement learning theory rather than geometric similarity.
 
 Built by **Syed Abdur Rehman Ali** ([@Abd0r](https://github.com/Abd0r)).
+
+**Paper:** [Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation](https://zenodo.org/records/19104202) — Zenodo, March 2026.
 
 ---
 
@@ -12,24 +14,24 @@ Built by **Syed Abdur Rehman Ali** ([@Abd0r](https://github.com/Abd0r)).
 
 Standard attention computes:
 ```
-A = softmax(Q @ K.T / sqrt(d)) @ V
+Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) @ V
 ```
-Three projections. Similarity-based: attends to what *looks similar*.
+Four projections (W_Q, W_K, W_V, W_O). Similarity-based routing — attends to what *looks similar*, retrieves a projected transform of it.
 
 **Q-Compass computes:**
 ```
-state  = Linear(x, q_rank)           # "Where am I? What do I need?"
-action = Linear(x, q_rank)           # "Where can I go? What's available?"
-nav    = softmax(state @ action.T / sqrt(q_rank))
-output = out_proj(nav @ x)           # gather from x directly — no V projection
+state  = x @ W_s          # "Where am I?"
+action = x @ W_a          # "Where can I go?"
+Q(s,a) = softmax(state @ action.T / sqrt(r))
+output = W_o(Q(s,a) @ x)  # gather from x directly — no W_V
 ```
-Three projections instead of four. Value-based: navigates to what is *useful*.
+Three projections (W_s, W_a, W_o). Value-based routing — asks *"in state s, how valuable is attending to position a?"*
 
-**No V projection** means the content being mixed is `x` itself — unchanged. Standard attention projects `x → V` before mixing, giving the model a learned "what to output" transform independent of "what to attend to." Q-Compass removes this: routing intelligence lives entirely in the navigation weights.
+**The key removal:** No W_V. Content is gathered directly from `x`, unchanged. All routing intelligence lives in Q(s,a). This forces the model to learn precise navigation rather than compensating for imprecise attention with a learned content transform.
 
-**Key difference:** No Value projection. The content being mixed is `x` itself — raw, unchanged. The navigation weights encode all routing intelligence. This forces the model to **compose** answers rather than **retrieve** them.
+At H=512, r=64: standard attention uses 1,048,576 parameters per layer. Q-Compass uses 327,680 — a **69% reduction** in attention-block parameters.
 
-The navigation matrix `Q(s,a)` is mathematically identical to the Q-value function in reinforcement learning — the function that asks *"in state s, how valuable is taking action a?"*
+The same block — with or without a causal mask — handles both autoregressive text generation (Q-Compass) and bidirectional image encoding (Q-Compass-Bi). One mechanism, all modalities.
 
 ---
 
@@ -44,28 +46,13 @@ QuatrixLM (language model)
 ├── LayerNorm
 └── Output Head (tied to embeddings)
 
-VisionEncoder (image plugin)
-├── Conv2d patch embedding (16×16 patches → 196 patches)
-├── Positional embeddings (196 learned positions)
-├── M × QuatrixVisionBlock (QCompassBi — bidirectional)
-├── LayerNorm
-└── Linear projection (384 → lm_hidden)
-
-AudioEncoder (audio plugin)
-├── Conv2d mel-spectrogram patch embedding (16×16 time-freq patches)
+QuatrixVision (image encoder)
+├── Conv2d patch embedding (16×16 patches → 196 patches per 224×224 image)
 ├── Positional embeddings
-├── M × QuatrixVisionBlock (QCompassBi — bidirectional)
+├── M × QCompassBi blocks (bidirectional, no causal mask)
 ├── LayerNorm
-└── Linear projection (384 → lm_hidden)
-
-WorldModel (world model plugin)
-├── StateEncoder   — compress token sequence → state vector
-├── ActionHead     — predict action from state
-├── TransitionModel — predict next state given state + action
-└── RewardHead     — estimate value (optional, for RL)
+└── Linear projection → LM hidden dim
 ```
-
-All modalities use the **same QCompassBi block** — one unified mechanism for text, images, audio, and world modeling. No CLIP, no Whisper, no external dependencies.
 
 ---
 
@@ -73,25 +60,9 @@ All modalities use the **same QCompassBi block** — one unified mechanism for t
 
 | Modality | Module | Status |
 |----------|--------|--------|
-| Text | `QuatrixLM` | ✅ Production |
-| Vision | `VisionEncoder` | ✅ Production |
-| Audio | `AudioEncoder` | 🔧 Plugin (ready for Q1) |
-| World Model | `WorldModel` | 🔧 Plugin (ready for Q1) |
-
----
-
-## Installation
-
-```bash
-pip install quatrix  # coming soon to PyPI
-```
-
-Or from source:
-```bash
-git clone https://github.com/Abd0r/quatrix
-cd quatrix
-pip install -e .
-```
+| Text | `QuatrixLM` | Production |
+| Vision | `QuatrixVision` | Production |
+| Audio | planned | Future work |
 
 ---
 
@@ -100,7 +71,6 @@ pip install -e .
 ```python
 from quatrix import QuatrixLM, QuatrixConfig
 
-# Create model
 cfg = QuatrixConfig(
     vocab_size=50257,
     hidden_size=512,
@@ -109,16 +79,14 @@ cfg = QuatrixConfig(
     q_rank=64,
     use_vision=True,
 )
-model = QuatrixLM(cfg)
-# 50M params — runs on consumer GPU
+model = QuatrixLM(cfg)  # ~50M params
 
-# Text generation
 import torch
 input_ids = torch.randint(0, 50257, (1, 10))
 out = model(input_ids)
 logits = out['logits']  # [B, L, vocab_size]
 
-# Multimodal (text + image)
+# Multimodal
 pixel_values = torch.randn(1, 3, 224, 224)
 out = model(input_ids, pixel_values=pixel_values)
 ```
@@ -134,101 +102,73 @@ out = model(input_ids, pixel_values=pixel_values)
 | Architecture | QuatrixLM + QuatrixVision |
 | Parameters | ~50M (44M LM + 5.5M Vision + 0.4M projection) |
 | Context | 5120 tokens |
-| Modalities | Text + Image (VLM) |
-| Training | From scratch, single RTX 4050 6GB |
-| Data | ~3.2M text samples + ~550K image-text pairs |
-| Status | **GRPO reasoning training in progress (inspired by DeepSeek R1)** |
+| Modalities | Text + Image |
+| Training hardware | Single RTX 4050 6GB laptop GPU |
+| Text data | ~3.2M samples (web, math, code, reasoning, instruction, alignment) |
+| Image data | ~550K image-text pairs (VQAv2, GQA, TextVQA, DocVQA, ScienceQA, CLEVR) |
+| Status | GRPO reasoning training in progress |
 
-A proof-of-concept (earlier smaller run — 1M diverse samples, 3 pretraining epochs, 256 context limit) scored **48.8% HumanEval Pass@1** — matching GPT-3.5 (175B) at **3500× fewer parameters**.
+### Training Stages
+
+**Stage 1 — Pretraining**
+
+3 epochs of progressive context expansion on ~3.2M mixed samples:
+
+| Epoch | Context | Purpose |
+|-------|---------|---------|
+| 1 | 256 tokens | Short pattern warmup |
+| 2 | 1024 tokens | Medium context |
+| 3 | 5120 tokens | Full context |
+
+Optimizer: Muon (lr=3e-3) + AdamW (lr=3e-4), cosine decay.
+
+**Stage 2 — SFT**
+
+6 epochs of supervised finetuning on instruction + reasoning data. Final checkpoint: `epsft6-step46003`.
+
+Optimizer: Muon (lr=1.5e-3) + AdamW (lr=1.5e-4).
+
+**Stage 3 — GRPO (in progress)**
+
+R1-style group relative policy optimization on math problems. Pure ground-truth reward — no neural scoring, no heuristics.
+
+- G=8 completions per prompt, 10K steps
+- Reward: `\boxed{X}` or `#### X` required for format credit; exact number match for accuracy
+- KL penalty β=0.001, curriculum ordering (easy→hard by prompt length)
+- Vision frozen — language-only training
+
+Empirical results will be reported in a follow-up paper once training is complete.
 
 ---
 
-## Berry-Q0 Training Journey
+## Roadmap
 
-### Stage 1 — Pretraining (`train_berry_multimodal.py`)
+| Model | Modalities | Status |
+|-------|-----------|--------|
+| Berry-Q0 | Text + Vision | GRPO training in progress |
+| Berry-Q1 | Text + Vision + Audio + World Model | Future work |
 
-3 epochs of progressive context training on ~3.2M mixed text + image samples:
+---
 
-| Epoch | Context | Batch | Purpose |
-|-------|---------|-------|---------|
-| 1 | 256 tokens | 26 | Fast warmup, short patterns |
-| 2 | 1024 tokens | 5 | Medium context |
-| 3 | 5120 tokens | 1 | Full 5K context |
+## Paper
 
-**Data:** FineWeb-Edu 500K, C4 300K, NuminaMath+OpenR1+OpenMathInstruct ~600K, Magicoder 75K, GitHub code 300K, SmolTalk 300K, OASST2 100K, hh-rlhf 100K, ArXiv 197K, VQAv2, GQA, TextVQA, DocVQA, ScienceQA, and more.
+If you use Quatrix or Q-Compass in your work, please cite:
 
-**Optimizer:** Muon (21.2M params, lr=3e-3) + AdamW (28.8M params, lr=3e-4), cosine decay, warmup 500 steps.
-
-### Stage 2 — SFT (`train_berry_multimodal.py`)
-
-6 epochs of supervised finetuning on curated instruction + reasoning data:
-
-- **Epochs 1–4:** 512-token context, 150K samples/epoch (instruction + reasoning mix)
-- **Epochs 5–6:** 5120-token long context, 50K samples/epoch
-
-**Categories:** SmolTalk, OASST2, hh-rlhf, GPT4-LLM, OpenHermes, CodeAlpaca, CodeFeedback, Glaive function-calling, HelpSteer, Prosocial, DEITA, OpenR1, OpenThoughts, NuminaMath, GSM8K, ARC, HellaSwag, TriviaQA, and more.
-
-**LR:** 1.5e-3 / 1.5e-4 (2x lower than pretraining). Final checkpoint: `checkpoint-epsft6-step46003`.
-
-### Stage 3 — GRPO (`train_berry_grpo.py`) — In Progress
-
-**R1-style reasoning training** — Math + Code only, pure ground truth binary reward. Inspired by DeepSeek R1's approach: no complex reward stacks, no hackable heuristics. Only verifiable correctness.
-
-| Domain | Samples | Reward |
-|--------|---------|--------|
-| Math | 40K | Exact number match (binary 0/1) |
-| Code | 35K | Execution pass rate (sandboxed subprocess) |
-
-**Config:**
-- G=8 completions/prompt, 25K steps, 512 max tokens
-- KL penalty β=0.001 (R1 exact value), grad_accum=2
-- Temperature=1.0 (R1 style — full exploration)
-- Vision params frozen (4.6M) — language-only training
-
-**Reward function (`rewards/accuracy_reward.py`):**
 ```
-fmt_reward  = 1.0 if reasoning pattern + answer pattern present, else 0.5/0.0
-acc_reward  = 1.0 if correct answer, else 0.0
-total       = (fmt + acc) / 2  →  [0.0, 0.5, 1.0]
+Syed Abdur Rehman Ali. Q-Compass: Grounding Sequence Mixing in
+Reinforcement Learning Navigation. Zenodo, March 2026.
+https://zenodo.org/records/19104202
 ```
-- Math: exact number extraction + match (`\boxed{}`, `#### X`, `the answer is X`)
-- Code: sandboxed subprocess execution, recursionlimit=1000
-- Diversity penalty: rewards × 0.05 if all G=8 completions near-identical (exploit detection)
-
-**Prompt format:** `user: [problem]\nassistant: <think>\n` — triggers model's trained CoT format learned during SFT on OpenThoughts/OpenR1 data.
-
-**Advantage computation:** Standard within-group normalization (R1 style) — no rolling baseline. `adv = (r - mean_G) / (std_G + ε)`. Prevents collapse from stale historical baselines.
-
-**Optimizer:** Muon (2.5e-4) + AdamW (2.5e-5) — 6x lower than SFT LR, warmup 100 steps.
-
----
-
-## Quasar Series Roadmap
-
-| Model | Params | Modalities | Status |
-|-------|--------|-----------|--------|
-| Berry-Q0 | 50M | Text + Vision | GRPO reasoning training in progress (inspired by DeepSeek R1) |
-| Berry-Q1 | ~100M | Text + Vision + Audio + World Model | 📋 Planned |
-| Berry-Q2 | ~500M | Scaling | 📋 Planned |
-
----
-
-## Why Quatrix?
-
-- **Simpler** — 3 projections per layer vs 4 in standard attention (no V matrix)
-- **Grounded** — Q(s,a) has theoretical roots in RL, not just empirical tricks
-- **Universal** — same block for text, images, audio, world modeling
-- **Efficient** — 3500× parameter efficiency demonstrated on HumanEval
-- **Edge-ready** — 50M model trains and runs on consumer hardware
 
 ---
 
 ## Author
 
 **Syed Abdur Rehman Ali**
-- GitHub: [@Abd0r](https://github.com/Abd0r)
-- HuggingFace: [Abd0r](https://huggingface.co/Abd0r)
-- X: [@SyedAbdurR2hman](https://x.com/SyedAbdurR2hman)
+
+[![GitHub](https://img.shields.io/badge/GitHub-Abd0r-181717?style=flat&logo=github)](https://github.com/Abd0r)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Abd0r-FFD21E?style=flat&logo=huggingface&logoColor=black)](https://huggingface.co/Abd0r)
+[![X](https://img.shields.io/badge/X-SyedAbdurR2hman-000000?style=flat&logo=x)](https://x.com/SyedAbdurR2hman)
 
 ---
 
