@@ -167,7 +167,7 @@ def main():
 
         x, y = x.to(device), y.to(device)
 
-        out  = model(input_ids=x, labels=y, causal=True)
+        out  = model(input_ids=x, labels=x, causal=True)
         loss = out["loss"]
 
         optimizer.zero_grad()
