@@ -27,7 +27,8 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/Abd0r/quatrix"
-"Q-Compass paper" = "https://zenodo.org/records/19104202"
+"Quatrix paper (April 2026)" = "https://zenodo.org/records/19839718"
+"Q-Compass paper (March 2026)" = "https://zenodo.org/records/19104202"
 
 [tool.setuptools.packages.find]
 where = ["src"]

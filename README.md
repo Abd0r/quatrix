@@ -12,8 +12,8 @@ Built by **Syed Abdur Rehman Ali** ([@Abd0r](https://github.com/Abd0r)).
 
 Both PDFs are checked into [`Papers/`](./Papers).
 
-1. **Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation** — [`Papers/qcompass.pdf`](./Papers/qcompass.pdf) · also on [Zenodo (March 2026)](https://zenodo.org/records/19104202). Defines the routing primitive (3-projection, no $W_V$).
-2. **Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling** — [`Papers/Quatrix.pdf`](./Papers/Quatrix.pdf). Multi-seed evaluation at 60M / 120M / 180M, KV-cache analysis, cross-field cancer demonstration (April 2026).
+1. **Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation** — [`Papers/qcompass.pdf`](./Papers/qcompass.pdf) · [Zenodo (March 2026)](https://zenodo.org/records/19104202) · DOI [10.5281/zenodo.19104202](https://doi.org/10.5281/zenodo.19104202). Defines the routing primitive (3-projection, no $W_V$).
+2. **Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling** — [`Papers/Quatrix.pdf`](./Papers/Quatrix.pdf) · [Zenodo (April 2026)](https://zenodo.org/records/19839718) · DOI [10.5281/zenodo.19839718](https://doi.org/10.5281/zenodo.19839718). Multi-seed evaluation at 60M / 120M / 180M, KV-cache analysis, cross-field cancer demonstration.
 
 ---
 
@@ -209,21 +209,23 @@ If you use Quatrix or Q-Compass in your work, please cite:
 
 ```bibtex
 @misc{ali2026qcompass,
-  author = {Syed Abdur Rehman Ali},
-  title  = {Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation},
-  year   = {2026},
-  month  = {March},
+  author       = {Syed Abdur Rehman Ali},
+  title        = {Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation},
+  year         = {2026},
+  month        = {March},
   howpublished = {Zenodo},
-  url = {https://zenodo.org/records/19104202}
+  doi          = {10.5281/zenodo.19104202},
+  url          = {https://zenodo.org/records/19104202}
 }
 
 @misc{ali2026quatrix,
-  author = {Syed Abdur Rehman Ali},
-  title  = {Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling},
-  year   = {2026},
-  month  = {April},
-  howpublished = {arXiv preprint},
-  url = {https://github.com/Abd0r/quatrix}
+  author       = {Syed Abdur Rehman Ali},
+  title        = {Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling},
+  year         = {2026},
+  month        = {April},
+  howpublished = {Zenodo},
+  doi          = {10.5281/zenodo.19839718},
+  url          = {https://zenodo.org/records/19839718}
 }
 ```
 
