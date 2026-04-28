@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "quatrix"
-version = "0.1.0"
-description = "Q-Compass architecture — RL-grounded sequence mixing for text, vision, audio, and world modeling"
+version = "0.2.0"
+description = "Q-Compass architecture — RL-grounded sequence mixing for text, vision, audio, world modeling, and cross-field tasks"
 readme = "README.md"
-license = "Apache-2.0"
+license = { file = "LICENSE" }
 authors = [{ name = "Syed Abdur Rehman Ali", email = "ra2157218@gmail.com" }]
-keywords = ["deep learning", "transformer", "attention", "reinforcement learning", "multimodal", "language model"]
+keywords = ["deep learning", "transformer", "attention", "reinforcement learning", "multimodal", "language model", "world model", "cancer genomics"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Programming Language :: Python :: 3",
@@ -27,8 +27,8 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/Abd0r/quatrix"
-Paper = "https://zenodo.org/records/19104202"
+"Q-Compass paper" = "https://zenodo.org/records/19104202"
 
-[tool.setuptools.packages.find]
-where = [".."]
-include = ["quatrix*"]
+[tool.setuptools]
+packages = ["quatrix"]
+package-dir = { "quatrix" = "." }
