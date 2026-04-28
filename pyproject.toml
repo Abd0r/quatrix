@@ -29,6 +29,8 @@ dependencies = [
 Homepage = "https://github.com/Abd0r/quatrix"
 "Q-Compass paper" = "https://zenodo.org/records/19104202"
 
-[tool.setuptools]
-packages = ["quatrix"]
-package-dir = { "quatrix" = "." }
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+quatrix = ["py.typed"]

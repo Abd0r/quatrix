@@ -6,4 +6,6 @@ build/
 *.egg-info/
 .pytest_cache/
 .venv/
-quatrix/
+# Stale duplicate of the package, kept at top-level only; canonical code lives in src/quatrix/
+/quatrix/
+

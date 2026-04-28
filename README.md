@@ -10,8 +10,10 @@ Built by **Syed Abdur Rehman Ali** ([@Abd0r](https://github.com/Abd0r)).
 
 ## Papers
 
-1. **Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation** — [Zenodo, March 2026](https://zenodo.org/records/19104202). Defines the routing primitive (3-projection, no $W_V$).
-2. **Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling** — `Quatrix.pdf` (this repo). Multi-seed evaluation at 60M / 120M / 180M, KV-cache analysis, cross-field cancer demonstration.
+Both PDFs are checked into [`Papers/`](./Papers).
+
+1. **Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation** — [`Papers/qcompass.pdf`](./Papers/qcompass.pdf) · also on [Zenodo (March 2026)](https://zenodo.org/records/19104202). Defines the routing primitive (3-projection, no $W_V$).
+2. **Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling** — [`Papers/Quatrix.pdf`](./Papers/Quatrix.pdf). Multi-seed evaluation at 60M / 120M / 180M, KV-cache analysis, cross-field cancer demonstration (April 2026).
 
 ---
 
@@ -100,21 +102,28 @@ TransformerLM (rank-matched MHA baseline, paper §5.2)
 
 ## Repository Layout
 
-| File | Role |
-|---|---|
-| `model.py` | `QCompass`, `QuatrixBlock`, `QuatrixLM` — language model with the routing primitive (SAO and SAVO variants) |
-| `vision.py` | `QCompassBi`, `QuatrixVisionBlock`, `VisionEncoder` — bidirectional image encoder |
-| `audio.py` | `AudioEncoder`, `waveform_to_mel` — bidirectional audio encoder |
-| `world.py` | `WorldModel`, `StateEncoder`, `TransitionModel`, `ActionHead`, `RewardHead` — latent world-model plugin |
-| `world_generative.py` | `QuatrixWorldGenerative` — generative (frame-predicting) world model |
-| `cancer_model.py` | `QuatrixCancerModel` — SBS96 → signature / cancer-type prediction |
-| `edit_model.py` | `QuatrixEditModel` — CRISPR-edit outcome predictor |
-| `transformer_lm.py` | `TransformerLM` — standard MHA baseline used in paper §5.2 controlled ablation |
-| `config.py` | `QuatrixConfig` — config dataclass shared across modules |
-| `train.py` | `python -m quatrix.train` — built-in demo training loop |
-| `pyproject.toml` | Package metadata for `pip install quatrix` |
-| `Quatrix.pdf` | Latest empirical paper (April 2026) |
-| `qcompass.pdf` | Original Q-Compass paper (March 2026) |
+```
+quatrix/                         (repo root)
+├── Papers/                      ← both papers
+│   ├── Quatrix.pdf              ← April 2026 empirical paper (this repo)
+│   └── qcompass.pdf             ← March 2026 original primitive paper
+├── src/quatrix/                 ← Python package (importable as `import quatrix`)
+│   ├── __init__.py              ← public API (QuatrixLM, QuatrixConfig, ...)
+│   ├── config.py                ← QuatrixConfig dataclass
+│   ├── model.py                 ← QCompass, QuatrixBlock, QuatrixLM (SAO + SAVO)
+│   ├── vision.py                ← QCompassBi, VisionEncoder
+│   ├── audio.py                 ← AudioEncoder, waveform_to_mel
+│   ├── world.py                 ← WorldModel + StateEncoder + TransitionModel
+│   ├── world_generative.py      ← QuatrixWorldGenerative (frame-prediction)
+│   ├── cancer_model.py          ← QuatrixCancerModel (paper §7 Phase 1–4)
+│   ├── edit_model.py            ← QuatrixEditModel (CRISPR-edit outcomes)
+│   ├── transformer_lm.py        ← TransformerLM rank-matched MHA baseline (paper §5.2)
+│   └── train.py                 ← python -m quatrix.train demo loop
+├── pyproject.toml
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
 
 ---
 
