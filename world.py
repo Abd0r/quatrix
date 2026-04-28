@@ -194,30 +194,31 @@ class WorldModel(nn.Module):
     The Q(s,a) math in Q-Compass IS a world model Q-function.
     This module makes that explicit and trainable on world model data.
 
-    Training data:
-      - Video sequences with action labels (RT-1, Open X-Embodiment)
-      - Text descriptions of cause → effect
-      - Robot trajectory data
+    All dimensions (hidden, q_rank, state_dim) default to `lm_hidden`-derived
+    values so the world model scales 1:1 with the language model.
 
     Usage:
-        world = WorldModel(lm, action_dim=256)
-        hidden_states = lm.get_hidden_states(input_ids)  # [B, L, H]
-        state_vec, next_state, action_logits = world(hidden_states)
+        world = WorldModel(lm_hidden=512, n_transition_layers=10, q_rank=64)
+        state_vec, action_logits, next_state, reward = world(hidden_states, action)
     """
 
     def __init__(self, lm_hidden: int = 512,
                  action_dim: int = WM_ACTION_DIM,
-                 state_dim: int = WM_STATE_DIM,
                  n_transition_layers: int = WM_LAYERS,
+                 q_rank: int = WM_Q_RANK,
                  use_reward_head: bool = False,
                  continuous_actions: bool = False,
                  dropout: float = 0.1):
         super().__init__()
 
-        self.state_encoder  = StateEncoder(lm_hidden, WM_Q_RANK, dropout)
-        self.transition     = TransitionModel(state_dim, action_dim,
-                                              lm_hidden, n_transition_layers,
-                                              WM_Q_RANK, dropout)
+        # State dimension is tied to lm_hidden so world-model state vectors
+        # flow naturally through QuatrixLM hidden states
+        state_dim = lm_hidden
+
+        self.state_encoder  = StateEncoder(lm_hidden, q_rank, dropout)
+        self.transition     = TransitionModel(
+            state_dim, action_dim, lm_hidden, n_transition_layers, q_rank, dropout,
+        )
         self.action_head    = ActionHead(state_dim, action_dim, continuous_actions)
         self.reward_head    = RewardHead(state_dim) if use_reward_head else None
 

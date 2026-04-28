@@ -22,6 +22,13 @@ class QuatrixConfig:
     use_gradient_checkpointing: bool = False
 
     # Modality plugins — all self-contained, no external dependencies
-    use_vision:      bool = False   # QuatrixVision — image patches
-    use_audio:       bool = False   # QuatrixAudio  — mel-spectrogram patches
-    use_world_model: bool = False   # QuatrixWorld  — state-action-transition plugin
+    use_vision:       bool = False  # QuatrixVision — image patches
+    use_audio:        bool = False  # QuatrixAudio  — mel-spectrogram patches
+    use_world_model:  bool = False  # QuatrixWorld  — state-action-transition plugin
+    world_num_actions: int = 6     # discrete navigation actions (forward/back/left/right/look_up/look_down)
+    wm_layers:        int = 0      # world-model transition layers (0 = same as num_layers)
+    # wm_hidden and wm_q_rank implicitly follow hidden_size and q_rank
+
+    # Q-Compass architectural extensions
+    q_heads:           int  = 1     # multi-head Q-Compass (1 = single-head, default)
+    q_value_content:   bool = False # D.1: gather self-Q-value (state⊙action·W_c) instead of raw x
