@@ -233,6 +233,11 @@ class QuatrixLM(nn.Module):
                             "action_ids": [B]           — discrete action taken
         """
         B, L = input_ids.shape
+        if L > self.cfg.max_seq_len:
+            raise ValueError(
+                f"Sequence length {L} exceeds max_seq_len {self.cfg.max_seq_len}. "
+                f"Truncate input_ids before calling forward()."
+            )
         pos = torch.arange(L, device=input_ids.device).unsqueeze(0)
         tok_emb = self.token_emb(input_ids) + self.pos_emb(pos)   # [B, L, H]
 

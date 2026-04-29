@@ -280,6 +280,7 @@ class QuatrixWorldGenerative(nn.Module):
         Returns:
             (T+1, 3, H, W) sequence of frames (index 0 = input)
         """
+        was_training = self.training
         self.eval()
         frames = [frame_0.squeeze(0)]
         cur = frame_0
@@ -288,4 +289,6 @@ class QuatrixWorldGenerative(nn.Module):
             out = self.forward(cur, a, frame_t1=None)
             cur = out["pred_frame"].clamp(0, 1)
             frames.append(cur.squeeze(0))
+        if was_training:
+            self.train()
         return torch.stack(frames, dim=0)

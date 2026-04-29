@@ -64,6 +64,7 @@ class _DNAEncoder(nn.Module):
         self.token_emb = nn.Embedding(vocab_size, hidden_size,
                                        padding_idx=0)
         self.pos_emb   = nn.Embedding(max_len, hidden_size)
+        self.max_len   = max_len
         self.drop      = nn.Dropout(dropout)
         self.blocks = nn.ModuleList([
             QuatrixVisionBlock(hidden_size, q_rank, ffn_ratio=4, dropout=dropout)
@@ -73,6 +74,11 @@ class _DNAEncoder(nn.Module):
 
     def forward(self, ids: torch.Tensor) -> torch.Tensor:
         B, L = ids.shape
+        if L > self.max_len:
+            raise ValueError(
+                f"DNA sequence length {L} exceeds _DNAEncoder.max_len {self.max_len}. "
+                f"Increase max_len in the constructor or truncate the input."
+            )
         pos = torch.arange(L, device=ids.device).unsqueeze(0)
         x = self.drop(self.token_emb(ids) + self.pos_emb(pos))
         for blk in self.blocks:
@@ -201,7 +207,7 @@ class QuatrixEditModel(nn.Module):
         out_state = self.outcome_enc(out_emb).view(B, K, -1)   # (B, K, H)
 
         # Scores = <pred_state, outcome_k> / temperature
-        temp = self.log_temperature.exp()
+        temp = self.log_temperature.exp().clamp(min=1e-2)
         logits = torch.einsum("bh,bkh->bk", pred_state, out_state) / temp
 
         loss = None

@@ -138,6 +138,12 @@ class AudioEncoder(nn.Module):
         x = self.patch_embed(mel)                    # [B, N_patches, AUD_HIDDEN]
         B, N, _ = x.shape
 
+        if N > self.max_patches:
+            raise ValueError(
+                f"Audio produces {N} patches but AudioEncoder supports at most "
+                f"{self.max_patches} (~30s). Truncate input audio before encoding."
+            )
+
         pos = torch.arange(N, device=x.device).unsqueeze(0)
         x = self.drop(x + self.pos_emb(pos))
 

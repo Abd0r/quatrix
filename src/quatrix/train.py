@@ -51,9 +51,7 @@ class TextDataset(Dataset):
 
     def __getitem__(self, idx):
         chunk = self.ids[idx : idx + self.seq_len + 1]
-        x = torch.tensor(chunk[:-1], dtype=torch.long)
-        y = torch.tensor(chunk[1:],  dtype=torch.long)
-        return x, y
+        return torch.tensor(chunk[:-1], dtype=torch.long)
 
 
 # ── Generation ────────────────────────────────────────────────────────────────
@@ -160,12 +158,12 @@ def main():
     while step < args.steps:
         # Refill iterator when dataset exhausted
         try:
-            x, y = next(data_iter)
+            x = next(data_iter)
         except StopIteration:
             data_iter = iter(loader)
-            x, y     = next(data_iter)
+            x         = next(data_iter)
 
-        x, y = x.to(device), y.to(device)
+        x = x.to(device)
 
         out  = model(input_ids=x, labels=x, causal=True)
         loss = out["loss"]
