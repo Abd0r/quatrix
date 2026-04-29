@@ -266,7 +266,9 @@ class QuatrixCancerModel(nn.Module):
         state = self.state_enc(seq)                                # (B, H)
 
         # Action:
-        if self.cancer_emb is not None and cancer_type_ids is not None:
+        if self.cancer_emb is not None:
+            if cancer_type_ids is None:
+                cancer_type_ids = torch.zeros(B, dtype=torch.long, device=counts.device)
             action = self.cancer_emb(cancer_type_ids)              # (B, action_dim)
         else:
             action = state                                          # identity action: use state itself
@@ -285,6 +287,7 @@ class QuatrixCancerModel(nn.Module):
             loss = -(target_contributions * log_pred).sum(dim=-1).mean()
 
         if signature_matrix is not None:
+            signature_matrix = signature_matrix.to(counts.device)
             # Reconstruction loss: S · ĉ should match observed distribution
             probs_obs = counts / counts.sum(dim=-1, keepdim=True).clamp_min(1e-12)
             probs_pred = pred_c @ signature_matrix.T               # (B, 96)

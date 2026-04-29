@@ -24,6 +24,8 @@ Usage:
 """
 
 import math
+from typing import Optional
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -223,7 +225,7 @@ class WorldModel(nn.Module):
         self.reward_head    = RewardHead(state_dim) if use_reward_head else None
 
     def forward(self, hidden_states: torch.Tensor,
-                action: torch.Tensor = None):
+                action: Optional[torch.Tensor] = None):
         """
         Args:
             hidden_states: [B, L, H] — LM hidden states for current context
