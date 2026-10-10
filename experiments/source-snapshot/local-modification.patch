@@ -1,0 +1,122 @@
+diff --git a/src/quatrix/transformer_lm.py b/src/quatrix/transformer_lm.py
+index c2a23e2..b9160f4 100644
+--- a/src/quatrix/transformer_lm.py
++++ b/src/quatrix/transformer_lm.py
+@@ -93,13 +93,87 @@ class MHA(nn.Module):
+         return self.o_proj(out)                                     # [B, L, H]
+ 
+ 
++class GQAAttention(nn.Module):
++    """Grouped-Query Attention — cache-efficient alternative to full MHA.
++
++    Reduces KV cache by sharing K and V across `num_kv_groups` query slices:
++      q_proj : H → qk_rank              (full rank, split into groups)
++      k_proj : H → qk_rank // num_kv_groups   (shared KV rank)
++      v_proj : H → qk_rank // num_kv_groups
++      o_proj : qk_rank → H
++
++    Per-token KV cache = 2 × (qk_rank // num_kv_groups) floats per layer.
++
++    num_kv_groups=1  → standard rank-matched MHA (no reduction)
++    num_kv_groups=2  → GQA-2:  cache = qk_rank per token (2× smaller than MHA)
++    num_kv_groups=4  → GQA-4:  cache = qk_rank/2 per token (4× smaller)
++    num_kv_groups=qk_rank → MQA: cache = 2 floats per token (minimum)
++    """
++
++    def __init__(self, hidden_size: int, qk_rank: int,
++                 num_kv_groups: int = 4, dropout: float = 0.1):
++        super().__init__()
++        assert qk_rank % num_kv_groups == 0, \
++            f"qk_rank {qk_rank} must be divisible by num_kv_groups {num_kv_groups}"
++        self.qk_rank       = qk_rank
++        self.num_kv_groups = num_kv_groups
++        self.kv_rank       = qk_rank // num_kv_groups   # per-group KV size
++        self.scale         = 1.0 / math.sqrt(self.kv_rank)
++
++        self.q_proj = nn.Linear(hidden_size, qk_rank,       bias=False)
++        self.k_proj = nn.Linear(hidden_size, self.kv_rank,  bias=False)
++        self.v_proj = nn.Linear(hidden_size, self.kv_rank,  bias=False)
++        self.o_proj = nn.Linear(qk_rank, hidden_size)
++        self.drop   = nn.Dropout(dropout)
++        self._causal_mask: Optional[torch.Tensor] = None
++
++    def _get_causal_mask(self, L: int, device: torch.device) -> torch.Tensor:
++        if (self._causal_mask is None
++                or self._causal_mask.size(0) < L
++                or self._causal_mask.device != device):
++            self._causal_mask = torch.tril(torch.ones(L, L, device=device))
++        return self._causal_mask[:L, :L]
++
++    def forward(self, x: torch.Tensor, causal: bool = True) -> torch.Tensor:
++        B, L, _ = x.shape
++        g, kr   = self.num_kv_groups, self.kv_rank
++
++        # Q: [B, L, qk_rank] → split into g groups of size kv_rank
++        q = self.q_proj(x).view(B, L, g, kr).transpose(1, 2)   # [B, g, L, kr]
++        # K, V: [B, L, kv_rank] — shared across all g query groups
++        k = self.k_proj(x).unsqueeze(1).expand(-1, g, -1, -1)   # [B, g, L, kr]
++        v = self.v_proj(x).unsqueeze(1).expand(-1, g, -1, -1)   # [B, g, L, kr]
++
++        scores = torch.matmul(q, k.transpose(-2, -1)) * self.scale   # [B, g, L, L]
++        if causal:
++            mask   = self._get_causal_mask(L, x.device)
++            scores = scores.masked_fill(mask == 0, torch.finfo(scores.dtype).min)
++        weights = self.drop(F.softmax(scores, dim=-1))
++
++        out = torch.matmul(weights, v)                               # [B, g, L, kr]
++        out = out.transpose(1, 2).contiguous().view(B, L, g * kr)    # [B, L, qk_rank]
++        return self.o_proj(out)
++
++    @property
++    def kv_cache_floats_per_token(self) -> int:
++        """KV cache footprint per token per layer (for comparison table)."""
++        return 2 * self.kv_rank   # K + V each stored as kv_rank floats
++
++
+ class TransformerBlock(nn.Module):
+-    """Pre-norm residual block: MHA + FFN. Mirrors QuatrixBlock structure."""
++    """Pre-norm residual block: MHA/GQA + FFN. Mirrors QuatrixBlock structure."""
+ 
+-    def __init__(self, cfg: QuatrixConfig, qk_rank: int = 48, num_heads: int = 1):
++    def __init__(self, cfg: QuatrixConfig, qk_rank: int = 48, num_heads: int = 1,
++                 attention_type: str = "mha", num_kv_groups: int = 4):
+         super().__init__()
+         self.norm1 = nn.LayerNorm(cfg.hidden_size)
+-        self.attn  = MHA(cfg.hidden_size, qk_rank, cfg.dropout, num_heads=num_heads)
++        if attention_type == "gqa":
++            self.attn = GQAAttention(cfg.hidden_size, qk_rank, num_kv_groups, cfg.dropout)
++        elif attention_type == "mqa":
++            # MQA = GQA with 1 KV slot (maximum cache reduction)
++            self.attn = GQAAttention(cfg.hidden_size, qk_rank, qk_rank, cfg.dropout)
++        else:
++            self.attn = MHA(cfg.hidden_size, qk_rank, cfg.dropout, num_heads=num_heads)
+         self.norm2 = nn.LayerNorm(cfg.hidden_size)
+         ffn_dim = cfg.hidden_size * cfg.ffn_ratio
+         self.ffn = nn.Sequential(
+@@ -124,16 +198,21 @@ class TransformerLM(nn.Module):
+     Different: attention kernel uses W_Q, W_K, W_V, W_O instead of W_s, W_a, W_o.
+     """
+ 
+-    def __init__(self, cfg: QuatrixConfig, qk_rank: int = 48, num_heads: int = 1):
++    def __init__(self, cfg: QuatrixConfig, qk_rank: int = 48, num_heads: int = 1,
++                 attention_type: str = "mha", num_kv_groups: int = 4):
+         super().__init__()
+-        self.cfg = cfg
+-        self.qk_rank = qk_rank
+-        self.num_heads = num_heads
++        self.cfg            = cfg
++        self.qk_rank        = qk_rank
++        self.num_heads      = num_heads
++        self.attention_type = attention_type
++        self.num_kv_groups  = num_kv_groups
+         self.token_emb = nn.Embedding(cfg.vocab_size, cfg.hidden_size)
+         self.pos_emb   = nn.Embedding(cfg.max_seq_len, cfg.hidden_size)
+         self.drop      = nn.Dropout(cfg.dropout)
+         self.blocks    = nn.ModuleList([
+-            TransformerBlock(cfg, qk_rank=qk_rank, num_heads=num_heads) for _ in range(cfg.num_layers)
++            TransformerBlock(cfg, qk_rank=qk_rank, num_heads=num_heads,
++                             attention_type=attention_type, num_kv_groups=num_kv_groups)
++            for _ in range(cfg.num_layers)
+         ])
+         self.norm      = nn.LayerNorm(cfg.hidden_size)
+         self.head      = nn.Linear(cfg.hidden_size, cfg.vocab_size, bias=False)
