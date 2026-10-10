@@ -1,0 +1,50 @@
+
+========================================================================
+  QUATRIX PoC
+  size=60m  steps=10000
+  device=cuda  batch=4  accum=16  eff_batch=64
+========================================================================
+
+[Datasets]
+  [TextDataset] 200,000 samples  (BOS/EOS wrapped)
+  [VisionDataset] 25,014 samples  (BOS/EOS wrapped)
+  [AudioDataset] 10,000 samples  (BOS/EOS wrapped)
+  [WorldDataset] 20,000 episodes
+
+[Model]
+  Model: Quatrix-60m | 57.7M params
+
+[Optimizers]
+  Muon params : 37.88M (145 tensors)
+  AdamW params: 19.80M (203 tensors)
+/home/abdur/Tesseractor/train_quatrix_poc.py:528: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler(enabled=cfg.use_amp)
+
+[Training] 10000 optimizer steps
+  Active modalities: ['text', 'vision', 'audio', 'world']
+  Mix: text=35% | vision=25% | audio=20% | world=20%
+------------------------------------------------------------------------
+    step      loss        mlr        alr                    per-modality      time
+------------------------------------------------------------------------
+/home/abdur/Tesseractor/train_quatrix_poc.py:590: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=cfg.use_amp):
+ 1000/10000    6.8555   2.98e-04   2.98e-05  t=8.753 v=7.748 a=8.554 w=0.594 wm=0.5939   13m19s
+ 2000/10000    5.2623   2.84e-04   2.84e-05  t=7.334 v=5.076 a=7.033 w=0.369 wm=0.3693   26m52s
+  Saved → staging_60m_quatrix_mm/checkpoint-60m-step2000
+ 3000/10000    5.0152   2.56e-04   2.56e-05  t=6.934 v=4.646 a=6.742 w=0.414 wm=0.4140   40m31s
+ 4000/10000    4.8288   2.19e-04   2.19e-05  t=6.711 v=4.442 a=6.529 w=0.385 wm=0.3853   54m01s
+  Saved → staging_60m_quatrix_mm/checkpoint-60m-step4000
+ 5000/10000    4.7562   1.76e-04   1.76e-05  t=6.575 v=4.309 a=6.393 w=0.433 wm=0.4332   67m41s
+ 6000/10000    4.6705   1.32e-04   1.32e-05  t=6.485 v=4.203 a=6.302 w=0.442 wm=0.4419   81m22s
+  Saved → staging_60m_quatrix_mm/checkpoint-60m-step6000
+ 7000/10000    4.5967   9.12e-05   9.12e-06  t=6.427 v=4.123 a=6.242 w=0.383 wm=0.3829   95m00s
+ 8000/10000    4.5723   5.85e-05   5.85e-06  t=6.391 v=4.089 a=6.198 w=0.415 wm=0.4155  108m36s
+  Saved → staging_60m_quatrix_mm/checkpoint-60m-step8000
+ 9000/10000    4.5507   3.73e-05   3.73e-06  t=6.367 v=4.035 a=6.177 w=0.435 wm=0.4348  122m16s
+10000/10000    4.5573   3.00e-05   3.00e-06  t=6.349 v=4.009 a=6.165 w=0.434 wm=0.4339  135m57s
+  Saved → staging_60m_quatrix_mm/checkpoint-60m-step10000
+------------------------------------------------------------------------
+  Quatrix-60m COMPLETE  —  10000 steps
+  total time: 136.0 min
+========================================================================
+

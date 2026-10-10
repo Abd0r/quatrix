@@ -1,0 +1,410 @@
+{
+  "status": "All12 declared endpoints verified; full three-model four-seed study complete.",
+  "scope": "Primary endpoint: validation token NLL at exactly20M valid targets, fixed recipe, filtered WikiText-103-derived corpus. Perplexity is secondary readability. No test scores, no metric selection, no convergence or optimal-tuning claim.",
+  "design_caveats": [
+    "Rank-matched MHA has fewer parameters than SAVO/sum-content (not parameter-matched).",
+    "SAVO and sum-content control are parameter-count matched but activation distributions are not fully matched.",
+    "This fixed recipe is not optimally tuned per architecture.",
+    "Separate from the historical10k-step study; not a reproduction of it.",
+    "16 exact train/test overlaps removed from training; near-duplicate decontamination incomplete."
+  ],
+  "records": [
+    {
+      "seed": 17,
+      "variant": "rankmatched",
+      "folder": "rankmatched-seed17-20m",
+      "nll": 5.090480082351593,
+      "ppl": 162.46784127706556,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 32264832,
+      "sampling_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "checkpoint_sha256": "c69f0de1f234e1a2952fb7573a3dfe3b35e043dc018ccdf1404d04e19e860a11",
+      "result_sha256": "4c4100fc2d3d4328876c00df8605e42455d7646a61cd45b50bb5a02571998446",
+      "manifest_sha256": "83b3f85f2ac65253d3d0af05dcac855a01f7617a8e54bf1291a9e3abc6778fe3"
+    },
+    {
+      "seed": 17,
+      "variant": "savo",
+      "folder": "savo-seed17-20m",
+      "nll": 5.132305160317138,
+      "ppl": 169.40717900211692,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 33555072,
+      "sampling_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "checkpoint_sha256": "2142c1edfd3f676b8a48e543fb34fc462666aaa1e13c0af2da4cbd10122cb4ae",
+      "result_sha256": "781fb198c9c5ac77fe40d6f89523eea5353ded63de8392e12c0778b4159f1bdf",
+      "manifest_sha256": "8bab831ea2b2beb457c5f87d58efcdc58dfdfe6aec47b3e024c94fb6eb095eeb"
+    },
+    {
+      "seed": 17,
+      "variant": "savo-sum",
+      "folder": "savo-sum-seed17-20m",
+      "nll": 5.12492210923433,
+      "ppl": 168.16104294932686,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 33555072,
+      "sampling_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "checkpoint_sha256": "8492c6a64ffc9e51b83901918666afb00bef08306a2441dbc0c020caf29e2b27",
+      "result_sha256": "d5e52bbb31edff6c406cdfa5442a4647e199f6ec592609b1164cfc39a8b65e9e",
+      "manifest_sha256": "40b9743c5cf23cd32b5fffe88c903abf1ce24638aa05f0052b33cd81a43eee81"
+    },
+    {
+      "seed": 29,
+      "variant": "rankmatched",
+      "folder": "rankmatched-seed29-20m",
+      "nll": 5.09760325892988,
+      "ppl": 163.62925998321077,
+      "targets": 20000000,
+      "steps": 6203,
+      "parameters": 32264832,
+      "sampling_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "checkpoint_sha256": "f1e17631f36cc8c00928eef431aa5587b8024387ed3513e39e493fc6ce8352b9",
+      "result_sha256": "653b5d199e84189d735b45837b57e3c7d8458d1d8ad48a84313813947df1ef4b",
+      "manifest_sha256": "31ad9ad58cb67487d143d2e10f36cee0e3081c53b6467a9850df9798454b79be"
+    },
+    {
+      "seed": 29,
+      "variant": "savo",
+      "folder": "savo-seed29-20m",
+      "nll": 5.136628168498367,
+      "ppl": 170.14111288097965,
+      "targets": 20000000,
+      "steps": 6203,
+      "parameters": 33555072,
+      "sampling_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "checkpoint_sha256": "8a5a4c42f773f7a6033a2bb5c07887a9d3ec4475319e369c9f50ca9d7b996602",
+      "result_sha256": "2395592335b8d3a6d5fb22c8c03cb92ef8e0ee44a145147679911b4c81c08bf2",
+      "manifest_sha256": "46d7ca4d1b8b8bbdc0da369b0523cca2ac52e219f0a2afa471d2a6209f6aa0d5"
+    },
+    {
+      "seed": 29,
+      "variant": "savo-sum",
+      "folder": "savo-sum-seed29-20m",
+      "nll": 5.134566530231364,
+      "ppl": 169.79070478335845,
+      "targets": 20000000,
+      "steps": 6203,
+      "parameters": 33555072,
+      "sampling_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "checkpoint_sha256": "b864c0342f5f2725dafbb95e813dc712c0fe15d815e4776d2ca690727c08b37c",
+      "result_sha256": "3197da78dda961e377634116f8ee42974c4a73801c624a728cf481a594d7e7d4",
+      "manifest_sha256": "51e99724cfb65a25e5b9fd4b66d983b29efe84515a6bbe951bdea62d29f84ca5"
+    },
+    {
+      "seed": 43,
+      "variant": "rankmatched",
+      "folder": "rankmatched-seed43-20m",
+      "nll": 5.082677188773146,
+      "ppl": 161.20505510179993,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 32264832,
+      "sampling_sha256": "44624b67fcb05acfc5fff6be510848739a104690be3446688da14e2766c7ee0f",
+      "checkpoint_sha256": "db68a1bd0305b0f1eb771d44524f6bc7ce96c978ab0ce81f290771229ea83fc6",
+      "result_sha256": "bba984f5806f30a48613d9cae091bdc05c7a7820ff6b8a058001a4fc673b0726",
+      "manifest_sha256": "bba8e4952c80b5a681084c8c66ac6f0491f05346c12d5c7c0a871c2ec3d014be"
+    },
+    {
+      "seed": 43,
+      "variant": "savo",
+      "folder": "savo-seed43-20m",
+      "nll": 5.120977939416012,
+      "ppl": 167.49909351772718,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 33555072,
+      "sampling_sha256": "44624b67fcb05acfc5fff6be510848739a104690be3446688da14e2766c7ee0f",
+      "checkpoint_sha256": "9400de5d2c2b935d48d66bacfc7fdf13b1b10bc8876400022c6a2d95a90dd4c2",
+      "result_sha256": "b619fbc38696b7e3b1f58cb2581fa312daeebc259bf8872c27b70177cfa37d69",
+      "manifest_sha256": "dd95783e39e4b5c2b32276a0122b085292416a879b7c9f0cf6f5f860873b8873"
+    },
+    {
+      "seed": 43,
+      "variant": "savo-sum",
+      "folder": "savo-sum-seed43-20m",
+      "nll": 5.142815914430536,
+      "ppl": 171.19716678720343,
+      "targets": 20000000,
+      "steps": 6215,
+      "parameters": 33555072,
+      "sampling_sha256": "44624b67fcb05acfc5fff6be510848739a104690be3446688da14e2766c7ee0f",
+      "checkpoint_sha256": "57fb8daf2dc075cfd1f158e812aa4111c0fbf4e97ed5f28b407b161978e6789e",
+      "result_sha256": "ca367c9e23dc4288949c1e4eb50953aded13773db873bd3741771b843acb5ec8",
+      "manifest_sha256": "172c33d7f109c96b1a6d40be6993791a3f851aa555b0c7e18cd44162b413cf60"
+    },
+    {
+      "seed": 71,
+      "variant": "rankmatched",
+      "folder": "rankmatched-seed71-20m",
+      "nll": 5.082392250500141,
+      "ppl": 161.1591281552827,
+      "targets": 20000000,
+      "steps": 6211,
+      "parameters": 32264832,
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "checkpoint_sha256": "8f9fc7d1e8b5aab46642d2a755be80740761f8e612ebc96e093b57016fc4f3f5",
+      "result_sha256": "e890ba452ff658c63d3a3476b31814498eb019f5ec6d3676117fec030fd44d56",
+      "manifest_sha256": "82dfedd3e4e22b57336614b5247ad3a805b915ad6617e0a8d08e65093586f056"
+    },
+    {
+      "seed": 71,
+      "variant": "savo",
+      "folder": "savo-seed71-20m",
+      "nll": 5.148948759583588,
+      "ppl": 172.25031860936616,
+      "targets": 20000000,
+      "steps": 6211,
+      "parameters": 33555072,
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "checkpoint_sha256": "782c58d04d244ad82ac361d51a1c19a09ec8e4bcce6dc659810e20543244568c",
+      "result_sha256": "79b60564c3e6af67137d79fc65cab1fd493959139a498fc42e057ed9ef2740e4",
+      "manifest_sha256": "0519d1cd9816e95e74a90b91989a1f958a50f99cb76db8898bfa1972dab28c74"
+    },
+    {
+      "seed": 71,
+      "variant": "savo-sum",
+      "folder": "savo-sum-seed71-20m-recovery3",
+      "nll": 5.133763035766545,
+      "ppl": 169.65433368593511,
+      "targets": 20000000,
+      "steps": 6211,
+      "parameters": 33555072,
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "checkpoint_sha256": "7f7e8c2ff58d3cf48cf298c242912679521316b51bfb26d688a01926a336fc36",
+      "result_sha256": "14a58c18af5ad8ad7a8ab93d8ae4e4fed5df67f6348b12c07bc135f8251a1490",
+      "manifest_sha256": "cfabfe547c53b66659886cc61f9919afbbb448d9badf7ed1b28b207a7648d34e"
+    }
+  ],
+  "summaries": {
+    "rankmatched": {
+      "n": 4,
+      "parameters": 32264832,
+      "nll": {
+        "mean": 5.08828819513869,
+        "sample_sd": 0.007253053118125085,
+        "values": [
+          5.090480082351593,
+          5.09760325892988,
+          5.082677188773146,
+          5.082392250500141
+        ]
+      },
+      "ppl": {
+        "mean": 162.11532112933975,
+        "sample_sd": 1.1774507140912698,
+        "values": [
+          162.46784127706556,
+          163.62925998321077,
+          161.20505510179993,
+          161.1591281552827
+        ]
+      }
+    },
+    "savo": {
+      "n": 4,
+      "parameters": 33555072,
+      "nll": {
+        "mean": 5.134715006953776,
+        "sample_sd": 0.01155817584182402,
+        "values": [
+          5.132305160317138,
+          5.136628168498367,
+          5.120977939416012,
+          5.148948759583588
+        ]
+      },
+      "ppl": {
+        "mean": 169.82442600254748,
+        "sample_sd": 1.9635437133846823,
+        "values": [
+          169.40717900211692,
+          170.14111288097965,
+          167.49909351772718,
+          172.25031860936616
+        ]
+      }
+    },
+    "savo-sum": {
+      "n": 4,
+      "parameters": 33555072,
+      "nll": {
+        "mean": 5.134016897415694,
+        "sample_sd": 0.007314470007237635,
+        "values": [
+          5.12492210923433,
+          5.134566530231364,
+          5.142815914430536,
+          5.133763035766545
+        ]
+      },
+      "ppl": {
+        "mean": 169.70081205145596,
+        "sample_sd": 1.2409952087975908,
+        "values": [
+          168.16104294932686,
+          169.79070478335845,
+          171.19716678720343,
+          169.65433368593511
+        ]
+      }
+    }
+  },
+  "comparisons": {
+    "savo_minus_rankmatched": {
+      "per_seed": [
+        {
+          "seed": 17,
+          "nll_diff": 0.041825077965544466,
+          "ppl_diff": 6.9393377250513595
+        },
+        {
+          "seed": 29,
+          "nll_diff": 0.03902490956848759,
+          "ppl_diff": 6.511852897768875
+        },
+        {
+          "seed": 43,
+          "nll_diff": 0.03830075064286653,
+          "ppl_diff": 6.294038415927247
+        },
+        {
+          "seed": 71,
+          "nll_diff": 0.06655650908344679,
+          "ppl_diff": 11.09119045408346
+        }
+      ],
+      "mean_nll_diff": 0.046426811815086344,
+      "sample_sd_nll_diff": 0.013505575312696107,
+      "approx_t95_ci_nll_diff": [
+        0.024936429749292104,
+        0.06791719388088058
+      ],
+      "all_four_positive": true,
+      "ci_caveat": "Approximate two-sided t interval over4 seed differences; assumes approximately normal seed-level differences (untestable at n=4) and df=3 critical value3.182446. Not a confirmatory test; seeds are the unit of replication, not documents."
+    },
+    "savo-sum_minus_rankmatched": {
+      "per_seed": [
+        {
+          "seed": 17,
+          "nll_diff": 0.03444202688273634,
+          "ppl_diff": 5.693201672261296
+        },
+        {
+          "seed": 29,
+          "nll_diff": 0.03696327130148447,
+          "ppl_diff": 6.161444800147677
+        },
+        {
+          "seed": 43,
+          "nll_diff": 0.060138725657390424,
+          "ppl_diff": 9.9921116854035
+        },
+        {
+          "seed": 71,
+          "nll_diff": 0.05137078526640426,
+          "ppl_diff": 8.495205530652413
+        }
+      ],
+      "mean_nll_diff": 0.045728702277003874,
+      "sample_sd_nll_diff": 0.012161465042292773,
+      "approx_t95_ci_nll_diff": [
+        0.02637709938801164,
+        0.06508030516599611
+      ],
+      "all_four_positive": true,
+      "ci_caveat": "Approximate two-sided t interval over4 seed differences; assumes approximately normal seed-level differences (untestable at n=4) and df=3 critical value3.182446. Not a confirmatory test; seeds are the unit of replication, not documents."
+    },
+    "savo_minus_savo-sum": {
+      "per_seed": [
+        {
+          "seed": 17,
+          "nll_diff": 0.007383051082808123,
+          "ppl_diff": 1.2461360527900638
+        },
+        {
+          "seed": 29,
+          "nll_diff": 0.0020616382670031186,
+          "ppl_diff": 0.35040809762119807
+        },
+        {
+          "seed": 43,
+          "nll_diff": -0.02183797501452389,
+          "ppl_diff": -3.6980732694762537
+        },
+        {
+          "seed": 71,
+          "nll_diff": 0.015185723817042529,
+          "ppl_diff": 2.595984923431047
+        }
+      ],
+      "mean_nll_diff": 0.0006981095380824698,
+      "sample_sd_nll_diff": 0.01596155515093628,
+      "approx_t95_ci_nll_diff": [
+        -0.02470028413385581,
+        0.02609650321002075
+      ],
+      "all_four_positive": false,
+      "ci_caveat": "Approximate two-sided t interval over4 seed differences; assumes approximately normal seed-level differences (untestable at n=4) and df=3 critical value3.182446. Not a confirmatory test; seeds are the unit of replication, not documents."
+    }
+  },
+  "cohort_hashes": {
+    "17": {
+      "sampling_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "steps": 6215
+    },
+    "29": {
+      "sampling_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "steps": 6203
+    },
+    "43": {
+      "sampling_sha256": "44624b67fcb05acfc5fff6be510848739a104690be3446688da14e2766c7ee0f",
+      "steps": 6215
+    },
+    "71": {
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "steps": 6211
+    }
+  },
+  "recipe_reference": {
+    "train_sha256": "959ec139471be82c378d4705198e9b32415d6db74fd6c7c40303382769c92f31",
+    "split_manifest_sha256": "4eeff95a6097846d03abbb365e13dd5e8f17184373f3cebd9767b1531f3626b6",
+    "source_hashes": {
+      "model.py": "88d0fc8a5febcd6d643ed48104a9c80072adbaff63deadce45a61c031aa1bcf8",
+      "transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+      "config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059"
+    },
+    "driver_sha256": "28c81832b6688c06dd8671dde3d349b17a143e44c24062979a1b965cdcd01a16",
+    "evaluation_sha256": "99bd9963bb8ecda4d9c20a5b3d195c7d52709d642514038637d830ad1d6d2100",
+    "validation_manifest": {
+      "dataset": "legacy WikiText-103 JSONL; upstream revision unverified",
+      "source_revision": "raw-file-sha256:fc80e65920f5239ade9c645daf95d1da3d5a163855786920d0e7f49a3eec2560",
+      "raw_path": "/home/abdur/Tesseractor/poc_data/text_wikitext103_val.jsonl",
+      "upstream_revision_known": false,
+      "split": "validation",
+      "tokenizer_revision": "GPT2-backend-sha256:11e818f948f43497f364722def50c13f419158554961ee4bb095fbd3350895c3",
+      "tokenizer_repo": "openai-community/gpt2",
+      "tokenizer_upstream_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "legacy_tokenizer_identity_verified": false,
+      "tokenizer_backend_sha256": "11e818f948f43497f364722def50c13f419158554961ee4bb095fbd3350895c3",
+      "preprocessing": "legacy per-row BOS + first 1022 GPT2 tokens + EOS; right-pad masked by length; no packing",
+      "bos_id": 50256,
+      "eos_id": 50256,
+      "max_length": 1024,
+      "n_samples": 1038,
+      "n_supervised_tokens": 194461,
+      "n_truncated_rows": 0,
+      "data_sha256": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9"
+    },
+    "optimizer": "AdamW, betas=(0.9,0.95), weight_decay=0.01, constant LR",
+    "lr": 0.0003,
+    "effective_batch": 16,
+    "micro_batch": 2,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.3.5",
+    "cuda": "12.4"
+  },
+  "analysis_script_sha256": "ab2d284e14ecdfbf549fc7ad7eb9ca514284b9709b6c5853395a78dc196aee73"
+}

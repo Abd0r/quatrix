@@ -1,0 +1,38 @@
+{
+  "status": "Seed17 complete; only 3 of12 declared runs complete. Not a four-seed conclusion.",
+  "records": [
+    {
+      "variant": "rankmatched",
+      "seed": 17,
+      "nll": 5.090480082351593,
+      "ppl": 162.46784127706556,
+      "sample_order_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "steps": 6215,
+      "parameters": 32264832,
+      "checkpoint_sha256": "c69f0de1f234e1a2952fb7573a3dfe3b35e043dc018ccdf1404d04e19e860a11",
+      "result_sha256": "4c4100fc2d3d4328876c00df8605e42455d7646a61cd45b50bb5a02571998446"
+    },
+    {
+      "variant": "savo",
+      "seed": 17,
+      "nll": 5.132305160317138,
+      "ppl": 169.40717900211692,
+      "sample_order_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "steps": 6215,
+      "parameters": 33555072,
+      "checkpoint_sha256": "2142c1edfd3f676b8a48e543fb34fc462666aaa1e13c0af2da4cbd10122cb4ae",
+      "result_sha256": "781fb198c9c5ac77fe40d6f89523eea5353ded63de8392e12c0778b4159f1bdf"
+    },
+    {
+      "variant": "savo-sum",
+      "seed": 17,
+      "nll": 5.12492210923433,
+      "ppl": 168.16104294932686,
+      "sample_order_sha256": "ee1f30611dc2bd2a3c19d44ce5ee1c0c69763d6fc3521d281866c06396711115",
+      "steps": 6215,
+      "parameters": 33555072,
+      "checkpoint_sha256": "8492c6a64ffc9e51b83901918666afb00bef08306a2441dbc0c020caf29e2b27",
+      "result_sha256": "d5e52bbb31edff6c406cdfa5442a4647e199f6ec592609b1164cfc39a8b65e9e"
+    }
+  ]
+}
