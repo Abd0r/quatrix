@@ -1,0 +1,1524 @@
+{
+  "root": "/home/abdur/Tesseractor",
+  "checkpoints": [
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/120m/quatrix_mm_savo/checkpoints/step10000.pt",
+      "bytes": 488962510,
+      "sha256": "00f3062d70240d043e1ce197979294cf0615cd511b8c20daf56c5d2e88ee7a8a",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": false,
+          "checkpoint": "results/120m/quatrix_mm_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 6.064460488653466,
+          "perplexity": 430.2904684480427,
+          "elapsed_sec": 121.96587228775024,
+          "n_params": 122212608
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": false,
+          "checkpoint": "results/120m/quatrix_mm_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 6.0679032883112765,
+          "perplexity": 431.7744253429579,
+          "elapsed_sec": 136.18575763702393,
+          "n_params": 122212608
+        }
+      },
+      "legacy_meta": {
+        "size": "120m",
+        "variant": "quatrix_mm_savo",
+        "flags": "--q_value_content (SAVO multimodal)",
+        "total_steps": 10000,
+        "final_train_loss": 4.3626
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_mm_savo/eval_permod.log",
+          "sha256": "70513c1d056397867a35d39c0692238515f5c20e118d0bb1e8fb0c146594f211",
+          "bytes": 830
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_mm_savo/eval_test.log",
+          "sha256": "ab772653ec25c8367139cd1413ca37553bd73bab3ea3c0fdd5c756b4b70c49f3",
+          "bytes": 718
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_mm_savo/eval_val.log",
+          "sha256": "8e6de7df5f2d7fc73094fa8f2229b3a440a0999e36b2ba109f02b4a4b12beab8",
+          "bytes": 716
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_mm_savo/train.log",
+          "sha256": "b8c9a214cf0d6a29773d1317e963db50ad61be63e59764a779d51390b012a519",
+          "bytes": 3032
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/120m/quatrix_textonly/checkpoints/step10000.pt",
+      "bytes": 298313802,
+      "sha256": "1d2d050b77d884d0a3327599ce4e65c493d32fa53c5b0e9c8c7d9a6d6ba6790b",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": true,
+          "checkpoint": "results/120m/quatrix_textonly/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.553162230933854,
+          "perplexity": 258.0522879689522,
+          "elapsed_sec": 111.64898753166199,
+          "n_params": 74568320
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": true,
+          "checkpoint": "results/120m/quatrix_textonly/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.539786989502981,
+          "perplexity": 254.62375614871252,
+          "elapsed_sec": 121.08015370368958,
+          "n_params": 74568320
+        }
+      },
+      "legacy_meta": {
+        "size": "120m",
+        "variant": "quatrix_textonly",
+        "total_steps": 10000,
+        "final_train_loss": 5.6955,
+        "n_params_m": 74.6,
+        "finalized_at": "2026-04-19T00:59:15+05:30"
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly/eval_test.log",
+          "sha256": "f1ca4ddce80048e442c94f8bb8d5e5dc88828874539f6aa81afebef80198934e",
+          "bytes": 731
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly/eval_val.log",
+          "sha256": "37be335157cb059a0d527817a15f9d8e5fed7465f546d050484fbc43c2285ecf",
+          "bytes": 729
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly/train.log",
+          "sha256": "5108f0be1903f3b870d18d2a29855dcf75388d65c1502160ce33dbd30082e6f7",
+          "bytes": 2910
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/120m/quatrix_textonly_savo/checkpoints/step10000.pt",
+      "bytes": 300570078,
+      "sha256": "a36e86b2c2d7599fcba4baf4b0553c9aedfe45424134ddc8018a8eb820c7a694",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": true,
+          "checkpoint": "results/120m/quatrix_textonly_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.476840963429168,
+          "perplexity": 239.09021837159452,
+          "elapsed_sec": 123.67820143699646,
+          "n_params": 75131520
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "120m",
+          "text_only": true,
+          "checkpoint": "results/120m/quatrix_textonly_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.465699671540899,
+          "perplexity": 236.44122844724492,
+          "elapsed_sec": 131.39979028701782,
+          "n_params": 75131520
+        }
+      },
+      "legacy_meta": {
+        "size": "120m",
+        "variant": "quatrix_textonly_savo",
+        "flags": "--text_only --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.5967
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly_savo/eval_test.log",
+          "sha256": "3539b353e2778f6ce45c5af34429b90388ba72ec09ccece6da42a39172fbf34a",
+          "bytes": 741
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly_savo/eval_val.log",
+          "sha256": "c5e51782d45c016b434a118b81691ba21c53235e3d2a713b5023814016a7dfdb",
+          "bytes": 601
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/quatrix_textonly_savo/train.log",
+          "sha256": "16f3086297d0dce1e88ecb510497dbd8fdc55260921c05c182b92b1ef5402a64",
+          "bytes": 2953
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/120m/transformer_rankmatched/checkpoints/step10000.pt",
+      "bytes": 284799710,
+      "sha256": "230a3b9cb305532abbf5a266523a570d566a52a669f8056ae6f5ff41fd0e5430",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "120m",
+          "text_only": false,
+          "checkpoint": "results/120m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.436605087844374,
+          "perplexity": 229.66117896179335,
+          "elapsed_sec": 91.99786257743835,
+          "n_params": 71189120
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "120m",
+          "text_only": false,
+          "checkpoint": "results/120m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.426357068781881,
+          "perplexity": 227.31962545718346,
+          "elapsed_sec": 102.30978846549988,
+          "n_params": 71189120
+        }
+      },
+      "legacy_meta": {
+        "size": "120m",
+        "variant": "transformer_rankmatched",
+        "total_steps": 10000,
+        "final_train_loss": 5.5736,
+        "n_params_m": 71.2,
+        "finalized_at": "2026-04-18T09:19:45+05:30"
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/transformer_rankmatched/eval_test.log",
+          "sha256": "5fda5b29bc68e3e0da251b238d72bf74ad0ba155034b11293a36f15bf1d4e1aa",
+          "bytes": 599
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/transformer_rankmatched/eval_val.log",
+          "sha256": "5212b6305a2ec722142a0914074d567cd361218d6efb67f01bb3730f729f8331",
+          "bytes": 596
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/120m/transformer_rankmatched/train.log",
+          "sha256": "4870d26b24eb6a9660f6b1f15375821018ec3c85f49c4935efbd04161877eb71",
+          "bytes": 2835
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/180m/quatrix_mm_savo/checkpoints/step10000.pt",
+      "bytes": 722157042,
+      "sha256": "54ad1bbbadbec5fde2dd0585c4b517d303bc6409fbca25133180fc705be912f5",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/quatrix_mm_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 6.119183313248215,
+          "perplexity": 454.4933641805877,
+          "elapsed_sec": 201.3134410381317,
+          "n_params": 180508288
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/quatrix_mm_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 6.1260223948822885,
+          "perplexity": 457.612334690361,
+          "elapsed_sec": 222.6498646736145,
+          "n_params": 180508288
+        }
+      },
+      "legacy_meta": {
+        "size": "180m",
+        "variant": "quatrix_mm_savo",
+        "flags": "--q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 4.338
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_mm_savo/eval_permod.log",
+          "sha256": "f6e8687bcf1cec70356ef7b8d0226dffa1bf57e9a3bbf242ecd910fc4dd192f0",
+          "bytes": 830
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_mm_savo/eval_test.log",
+          "sha256": "ebc13d156640b6ee1ec5484f1d73d94b1709868a2b610a8d19a4d4c413dac5f4",
+          "bytes": 718
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_mm_savo/eval_val.log",
+          "sha256": "d8e514374ac8a25bcd240bcd15d78eb64c2b24244ed8bf52a3de4fb2089e36f5",
+          "bytes": 716
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_mm_savo/train.log",
+          "sha256": "9a88518b8fa6091aa3e5855086fbff17736e9a0fe49cc7ffabdfe802f4be8a7b",
+          "bytes": 3033
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo/checkpoints/step10000.pt",
+      "bytes": 467684866,
+      "sha256": "d7606c4dae5f441c23b30858ad9cb54f5f97e1b3f59652ebb25558d5d91302fa",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": true,
+          "checkpoint": "results/180m/quatrix_textonly_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.5619616555980995,
+          "perplexity": 260.33301948256076,
+          "elapsed_sec": 185.94991993904114,
+          "n_params": 116907264
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": true,
+          "checkpoint": "results/180m/quatrix_textonly_savo/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.550115747519914,
+          "perplexity": 257.26733223813477,
+          "elapsed_sec": 207.17031145095825,
+          "n_params": 116907264
+        }
+      },
+      "legacy_meta": {
+        "size": "180m",
+        "variant": "quatrix_textonly_savo",
+        "flags": "--text_only --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.6784
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo/eval_test.log",
+          "sha256": "7b3df928cd8db4e966c62ef50ba3c25df30808a098fe842f403143db00b8aad2",
+          "bytes": 742
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo/eval_val.log",
+          "sha256": "3608dfb7774da3008bbb737a273a26ac826c1dbe5db873da9754de67d3802075",
+          "bytes": 602
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo/train.log",
+          "sha256": "19df54eaf3fcf647ed8caa7c515ff0eeac4592f8feb268733273ed7edc57f40f",
+          "bytes": 2955
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo_mh/checkpoints/step10000.pt",
+      "bytes": 467684866,
+      "sha256": "f393893e22be09af15329fcdf9178a11809bf2a2e8ef337960aad4f8eeb850d9",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": true,
+          "checkpoint": "results/180m/quatrix_textonly_savo_mh/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.57972189048375,
+          "perplexity": 264.99789710018865,
+          "elapsed_sec": 191.7408185005188,
+          "n_params": 116907264
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "180m",
+          "text_only": true,
+          "checkpoint": "results/180m/quatrix_textonly_savo_mh/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.562499750488102,
+          "perplexity": 260.4731410460108,
+          "elapsed_sec": 213.2577986717224,
+          "n_params": 116907264
+        }
+      },
+      "legacy_meta": {
+        "size": "180m",
+        "variant": "quatrix_textonly_savo_mh",
+        "flags": "--text_only --q_heads 6 --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.6889
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo_mh/eval_test.log",
+          "sha256": "e046baa83a11c195cdf276ed7fcaa8d875398c9b1b3fe86bfe5275480f5c5982",
+          "bytes": 748
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo_mh/eval_val.log",
+          "sha256": "5881c4d0fbc34a536fb23a9ada4b1bcb0bd80503873ff3d15bbaa5abdc689324",
+          "bytes": 746
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/quatrix_textonly_savo_mh/train.log",
+          "sha256": "9a193754bad8ca73778f814e65e1c31cce8ad48a93b355aa3b1b0227e42c1b48",
+          "bytes": 2837
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched/checkpoints/step10000.pt",
+      "bytes": 438782466,
+      "sha256": "b32171f12514be738308080a518c480e9a0143f7fbd2a29afeee20fde6766bde",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.515562022070903,
+          "perplexity": 248.52961713355228,
+          "elapsed_sec": 163.5807945728302,
+          "n_params": 109681920
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.504997102190937,
+          "perplexity": 245.91774305512484,
+          "elapsed_sec": 184.39500308036804,
+          "n_params": 109681920
+        }
+      },
+      "legacy_meta": {
+        "size": "180m",
+        "variant": "transformer_rankmatched",
+        "flags": "--transformer",
+        "total_steps": 10000,
+        "final_train_loss": 5.6517
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched/eval_test.log",
+          "sha256": "5c559cb888a17c9d6dcd89279a2ff874f89dcbd35b4c73ce8b62b6d3ae6e7f47",
+          "bytes": 738
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched/eval_val.log",
+          "sha256": "dacc802e22e0f54dd132b55efb6b71f6f1d9a8aa7c069abbcf7722c728970914",
+          "bytes": 736
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched/train.log",
+          "sha256": "b5add5ec883ac793febf02fd3580a8885e123c0fc00291e855e37c8059e43a66",
+          "bytes": 2975
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched_mh6/checkpoints/step10000.pt",
+      "bytes": 438782466,
+      "sha256": "04d9d33364aeba01a9bfb7b02e530af53793d733e78817ea106fe76db1dff3eb",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/transformer_rankmatched_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.552086115744109,
+          "perplexity": 257.7747433438974,
+          "elapsed_sec": 183.45633387565613,
+          "n_params": 109681920
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "180m",
+          "text_only": false,
+          "checkpoint": "results/180m/transformer_rankmatched_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.541418021622672,
+          "perplexity": 255.03939454106902,
+          "elapsed_sec": 196.48588037490845,
+          "n_params": 109681920
+        }
+      },
+      "legacy_meta": {
+        "size": "180m",
+        "variant": "transformer_rankmatched_mh6",
+        "flags": "--transformer --q_heads 6",
+        "total_steps": 10000,
+        "final_train_loss": 5.6833
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched_mh6/eval_test.log",
+          "sha256": "881c7e2a58f86441c864028f9e59a8443f42413991b449ed8a0ac2b7e0d28b88",
+          "bytes": 746
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched_mh6/eval_val.log",
+          "sha256": "4541d454d2df151e8798fe6f9e5c6b8fb1f16a8fdb081b8cb358e2407fee27ee",
+          "bytes": 744
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/180m/transformer_rankmatched_mh6/train.log",
+          "sha256": "4bcf6f1a7a7ad0d4f897870250cced17c7d3a5a63a07f70204fb62fcfe27ae4f",
+          "bytes": 2857
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/quatrix_mm/checkpoints/step10000.pt",
+      "bytes": 230814202,
+      "sha256": "c470d2f07647e3b23d288d2a65437795620a3102e2790a528bf386aa2a008f70",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m/quatrix_mm/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 6.238313844548088,
+          "perplexity": 511.9944804181451,
+          "elapsed_sec": 56.27838158607483,
+          "n_params": 57676288
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m/quatrix_mm/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 6.24744247804508,
+          "perplexity": 516.6896881928261,
+          "elapsed_sec": 60.526490688323975,
+          "n_params": 57676288
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_mm",
+        "total_steps": 10000,
+        "final_train_loss": 4.5573,
+        "n_params_m": 57.7,
+        "finalized_at": "2026-04-18T05:22:37+05:30"
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_mm/eval_test.log",
+          "sha256": "a409bdbea59304b6461bb6f0d39ba4b027648583749164ea63c5a86133e2315b",
+          "bytes": 703
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_mm/eval_val.log",
+          "sha256": "73a425ae287c341200d845ef9949c8641d348e43985999748c40fd70b0c25cc9",
+          "bytes": 701
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_mm/train.log",
+          "sha256": "0a926b2fe852f819b2293327bc618f3e65e14a45ddbd376fad0f219e0b59b04a",
+          "bytes": 2837
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/quatrix_textonly/checkpoints/step10000.pt",
+      "bytes": 133519930,
+      "sha256": "3291532929c29e3eb4f2680a86c4fc18e5fe1783dd2cfe7fb00ba0c655117195",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.60605613725602,
+          "perplexity": 272.0691160809488,
+          "elapsed_sec": 61.0343816280365,
+          "n_params": 33370752
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.601725797858337,
+          "perplexity": 270.89351168876,
+          "elapsed_sec": 68.88485932350159,
+          "n_params": 33370752
+        }
+      },
+      "legacy_meta": {
+        "arch": "quatrix",
+        "size": "60m",
+        "variant": "quatrix_textonly",
+        "modalities": [
+          "text"
+        ],
+        "n_params": 33400000,
+        "total_steps": 10000,
+        "final_train_loss": 5.739,
+        "wall_min": 146.2,
+        "checkpoint_status": "saved",
+        "notes": "Quatrix text-only baseline. Same architecture as Quatrix-60m multimodal but vision/audio/world modules disabled; modality mix = 100% text."
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly/eval_test.log",
+          "sha256": "8b3322a94ce6b9d6b883930f17b7939c7cddf9b563dfba32a74bec49e8891f52",
+          "bytes": 727
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly/eval_val.log",
+          "sha256": "f3e42a5da3c7a7b4d1c6ca14f17c643fc08a301cec66d77ec9399134fc738b66",
+          "bytes": 587
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly/train.log",
+          "sha256": "fb52c4f45c6873bc16ced3a1560824f9ab783841ca86186ce199d4f103b5f8b1",
+          "bytes": 2886
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6/checkpoints/step10000.pt",
+      "bytes": 133519930,
+      "sha256": "7b8fff786df0a613a8c35145471f00ef549fe03b13cd7f5001a7ca9602f47aef",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.617161886563594,
+          "perplexity": 275.1074879478617,
+          "elapsed_sec": 54.491777181625366,
+          "n_params": 33370752
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.612975309666278,
+          "perplexity": 273.95813689658286,
+          "elapsed_sec": 59.858779191970825,
+          "n_params": 33370752
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_textonly_mh6",
+        "flags": "--text_only --q_heads 6",
+        "total_steps": 10000,
+        "final_train_loss": 5.7488
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6/eval_test.log",
+          "sha256": "68a87c532689733d5ad476e69761da779e7804a9e78fdb09b30cefce7a540257",
+          "bytes": 735
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6/eval_val.log",
+          "sha256": "85e5406b3bd41752c65b2f3a06d0571399c58654e04d1d45cdd5e52e7c40617c",
+          "bytes": 595
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6/train.log",
+          "sha256": "4ec4eaebc4187b95dcd7e8494e9af06e01ba0442e355938027440ff8eeef464b",
+          "bytes": 2922
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6_qvc/checkpoints/step10000.pt",
+      "bytes": 134260370,
+      "sha256": "6fe525459115bbacd90e8e2f2a714418139518288aeeb774342649c3e2517d6b",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.581882741694376,
+          "perplexity": 265.57113724723246,
+          "elapsed_sec": 73.14210677146912,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.577190821222026,
+          "perplexity": 264.3280171822732,
+          "elapsed_sec": 88.97208189964294,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_textonly_mh6_qvc",
+        "flags": "--text_only --q_heads 6 --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.6947
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6_qvc/eval_test.log",
+          "sha256": "67641ef94e5935c2c51957fe0d7eb38500e50bcb4760f1c5891d911034af98f1",
+          "bytes": 605
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6_qvc/eval_val.log",
+          "sha256": "41c37525fc47e551366a75278a4fd6dca3d74f6c895d4428aee3ffa28dc42357",
+          "bytes": 741
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_mh6_qvc/train.log",
+          "sha256": "746026e82ca043f87bfe4a244d64c8f474bb657c796e66c5ccd327f9006bc1cb",
+          "bytes": 2959
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_qvc/checkpoints/step10000.pt",
+      "bytes": 134260370,
+      "sha256": "e006eb7238814b1b2172229d80c00b4e0bd9c1d5640c492a1fc39edb989fa27d",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.573344315832787,
+          "perplexity": 263.313230981148,
+          "elapsed_sec": 60.0594584941864,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.570083533526389,
+          "perplexity": 262.45602220167154,
+          "elapsed_sec": 66.23075294494629,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_textonly_qvc",
+        "flags": "--text_only --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.6865
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_qvc/eval_test.log",
+          "sha256": "7ecc22c013b610f83932bc96cdac457e92ec2893d06188854bc5eeede69e8e42",
+          "bytes": 597
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_qvc/eval_val.log",
+          "sha256": "ceb961bb2245ef032677df834452e077f059c30e568e062cec0c1dc3c8a8595e",
+          "bytes": 595
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/quatrix_textonly_qvc/train.log",
+          "sha256": "8716260fd7128d866678bd5bd9be200a1ed7fe8101ce9e42b6fd7b02eb2493ec",
+          "bytes": 2796
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m/transformer_rankmatched/checkpoints/step10000.pt",
+      "bytes": 129098706,
+      "sha256": "ae43b783e1d1700193e282b32365bc3acdbdc895f5d7020c5f581a0891c25838",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.529414651791878,
+          "perplexity": 251.99636222493166,
+          "elapsed_sec": 49.84289073944092,
+          "n_params": 32264832
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m/transformer_rankmatched/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.525537365678762,
+          "perplexity": 251.0211919578608,
+          "elapsed_sec": 57.20831298828125,
+          "n_params": 32264832
+        }
+      },
+      "legacy_meta": {
+        "arch": "transformer",
+        "size": "60m",
+        "variant": "transformer_rankmatched",
+        "modalities": [
+          "text"
+        ],
+        "qk_rank": 48,
+        "v_rank": 48,
+        "n_params": 32260000,
+        "total_steps": 10000,
+        "final_train_loss": 5.6615,
+        "checkpoint_status": "saved",
+        "notes": "Rank-matched single-head transformer. W_Q, W_K, W_V all at rank 48 (matched to Q-Compass q_rank). Apples-to-apples ablation vs Quatrix-60m text-only."
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/transformer_rankmatched/eval_test.log",
+          "sha256": "ca43ca2d02b25622ae4ac31fe92021a2019aa4692e12097ea85d04a3ab71352f",
+          "bytes": 733
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/transformer_rankmatched/eval_val.log",
+          "sha256": "03d7120d460104d7c323ec1271bf8e93128ce74af72bd762c9c6b659f7d1fbcc",
+          "bytes": 593
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m/transformer_rankmatched/train.log",
+          "sha256": "c2013a5a3b761a7114cb2cf19ab510f6d6ae1af9e538f3477d787a00f849a220",
+          "bytes": 2701
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase1b_r24/checkpoint-60m-step10000/model.pt",
+      "bytes": 133154450,
+      "sha256": "851f7eb7a2889cc69061ba2987e20e8ff11dbb6e3e750d2dce7270167de59c24",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase1b_r24/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.579311820391254,
+          "perplexity": 264.88925166565775,
+          "elapsed_sec": 4.431835651397705,
+          "n_params": 33278592
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase1b_r24/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.574213220141249,
+          "perplexity": 263.542124410865,
+          "elapsed_sec": 5.216071128845215,
+          "n_params": 33278592
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r24/eval.log",
+          "sha256": "d0ad33bc46467b0caa79a5f730e6a5fccfafb9b2b544811d601a708fddc4ea17",
+          "bytes": 482
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r24/eval_test.log",
+          "sha256": "e49df8e26395b1cf2a361e37e5c6a7799f48036d89b1dc478992ee24a0a88f93",
+          "bytes": 587
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r24/eval_val.log",
+          "sha256": "66df6a66c2784099ce68d3514732a44e60e30003c060c396474942dd17d244de",
+          "bytes": 585
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase1b_r96/checkpoint-60m-step10000/model.pt",
+      "bytes": 136472210,
+      "sha256": "5c1e6713f0b73a6e0d34f8a299d0082434b885f8a6a41a2ab914cd5547175e1e",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase1b_r96/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.568150382358717,
+          "perplexity": 261.9491451287457,
+          "elapsed_sec": 8.683484554290771,
+          "n_params": 34108032
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase1b_r96/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.563214638385861,
+          "perplexity": 260.6594167174143,
+          "elapsed_sec": 9.376241683959961,
+          "n_params": 34108032
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r96/eval_test.log",
+          "sha256": "409a44f2d253429eb288c10ed71334788a25bfd908ef39c0b61d34b2375afaf9",
+          "bytes": 725
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r96/eval_val.log",
+          "sha256": "0b3ba38c629d075fcac94339e732467274f65eb9644eb70c984aeb6402f5295b",
+          "bytes": 723
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase1b_r96/train.log",
+          "sha256": "24389fa998f7e953938a77af5f2890811a595da8a0a395f3628669901e45cf74",
+          "bytes": 5637
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed1/checkpoint-60m-step10000/model.pt",
+      "bytes": 129098706,
+      "sha256": "8e06487add00685bed715ca688767e8ef8a036275f5dde105ba354410eea001f",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.5259147248306455,
+          "perplexity": 251.1159349769112,
+          "elapsed_sec": 10.071043252944946,
+          "n_params": 32264832
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.5192848471601055,
+          "perplexity": 249.4565738058145,
+          "elapsed_sec": 10.854902267456055,
+          "n_params": 32264832
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed1/eval_test.log",
+          "sha256": "964524ad14bfda7a133cbc215c403832372935fb5de34dd3acec4a72d20d02d6",
+          "bytes": 744
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed1/eval_val.log",
+          "sha256": "e295d563fa75feb04d2f08873bac1a69a8525490a15f77d2138c0bea5cd01682",
+          "bytes": 742
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed1/train.log",
+          "sha256": "d06a98ff5e7e80471d3a97f4601c1cd59dd8376e459885afaa4b2c9acaa7a52b",
+          "bytes": 5663
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed2/checkpoint-60m-step10000/model.pt",
+      "bytes": 129098706,
+      "sha256": "5d1986b24246ba7da7d70fd3007b1ad95cc87cd1de117c08339fe21482eb2ce7",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.526453524787957,
+          "perplexity": 251.25127268865958,
+          "elapsed_sec": 11.399301767349243,
+          "n_params": 32264832
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.523409288097325,
+          "perplexity": 250.48756738542048,
+          "elapsed_sec": 9.723307132720947,
+          "n_params": 32264832
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed2/eval_test.log",
+          "sha256": "87db8d578020ad0e9f96053bcc38240005769a3bf12dbf851262f573f43bc636",
+          "bytes": 605
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed2/eval_val.log",
+          "sha256": "e01bd5cb91a6aa87480827fa1766c9e049a49955c71e75745ec31d98c99c94b5",
+          "bytes": 742
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed2/train.log",
+          "sha256": "a0c7d678b05f11d0286e87b309d19458e6eb8c45b3d8522979977daaf435626c",
+          "bytes": 5807
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed3/checkpoint-60m-step10000/model.pt",
+      "bytes": 129098706,
+      "sha256": "aba5f2787af938705e70e9ae9eb4acddb231ff4404b335af4037d3ff8b2921cd",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed3/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.526741102361055,
+          "perplexity": 251.3235373102414,
+          "elapsed_sec": 7.413352966308594,
+          "n_params": 32264832
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase2_rankmatched_seed3/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.522350787422918,
+          "perplexity": 250.22256640301467,
+          "elapsed_sec": 7.851790428161621,
+          "n_params": 32264832
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed3/eval_test.log",
+          "sha256": "345139bc21112890dc097e0bff8be89ff77a005055d581565456407ef8ff1949",
+          "bytes": 605
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed3/eval_val.log",
+          "sha256": "6e2827fb3881c5926df74898b8a17c6ebc7fbd4c7e4dde8090dd465de60d642b",
+          "bytes": 603
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_rankmatched_seed3/train.log",
+          "sha256": "b8c93b9db69c8b44645cc479c25d7ca96c9a2c431b0a419c2cbf32d8eba74af7",
+          "bytes": 5669
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed1/checkpoint-60m-step10000/model.pt",
+      "bytes": 134260370,
+      "sha256": "4baa0050a35f99491ad2ea635a2e0021bf52cfcd69bc5ec37e89fe86bd6196f4",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.572377226540902,
+          "perplexity": 263.0587066687602,
+          "elapsed_sec": 8.631150007247925,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.567687686981991,
+          "perplexity": 261.8279705059878,
+          "elapsed_sec": 8.38875126838684,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed1/eval_test.log",
+          "sha256": "84bd83e1909f5bee719dd2bf165fa556e1f1edf13cef60df0509392d02138cf0",
+          "bytes": 737
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed1/eval_val.log",
+          "sha256": "49014f9b13d578b7fffbfd90986e59a6a0c04e0731f8c1aea7afb699d56aa0dd",
+          "bytes": 735
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed1/train.log",
+          "sha256": "da5cbe2dddc434c6cc714a587feeede57b1435c7184f29e8ec1898e812025e04",
+          "bytes": 5612
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed2/checkpoint-60m-step10000/model.pt",
+      "bytes": 134260370,
+      "sha256": "e59be5ae1329f2877e01dca43ae9360d1406867cffa76101aa85c1131ce46b27",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.5779706641028834,
+          "perplexity": 264.53423190177347,
+          "elapsed_sec": 8.07276725769043,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.572792168471915,
+          "perplexity": 263.1678834059118,
+          "elapsed_sec": 8.902190685272217,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed2/eval_test.log",
+          "sha256": "75513710402f6081b2e5d8695729264e09b1f926caf4c0cd3b143ea9e04d3df1",
+          "bytes": 737
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed2/eval_val.log",
+          "sha256": "b44a65b9c25479cbf3e2f14f13f1bcfa54492c9c1b857478af4fe98e1eda1c13",
+          "bytes": 735
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed2/train.log",
+          "sha256": "5ba97a8a2bcbe7c79efdb6ffe90b4bf96526a5ce506761bfc60d8a84174a055e",
+          "bytes": 5618
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed3/checkpoint-60m-step10000/model.pt",
+      "bytes": 134260370,
+      "sha256": "11b9bcabebb4406f1ccdecbb906e24030881baa03534bd71899983de8d01ae8d",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed3/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.576290325257759,
+          "perplexity": 264.09009800826294,
+          "elapsed_sec": 7.607505798339844,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m_phase2_savo_seed3/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.5697924629042515,
+          "perplexity": 262.3796400808406,
+          "elapsed_sec": 8.036046028137207,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed3/eval_test.log",
+          "sha256": "8f42de7655f43ffccb0ed794a974d75db3eb7eb7c70a0550c51c0d39b9944578",
+          "bytes": 737
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed3/eval_val.log",
+          "sha256": "0e0083a3a3959e7c8b8a8ec77461352001471c424739c2fe127fa0207ea9d53b",
+          "bytes": 735
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase2_savo_seed3/train.log",
+          "sha256": "b438d68fec7338bb4977a0d6c1e31a86a89f25680bc82b84c66307f12e939544",
+          "bytes": 5756
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed1/checkpoint-60m-step10000/model.pt",
+      "bytes": 149742674,
+      "sha256": "f22b9e351ab0205179514b6a99ae73e6ff062f0c4f1fdcf8b795351a4121477c",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase3_fullrank_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.558609061414733,
+          "perplexity": 259.46168993902216,
+          "elapsed_sec": 10.145457983016968,
+          "n_params": 37425792
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase3_fullrank_seed1/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.5542521981032,
+          "perplexity": 258.33370983324795,
+          "elapsed_sec": 10.735224962234497,
+          "n_params": 37425792
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed1/eval_test.log",
+          "sha256": "b5f4d52417d2275e242615d803d6d2249e99ebe94c72164f7e978976284a3246",
+          "bytes": 600
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed1/eval_val.log",
+          "sha256": "4dd5da6b0806e56a43e34f7eb5a1a0ca78eca682c1129614e6fc794970d058d4",
+          "bytes": 736
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed1/train.log",
+          "sha256": "3c7059ef2592b98b33b2d08ee1727685615abc2a4438fb335217c52770213b91",
+          "bytes": 5793
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed2/checkpoint-60m-step10000/model.pt",
+      "bytes": 149742674,
+      "sha256": "d5f9fcb38ed42e581437c370f300a5040829c3c7dcc1ec8e512d7f5c106b76f2",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase3_fullrank_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.546962925591848,
+          "perplexity": 256.45749146439147,
+          "elapsed_sec": 17.070926904678345,
+          "n_params": 37425792
+        },
+        "eval_wt103_test.json": {
+          "arch": "transformer",
+          "size": "60m",
+          "text_only": false,
+          "checkpoint": "results/60m_phase3_fullrank_seed2/checkpoint-60m-step10000/model.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.544730497932445,
+          "perplexity": 255.8856072495646,
+          "elapsed_sec": 13.420083999633789,
+          "n_params": 37425792
+        }
+      },
+      "legacy_meta": null,
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed2/eval_test.log",
+          "sha256": "fd2a1754ba09543b29b46acc0f90f0a8fc7ac95d92f2cb8bfa28c594cd482978",
+          "bytes": 738
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed2/eval_val.log",
+          "sha256": "8441a364c990fd31a3a52b4f9f11d02262a30df7a65eb39c8824f43a0b858334",
+          "bytes": 598
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/60m_phase3_fullrank_seed2/train.log",
+          "sha256": "1d2531639ab9f53c3896162fad6ac2fff38b6ebd39f3271e61003db80159e927",
+          "bytes": 5793
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/mh6_was_plain_qc_seed/checkpoints/step10000.pt",
+      "bytes": 133519930,
+      "sha256": "a89dde2871f4ab0733dfc7f712657d1db15c0bd44ff6c45ce28196bc94c440e6",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 5.831796385234702,
+          "perplexity": 340.97064387503667,
+          "elapsed_sec": 69.93166184425354,
+          "n_params": 33370752
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_mh6/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 5.828604692674295,
+          "perplexity": 339.8841052786127,
+          "elapsed_sec": 78.6697404384613,
+          "n_params": 33370752
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_textonly_mh6",
+        "flags": "--q_heads 6",
+        "total_steps": 10000,
+        "final_train_loss": 5.7374,
+        "n_params_m": 33.4,
+        "finalized_at": "2026-04-19T15:37:02+05:30"
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/mh6_was_plain_qc_seed/eval_test.log",
+          "sha256": "2dfef5bca994355a3afa814ba7a9fe12c41cda4aa8c652a4cdcce833d89d8091",
+          "bytes": 597
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/mh6_was_plain_qc_seed/eval_val.log",
+          "sha256": "d5b6b7089df24d3cda5dd79856a6d478bead80079af126cb18c2a46afe604069",
+          "bytes": 733
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/mh6_was_plain_qc_seed/train.log",
+          "sha256": "51a0a626b5456c0afc02fcfb9abd9a0e3b027cf2165400288d8265b338a8c642",
+          "bytes": 2916
+        }
+      ]
+    },
+    {
+      "checkpoint": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/qvc_was_plain_qc_seed/checkpoints/step10000.pt",
+      "bytes": 133519930,
+      "sha256": "d18b9a317435c63e7a0e8bb878435a25e8eb3fac3c771798a74a1fe50ab0f391",
+      "legacy_eval": {
+        "eval_wt103_val.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_val.jsonl",
+          "n_samples": 1038,
+          "total_tokens": 194461,
+          "mean_loss": 6.753905075779211,
+          "perplexity": 857.4004472331042,
+          "elapsed_sec": 51.60569143295288,
+          "n_params": 33555072
+        },
+        "eval_wt103_test.json": {
+          "arch": "quatrix",
+          "size": "60m",
+          "text_only": true,
+          "checkpoint": "results/60m/quatrix_textonly_qvc/checkpoints/step10000.pt",
+          "data": "poc_data/text_wikitext103_test.jsonl",
+          "n_samples": 1137,
+          "total_tokens": 218639,
+          "mean_loss": 6.857316497939889,
+          "perplexity": 950.8121346185545,
+          "elapsed_sec": 65.7695848941803,
+          "n_params": 33555072
+        }
+      },
+      "legacy_meta": {
+        "size": "60m",
+        "variant": "quatrix_textonly_qvc",
+        "flags": "--text_only --q_value_content",
+        "total_steps": 10000,
+        "final_train_loss": 5.7409
+      },
+      "legacy_logs": [
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/qvc_was_plain_qc_seed/eval_test.log",
+          "sha256": "30a67c63ce6993f645ebf3e3fffb198e8f58230d506553d30cd3e1fee8685b01",
+          "bytes": 892
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/qvc_was_plain_qc_seed/eval_val.log",
+          "sha256": "13fba85c3be17cd3a35188d4046472786d47849b36b9acc527751484e252d7f9",
+          "bytes": 752
+        },
+        {
+          "path": "/home/abdur/Tesseractor/results/_invalid_pre_bugfix/qvc_was_plain_qc_seed/train.log",
+          "sha256": "0a1f1189f7be042c3ca4f5bc6a2733db79d2c8cfe7abe4988ae3787181c14432",
+          "bytes": 2916
+        }
+      ]
+    }
+  ],
+  "original_scripts": {
+    "train_quatrix_poc.py": "c7a09c6620433fae1270e471edae78c7449224ba609b53456aed84a9b15432b5",
+    "eval_heldout.py": "da5ddb193b9bedacd84877182a440a7e8fcb2cde18a575cbd2d55f59656be212",
+    "eval_text_ppl.py": "adc38e7a283297cd73e82fc6ff60701e5645139d6a309f03db10a0e23d006060"
+  },
+  "original_package": {
+    "model.py": "e02f5b9bb3b20514b1c5b98a05781824507f555906cf7741cebbbcdc8cc770cc",
+    "transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+    "config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059"
+  }
+}

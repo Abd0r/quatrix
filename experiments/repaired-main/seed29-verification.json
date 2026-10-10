@@ -1,0 +1,67 @@
+{
+  "status": "Seed29 cohort verified complete;6 of12 declared main runs complete. Four-seed conclusion pending.",
+  "records": [
+    {
+      "variant": "rankmatched",
+      "seed": 29,
+      "nll": 5.09760325892988,
+      "ppl": 163.62925998321077,
+      "targets": 20000000,
+      "steps": 6203,
+      "sample_order_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "parameters": 32264832,
+      "checkpoint_sha256": "f1e17631f36cc8c00928eef431aa5587b8024387ed3513e39e493fc6ce8352b9",
+      "result_sha256": "653b5d199e84189d735b45837b57e3c7d8458d1d8ad48a84313813947df1ef4b",
+      "manifest_sha256": "31ad9ad58cb67487d143d2e10f36cee0e3081c53b6467a9850df9798454b79be"
+    },
+    {
+      "variant": "savo",
+      "seed": 29,
+      "nll": 5.136628168498367,
+      "ppl": 170.14111288097965,
+      "targets": 20000000,
+      "steps": 6203,
+      "sample_order_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "parameters": 33555072,
+      "checkpoint_sha256": "8a5a4c42f773f7a6033a2bb5c07887a9d3ec4475319e369c9f50ca9d7b996602",
+      "result_sha256": "2395592335b8d3a6d5fb22c8c03cb92ef8e0ee44a145147679911b4c81c08bf2",
+      "manifest_sha256": "46d7ca4d1b8b8bbdc0da369b0523cca2ac52e219f0a2afa471d2a6209f6aa0d5"
+    },
+    {
+      "variant": "savo-sum",
+      "seed": 29,
+      "nll": 5.134566530231364,
+      "ppl": 169.79070478335845,
+      "targets": 20000000,
+      "steps": 6203,
+      "sample_order_sha256": "ee7d0614389bd27f465ea8d3040432f5ebdcd038e2cba4f6a7d7fb9bbd508dc9",
+      "parameters": 33555072,
+      "checkpoint_sha256": "b864c0342f5f2725dafbb95e813dc712c0fe15d815e4776d2ca690727c08b37c",
+      "result_sha256": "3197da78dda961e377634116f8ee42974c4a73801c624a728cf481a594d7e7d4",
+      "manifest_sha256": "51e99724cfb65a25e5b9fd4b66d983b29efe84515a6bbe951bdea62d29f84ca5"
+    }
+  ],
+  "checks": {
+    "exact_target_budgets": true,
+    "identical_per_step_target_counts_and_sampling_hash": true,
+    "manifest_matches_declared_seed_and_seed17_recipe": true,
+    "physical_remote_source_and_data_hashes_match": true,
+    "final_checkpoint_hashes_verified_by_transport": true,
+    "all_logged_losses_and_gradient_norms_finite": true
+  },
+  "source_and_data_hashes": {
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/experiments/train_repaired_main.py": "28c81832b6688c06dd8671dde3d349b17a143e44c24062979a1b965cdcd01a16",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/experiments/evaluation.py": "99bd9963bb8ecda4d9c20a5b3d195c7d52709d642514038637d830ad1d6d2100",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-pilot/repaired-data/text_train.jsonl": "959ec139471be82c378d4705198e9b32415d6db74fd6c7c40303382769c92f31",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-pilot/repaired-data/split-manifest.json": "4eeff95a6097846d03abbb365e13dd5e8f17184373f3cebd9767b1531f3626b6",
+    "/home/abdur/quatrix-tmlr/run-20261009-audit/data/validation.tokens.jsonl": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/source/quatrix/model.py": "88d0fc8a5febcd6d643ed48104a9c80072adbaff63deadce45a61c031aa1bcf8",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/source/quatrix/transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+    "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/source/quatrix/config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059"
+  },
+  "commands": [
+    "python3 experiments/run_remote_main.py --seed 29 --variant rankmatched",
+    "python3 experiments/run_remote_main.py --seed 29 --variant savo",
+    "python3 experiments/run_remote_main.py --seed 29 --variant savo-sum"
+  ]
+}

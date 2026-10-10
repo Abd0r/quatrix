@@ -1,0 +1,31 @@
+{
+  "cohort_complete": false,
+  "verified_complete_variants": [
+    {
+      "variant": "rankmatched",
+      "targets": 20000000,
+      "steps": 6211,
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "nll": 5.082392250500141,
+      "ppl": 161.1591281552827,
+      "checkpoint_sha256": "8f9fc7d1e8b5aab46642d2a755be80740761f8e612ebc96e093b57016fc4f3f5",
+      "result_sha256": "e890ba452ff658c63d3a3476b31814498eb019f5ec6d3676117fec030fd44d56"
+    },
+    {
+      "variant": "savo",
+      "targets": 20000000,
+      "steps": 6211,
+      "sampling_sha256": "6290e6162667874fbdea2e957332cfb9d6d16404b4c3f1c34023b2403d22a1d6",
+      "nll": 5.148948759583588,
+      "ppl": 172.25031860936616,
+      "checkpoint_sha256": "782c58d04d244ad82ac361d51a1c19a09ec8e4bcce6dc659810e20543244568c",
+      "result_sha256": "79b60564c3e6af67137d79fc65cab1fd493959139a498fc42e057ed9ef2740e4"
+    }
+  ],
+  "missing_final_variant": "savo-sum",
+  "original_last_observed_targets": 17070142,
+  "recovery1_last_transmitted_targets": 18682323,
+  "recovery1_completion": "unknown; connection closed and subsequent SSH timed out",
+  "recovery1_remote_directory": "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/results/savo-sum-seed71-20m-recovery1",
+  "no_imputation_or_checkpoint_substitution": true
+}

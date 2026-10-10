@@ -1,0 +1,15 @@
+{
+  "cohort_complete": false,
+  "variant": "savo-sum",
+  "seed": 71,
+  "target_tokens": 20000000,
+  "remote_directory": "/home/abdur/quatrix-tmlr/run-20261009-repaired-main/results/savo-sum-seed71-20m-recovery2",
+  "launch_pid": 25726,
+  "last_confirmed_targets": 10000660,
+  "completion": "unknown: SSH monitoring failed and follow-up connection timed out",
+  "transport": "Python subprocess with start_new_session=True, remote file-backed stdout/stderr; monitored from attended session",
+  "may_still_be_running": true,
+  "no_duplicate_after_disconnect": true,
+  "previous_attempts_preserved": true,
+  "startup_note": "Initial launch attempts did not start training because remote tests log directory was absent. Read-only inspection confirmed no run directory or launch log; created that output-log directory and then launched the single successful recovery2 process."
+}

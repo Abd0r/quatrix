@@ -1,0 +1,888 @@
+{
+  "kind": "Legacy reevaluation, not newly replicated training",
+  "n_evaluations": 44,
+  "n_checkpoints": 22,
+  "uncertainty": "Sample SD over recovered historical runs. Pairing/data-order provenance unverified; no confirmatory paired p-values.",
+  "dataset_scope": "Character-filtered custom WikiText103-derived paragraphs, GPT2 token NLL; not canonical full-corpus benchmark perplexity.",
+  "summaries": [
+    {
+      "scale": "60m",
+      "variant": "fullrank",
+      "split": "test",
+      "n_runs": 2,
+      "mean_ppl": 257.1096584071094,
+      "sample_sd_ppl": 1.731070392136522,
+      "mean_nll": 5.54949134748953,
+      "sample_sd_nll": 0.006732860529181784,
+      "run_values_ppl": [
+        258.3337100201004,
+        255.88560679411842
+      ],
+      "run_labels": [
+        "60m-fullrank-seed1",
+        "60m-fullrank-seed2"
+      ]
+    },
+    {
+      "scale": "60m",
+      "variant": "fullrank",
+      "split": "validation",
+      "n_runs": 2,
+      "mean_ppl": 257.95959240560137,
+      "sample_sd_ppl": 2.1242878857173317,
+      "mean_nll": 5.552786000128389,
+      "sample_sd_nll": 0.008235056801057499,
+      "run_values_ppl": [
+        259.46169077478453,
+        256.4574940364182
+      ],
+      "run_labels": [
+        "60m-fullrank-seed1",
+        "60m-fullrank-seed2"
+      ]
+    },
+    {
+      "scale": "60m",
+      "variant": "rankmatched",
+      "split": "test",
+      "n_runs": 4,
+      "mean_ppl": 250.29716272773697,
+      "sample_sd_ppl": 0.6515940199644934,
+      "mean_nll": 5.52264632037261,
+      "sample_sd_nll": 0.0026041356015450135,
+      "run_values_ppl": [
+        251.0219432769125,
+        249.45656900985983,
+        250.48757084517402,
+        250.22256777900154
+      ],
+      "run_labels": [
+        "60m-rankmatched-legacy",
+        "60m-rankmatched-seed1",
+        "60m-rankmatched-seed2",
+        "60m-rankmatched-seed3"
+      ]
+    },
+    {
+      "scale": "60m",
+      "variant": "rankmatched",
+      "split": "validation",
+      "n_runs": 4,
+      "mean_ppl": 251.42196504274847,
+      "sample_sd_ppl": 0.3929658241100195,
+      "mean_nll": 5.527131747965786,
+      "sample_sd_nll": 0.0015619310699323664,
+      "run_values_ppl": [
+        251.99711131544333,
+        251.115945196713,
+        251.25127345532172,
+        251.32353020351576
+      ],
+      "run_labels": [
+        "60m-rankmatched-legacy",
+        "60m-rankmatched-seed1",
+        "60m-rankmatched-seed2",
+        "60m-rankmatched-seed3"
+      ]
+    },
+    {
+      "scale": "60m",
+      "variant": "savo",
+      "split": "test",
+      "n_runs": 4,
+      "mean_ppl": 262.45809107421,
+      "sample_sd_ppl": 0.5498549350288563,
+      "mean_nll": 5.570089770806834,
+      "sample_sd_nll": 0.002094554885036436,
+      "run_values_ppl": [
+        262.4568700076303,
+        261.8279639797977,
+        263.1678840786469,
+        262.3796462307652
+      ],
+      "run_labels": [
+        "60m-savo-legacy",
+        "60m-savo-seed1",
+        "60m-savo-seed2",
+        "60m-savo-seed3"
+      ]
+    },
+    {
+      "scale": "60m",
+      "variant": "savo",
+      "split": "validation",
+      "n_runs": 4,
+      "mean_ppl": 263.7492745521076,
+      "sample_sd_ppl": 0.6827925980246954,
+      "mean_nll": 5.574996421575257,
+      "sample_sd_nll": 0.002588409347617648,
+      "run_values_ppl": [
+        263.3140697640157,
+        263.05869972771194,
+        264.5342347662612,
+        264.0900939504415
+      ],
+      "run_labels": [
+        "60m-savo-legacy",
+        "60m-savo-seed1",
+        "60m-savo-seed2",
+        "60m-savo-seed3"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "run": "120m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "120m",
+      "split": "test",
+      "parameters": 71189120,
+      "nll": 5.426360395108308,
+      "ppl": 227.32038159771852,
+      "legacy_ppl": 227.31962545718346,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-rankmatched-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0007561405350600126
+    },
+    {
+      "run": "120m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "120m",
+      "split": "validation",
+      "parameters": 71189120,
+      "nll": 5.436608363135254,
+      "ppl": 229.6619311701902,
+      "legacy_ppl": 229.66117896179335,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-rankmatched-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007522083968467541
+    },
+    {
+      "run": "120m-sao-legacy",
+      "variant": "sao",
+      "scale": "120m",
+      "split": "test",
+      "parameters": 74568320,
+      "nll": 5.539790129698013,
+      "ppl": 254.624555718222,
+      "legacy_ppl": 254.62375614871252,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-sao-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.000799569509496223
+    },
+    {
+      "run": "120m-sao-legacy",
+      "variant": "sao",
+      "scale": "120m",
+      "split": "validation",
+      "parameters": 74568320,
+      "nll": 5.55316532871865,
+      "ppl": 258.05308736064484,
+      "legacy_ppl": 258.0522879689522,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-sao-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007993916926238853
+    },
+    {
+      "run": "120m-savo-legacy",
+      "variant": "savo",
+      "scale": "120m",
+      "split": "test",
+      "parameters": 75131520,
+      "nll": 5.465703151181104,
+      "ppl": 236.4420511790808,
+      "legacy_ppl": 236.44122844724492,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-savo-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0008227318358819957
+    },
+    {
+      "run": "120m-savo-legacy",
+      "variant": "savo",
+      "scale": "120m",
+      "split": "validation",
+      "parameters": 75131520,
+      "nll": 5.476844377343532,
+      "ppl": 239.09103460651872,
+      "legacy_ppl": 239.09021837159452,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/120m-savo-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0008162349242013534
+    },
+    {
+      "run": "180m-rankmatched-h6",
+      "variant": "rankmatched",
+      "scale": "180m",
+      "split": "test",
+      "parameters": 109681920,
+      "nll": 5.541421082243875,
+      "ppl": 255.04017512124224,
+      "legacy_ppl": 255.03939454106902,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-h6-test-b2.json",
+      "ppl_delta_vs_old": 0.0007805801732274631
+    },
+    {
+      "run": "180m-rankmatched-h6",
+      "variant": "rankmatched",
+      "scale": "180m",
+      "split": "validation",
+      "parameters": 109681920,
+      "nll": 5.552089107638474,
+      "ppl": 257.7755145798532,
+      "legacy_ppl": 257.7747433438974,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-h6-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007712359558240678
+    },
+    {
+      "run": "180m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "180m",
+      "split": "test",
+      "parameters": 109681920,
+      "nll": 5.505000299436177,
+      "ppl": 245.9185293157152,
+      "legacy_ppl": 245.91774305512484,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0007862605903596886
+    },
+    {
+      "run": "180m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "180m",
+      "split": "validation",
+      "parameters": 109681920,
+      "nll": 5.515565199884251,
+      "ppl": 248.53040691554176,
+      "legacy_ppl": 248.52961713355228,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007897819894822078
+    },
+    {
+      "run": "180m-savo-h6",
+      "variant": "savo",
+      "scale": "180m",
+      "split": "test",
+      "parameters": 116907264,
+      "nll": 5.562503080148428,
+      "ppl": 260.47400833453844,
+      "legacy_ppl": 260.4731410460108,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-savo-h6-test-b2.json",
+      "ppl_delta_vs_old": 0.0008672885276155284
+    },
+    {
+      "run": "180m-savo-h6",
+      "variant": "savo",
+      "scale": "180m",
+      "split": "validation",
+      "parameters": 116907264,
+      "nll": 5.579725189270953,
+      "ppl": 264.9987712733024,
+      "legacy_ppl": 264.99789710018865,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-savo-h6-validation-b2.json",
+      "ppl_delta_vs_old": 0.0008741731137433817
+    },
+    {
+      "run": "180m-savo-legacy",
+      "variant": "savo",
+      "scale": "180m",
+      "split": "test",
+      "parameters": 116907264,
+      "nll": 5.55011909449611,
+      "ppl": 257.2681933072127,
+      "legacy_ppl": 257.26733223813477,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-savo-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0008610690779278229
+    },
+    {
+      "run": "180m-savo-legacy",
+      "variant": "savo",
+      "scale": "180m",
+      "split": "validation",
+      "parameters": 116907264,
+      "nll": 5.561964980942054,
+      "ppl": 260.3338851808327,
+      "legacy_ppl": 260.33301948256076,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/180m-savo-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0008656982719230655
+    },
+    {
+      "run": "60m-fullrank-seed1",
+      "variant": "fullrank",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 37425792,
+      "nll": 5.554252198826498,
+      "ppl": 258.3337100201004,
+      "legacy_ppl": 258.33370983324795,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed1-test-b2.json",
+      "ppl_delta_vs_old": 1.8685244640437304e-07
+    },
+    {
+      "run": "60m-fullrank-seed1",
+      "variant": "fullrank",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 37425792,
+      "nll": 5.558609064635873,
+      "ppl": 259.46169077478453,
+      "legacy_ppl": 259.46168993902216,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed1-validation-b2.json",
+      "ppl_delta_vs_old": 8.35762364204129e-07
+    },
+    {
+      "run": "60m-fullrank-seed2",
+      "variant": "fullrank",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 37425792,
+      "nll": 5.544730496152563,
+      "ppl": 255.88560679411842,
+      "legacy_ppl": 255.8856072495646,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed2-test-b2.json",
+      "ppl_delta_vs_old": -4.554461838779389e-07
+    },
+    {
+      "run": "60m-fullrank-seed2",
+      "variant": "fullrank",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 37425792,
+      "nll": 5.546962935620905,
+      "ppl": 256.4574940364182,
+      "legacy_ppl": 256.45749146439147,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed2-validation-b2.json",
+      "ppl_delta_vs_old": 2.5720267444739875e-06
+    },
+    {
+      "run": "60m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 32264832,
+      "nll": 5.525540358724574,
+      "ppl": 251.0219432769125,
+      "legacy_ppl": 251.0211919578608,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0007513190517158819
+    },
+    {
+      "run": "60m-rankmatched-legacy",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 32264832,
+      "nll": 5.529417624411767,
+      "ppl": 251.99711131544333,
+      "legacy_ppl": 251.99636222493166,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007490905116753765
+    },
+    {
+      "run": "60m-rankmatched-seed1",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 32264832,
+      "nll": 5.519284827934496,
+      "ppl": 249.45656900985983,
+      "legacy_ppl": 249.4565738058145,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed1-test-b2.json",
+      "ppl_delta_vs_old": -4.795954652081491e-06
+    },
+    {
+      "run": "60m-rankmatched-seed1",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 32264832,
+      "nll": 5.525914765528189,
+      "ppl": 251.115945196713,
+      "legacy_ppl": 251.1159349769112,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed1-validation-b2.json",
+      "ppl_delta_vs_old": 1.0219801794164596e-05
+    },
+    {
+      "run": "60m-rankmatched-seed2",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 32264832,
+      "nll": 5.5234093019094015,
+      "ppl": 250.48757084517402,
+      "legacy_ppl": 250.48756738542048,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed2-test-b2.json",
+      "ppl_delta_vs_old": 3.4597535432112636e-06
+    },
+    {
+      "run": "60m-rankmatched-seed2",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 32264832,
+      "nll": 5.526453527839333,
+      "ppl": 251.25127345532172,
+      "legacy_ppl": 251.25127268865958,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed2-validation-b2.json",
+      "ppl_delta_vs_old": 7.666621399948781e-07
+    },
+    {
+      "run": "60m-rankmatched-seed3",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 32264832,
+      "nll": 5.52235079292197,
+      "ppl": 250.22256777900154,
+      "legacy_ppl": 250.22256640301467,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed3-test-b2.json",
+      "ppl_delta_vs_old": 1.375986869334156e-06
+    },
+    {
+      "run": "60m-rankmatched-seed3",
+      "variant": "rankmatched",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 32264832,
+      "nll": 5.526741074083856,
+      "ppl": 251.32353020351576,
+      "legacy_ppl": 251.3235373102414,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed3-validation-b2.json",
+      "ppl_delta_vs_old": -7.106725632866073e-06
+    },
+    {
+      "run": "60m-sao-h6",
+      "variant": "sao",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33370752,
+      "nll": 5.612978187105624,
+      "ppl": 273.9589251956394,
+      "legacy_ppl": 273.95813689658286,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-sao-h6-test-b2.json",
+      "ppl_delta_vs_old": 0.0007882990565235559
+    },
+    {
+      "run": "60m-sao-h6",
+      "variant": "sao",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33370752,
+      "nll": 5.617164737446286,
+      "ppl": 275.10827224815546,
+      "legacy_ppl": 275.1074879478617,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-sao-h6-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007843002937306665
+    },
+    {
+      "run": "60m-sao-legacy",
+      "variant": "sao",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33370752,
+      "nll": 5.60172862866219,
+      "ppl": 270.89427853624215,
+      "legacy_ppl": 270.89351168876,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-sao-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0007668474821684867
+    },
+    {
+      "run": "60m-sao-legacy",
+      "variant": "sao",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33370752,
+      "nll": 5.606058936140894,
+      "ppl": 272.06987757214813,
+      "legacy_ppl": 272.0691160809488,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-sao-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007614911993414353
+    },
+    {
+      "run": "60m-savo-h6",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33555072,
+      "nll": 5.5771938664111556,
+      "ppl": 264.3288221123032,
+      "legacy_ppl": 264.3280171822732,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-h6-test-b2.json",
+      "ppl_delta_vs_old": 0.0008049300300285722
+    },
+    {
+      "run": "60m-savo-h6",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33555072,
+      "nll": 5.581885750069622,
+      "ppl": 265.5719361860695,
+      "legacy_ppl": 265.57113724723246,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-h6-validation-b2.json",
+      "ppl_delta_vs_old": 0.0007989388370219785
+    },
+    {
+      "run": "60m-savo-legacy",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33555072,
+      "nll": 5.57008676379934,
+      "ppl": 262.4568700076303,
+      "legacy_ppl": 262.45602220167154,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-legacy-test-b2.json",
+      "ppl_delta_vs_old": 0.0008478059587559983
+    },
+    {
+      "run": "60m-savo-legacy",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33555072,
+      "nll": 5.573347501322284,
+      "ppl": 263.3140697640157,
+      "legacy_ppl": 263.313230981148,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-legacy-validation-b2.json",
+      "ppl_delta_vs_old": 0.0008387828676745812
+    },
+    {
+      "run": "60m-savo-r24",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33278592,
+      "nll": 5.574213213485932,
+      "ppl": 263.54212265690876,
+      "legacy_ppl": 263.542124410865,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r24-test-b2.json",
+      "ppl_delta_vs_old": -1.7539562122692587e-06
+    },
+    {
+      "run": "60m-savo-r24",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33278592,
+      "nll": 5.57931180883907,
+      "ppl": 264.8892486056084,
+      "legacy_ppl": 264.88925166565775,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r24-validation-b2.json",
+      "ppl_delta_vs_old": -3.0600493801102857e-06
+    },
+    {
+      "run": "60m-savo-r96",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 34108032,
+      "nll": 5.563214619329102,
+      "ppl": 260.65941175009067,
+      "legacy_ppl": 260.6594167174143,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r96-test-b2.json",
+      "ppl_delta_vs_old": -4.967323604887497e-06
+    },
+    {
+      "run": "60m-savo-r96",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 34108032,
+      "nll": 5.568150390276183,
+      "ppl": 261.94914720271913,
+      "legacy_ppl": 261.9491451287457,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r96-validation-b2.json",
+      "ppl_delta_vs_old": 2.0739734054586734e-06
+    },
+    {
+      "run": "60m-savo-seed1",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33555072,
+      "nll": 5.5676876620565015,
+      "ppl": 261.8279639797977,
+      "legacy_ppl": 261.8279705059878,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed1-test-b2.json",
+      "ppl_delta_vs_old": -6.526190134081844e-06
+    },
+    {
+      "run": "60m-savo-seed1",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33555072,
+      "nll": 5.572377200154973,
+      "ppl": 263.05869972771194,
+      "legacy_ppl": 263.0587066687602,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed1-validation-b2.json",
+      "ppl_delta_vs_old": -6.9410482410603436e-06
+    },
+    {
+      "run": "60m-savo-seed2",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33555072,
+      "nll": 5.572792171028212,
+      "ppl": 263.1678840786469,
+      "legacy_ppl": 263.1678834059118,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed2-test-b2.json",
+      "ppl_delta_vs_old": 6.727350978508184e-07
+    },
+    {
+      "run": "60m-savo-seed2",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33555072,
+      "nll": 5.577970674931303,
+      "ppl": 264.5342347662612,
+      "legacy_ppl": 264.53423190177347,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed2-validation-b2.json",
+      "ppl_delta_vs_old": 2.864487726128573e-06
+    },
+    {
+      "run": "60m-savo-seed3",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "test",
+      "parameters": 33555072,
+      "nll": 5.569792486343283,
+      "ppl": 262.3796462307652,
+      "legacy_ppl": 262.3796400808406,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed3-test-b2.json",
+      "ppl_delta_vs_old": 6.149924615783675e-06
+    },
+    {
+      "run": "60m-savo-seed3",
+      "variant": "savo",
+      "scale": "60m",
+      "split": "validation",
+      "parameters": 33555072,
+      "nll": 5.5762903098924665,
+      "ppl": 264.0900939504415,
+      "legacy_ppl": 264.09009800826294,
+      "source": "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed3-validation-b2.json",
+      "ppl_delta_vs_old": -4.057821456626698e-06
+    }
+  ],
+  "exact_overlap_excluded_test_sensitivity": [
+    {
+      "run": "120m-rankmatched-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.425025788052591,
+      "perplexity": 227.01720057130007
+    },
+    {
+      "run": "120m-sao-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.538527234004757,
+      "perplexity": 254.303194429014
+    },
+    {
+      "run": "120m-savo-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.463845349604265,
+      "perplexity": 236.00319654221036
+    },
+    {
+      "run": "180m-rankmatched-h6",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.539691463517915,
+      "perplexity": 254.59943412529628
+    },
+    {
+      "run": "180m-rankmatched-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.503417649255093,
+      "perplexity": 245.52963413445107
+    },
+    {
+      "run": "180m-savo-h6",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.5608363678043355,
+      "perplexity": 260.04023467790216
+    },
+    {
+      "run": "180m-savo-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.548506042513823,
+      "perplexity": 256.8535408559067
+    },
+    {
+      "run": "60m-fullrank-seed1",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.553134859265534,
+      "perplexity": 258.04522474398345
+    },
+    {
+      "run": "60m-fullrank-seed2",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.543434494145898,
+      "perplexity": 255.55419333687678
+    },
+    {
+      "run": "60m-rankmatched-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.523907374451274,
+      "perplexity": 250.61236290146084
+    },
+    {
+      "run": "60m-rankmatched-seed1",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.517639137801733,
+      "perplexity": 249.04637841157387
+    },
+    {
+      "run": "60m-rankmatched-seed2",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.521741791655723,
+      "perplexity": 250.07022831055338
+    },
+    {
+      "run": "60m-rankmatched-seed3",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.520823219372804,
+      "perplexity": 249.8406261992564
+    },
+    {
+      "run": "60m-sao-h6",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.611529029384983,
+      "perplexity": 273.56220302997656
+    },
+    {
+      "run": "60m-sao-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.600373437371739,
+      "perplexity": 270.5274136115591
+    },
+    {
+      "run": "60m-savo-h6",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.575827369724915,
+      "perplexity": 263.96786433278214
+    },
+    {
+      "run": "60m-savo-legacy",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.568660791558018,
+      "perplexity": 262.08288050914916
+    },
+    {
+      "run": "60m-savo-r24",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.572571279106767,
+      "perplexity": 263.10975883900454
+    },
+    {
+      "run": "60m-savo-r96",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.561691363733337,
+      "perplexity": 260.2626630940737
+    },
+    {
+      "run": "60m-savo-seed1",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.566241636546179,
+      "perplexity": 261.44962767246784
+    },
+    {
+      "run": "60m-savo-seed2",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.571301479531172,
+      "perplexity": 262.7758742070406
+    },
+    {
+      "run": "60m-savo-seed3",
+      "n_excluded_rows": 16,
+      "n_excluded_tokens": 2895,
+      "n_retained_tokens": 215744,
+      "mean_nll": 5.568141359622221,
+      "perplexity": 261.9467816412963
+    }
+  ],
+  "exclusion_policy": "16 normalized exact train/test matches identified by input-only audit. Same row removal for every model; original scores retained. Not comprehensive near-duplicate decontamination.",
+  "input_hashes": {
+    "<local>/Project/quatrix/results/remote-core-v2/120m-rankmatched-legacy-test-b2.json": "ea0890af3123f686096feeb2f54195e1189e41cec4ed14157e48e1499ee5aeda",
+    "<local>/Project/quatrix/results/remote-core-v2/120m-rankmatched-legacy-validation-b2.json": "ba12d0d5ae2f0bb392515f8ceb8f8cc816743a2c14f94da32d94f8cfb3b2fdad",
+    "<local>/Project/quatrix/results/remote-core-v2/120m-sao-legacy-test-b2.json": "6154bf4b621ae929de261bdc814f29e4da6dde516648400aebba8f84c150fed4",
+    "<local>/Project/quatrix/results/remote-core-v2/120m-sao-legacy-validation-b2.json": "da9054cd35d73e61d34857327854b3850a8efeca0dbbbf3ca04311d9c5a6e49a",
+    "<local>/Project/quatrix/results/remote-core-v2/120m-savo-legacy-test-b2.json": "f790bd5d8a4b5d65a9b4579f2779ceeecd96577696eeb74968068c004d80333a",
+    "<local>/Project/quatrix/results/remote-core-v2/120m-savo-legacy-validation-b2.json": "5e3c52b3a982bfbf076b69aaf1f461e74ac6d5c46f8c2940a19be4d2f336903f",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-h6-test-b2.json": "f6d6050806d96e275f37be7d276c59e61e6cf334a579f148b4115e75bed722d3",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-h6-validation-b2.json": "2359307924425251b4fe7da7ef61464f1a4c0acd733152f982772c0f525fc189",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-legacy-test-b2.json": "a6e5e84c62f9b6be56e7a5e36769ec83576f4c50bf8daf18a66191f3e8f459e7",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-rankmatched-legacy-validation-b2.json": "ed9d8adbac7005aa59c7925c0a0b7e105443f18e1ab34227224befd73fa3438d",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-savo-h6-test-b2.json": "26e2a2375f8d5d5760d56fd940b9ba898e5b605ff9b5b0749d734ba8b0f0b46b",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-savo-h6-validation-b2.json": "e8ae213b704a4c67c78288769d0152f26dc52f9d22fd550e219d1a08be91a212",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-savo-legacy-test-b2.json": "db13a2c4642484d2e41eb060288bc5b454b57be33290a9ebe56d4ee5371f2047",
+    "<local>/Project/quatrix/results/remote-core-v2/180m-savo-legacy-validation-b2.json": "30fc28b23f7046d95f9e98a4a53da5a71263e866a859d3d3a5b1baf249538fd3",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed1-test-b2.json": "930df8b49ab30e1638403fd836885c51b4076ee8b083288902d2dba335b8d5f5",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed1-validation-b2.json": "30e1ca3f8fead1b9242b2905847a780a7166f27dd148a8b753a5abbc1f97c73e",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed2-test-b2.json": "d31e00d2fffebf22a0a7959f40c89cc47f1a8e60ab29f2c553fe6b63bb834728",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-fullrank-seed2-validation-b2.json": "a7aba854151941dee3770c5a4e114b891ec58cf3bceda58942c886ab42b25fb2",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-legacy-test-b2.json": "b9b3d9132a8e669181cd46c6230a6aba47b7ae1d79cb848627ac61c84e583970",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-legacy-validation-b2.json": "91f4feacbf83ff27cb6eabc7e66cc13b4d078dabb45b3cd6103dd3ba2745d7d4",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed1-test-b2.json": "7e92e1de8727d3f8d88d126a1407b4059e06b2169fb29137b94c374a7e5c9988",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed1-validation-b2.json": "b92a562b7f9b1a171d1c43d4f6e9c59ac395a857aa642eb36e9ba8b041eb3a01",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed2-test-b2.json": "370b3c3ab3af0c57ad0a554fd53ee004b882c8792f45df674db2a7c4e3b95212",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed2-validation-b2.json": "a5a24c3b21a95221e2707bf7c9d557649c691396c36d1fe3da34e0ba98713bb0",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed3-test-b2.json": "9f43016f6500ed3b9de920f4c28b6a1caf4c819880c852b168d432fbbb736efa",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-rankmatched-seed3-validation-b2.json": "dddeb1e5b825d39c5c89c10a72f52e60417c42f387ef7c1bc50a6e21afb4c86c",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-sao-h6-test-b2.json": "229c3a0003989398e320b543ac3214c13073ad43b46b6f223d6d3176d33c5b53",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-sao-h6-validation-b2.json": "932d08c34d115d9fd19552114fdb07c3f8134272657d85d124cc56ecc229bd63",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-sao-legacy-test-b2.json": "74363c2f0bc3d4882c5a2c2fe7acc7cc3a88cc0e03f9cb5dc977eb89755b84cf",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-sao-legacy-validation-b2.json": "e31e82a2a9cacb29036107755b3f1269091ea7bb0b3bf879bb50cb65d85b87e1",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-h6-test-b2.json": "773b5dbbef669ab8cf4d13089b9dcc8f90d5dd7eb7c1463d77a951d9a943bb65",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-h6-validation-b2.json": "7acc260fadbd9d434089bf22c0f070b77e60968a8b9a6e8ce2bc0fe98fdeac11",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-legacy-test-b2.json": "e1b7f5541d9926b59b6e796339cd22bcdb77b2cc6901c2bfc010c78110908818",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-legacy-validation-b2.json": "658d0629bb8ab0a7332accd896ab7fb5ecdc4211b2be28e503736a51d1daeeb7",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r24-test-b2.json": "33c6314dd0e58b4c95dbbafd9dcda109f000f37dd2dff0999d7f5e0cedf8ebe7",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r24-validation-b2.json": "7176d3b26c452a9f818134a4f0c0674fb19cfd61473b381bf60512b03fc80a99",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r96-test-b2.json": "7ac699bce98210ac72d5e4d290bd6618eb2ab31acf101bf1abfafceaee0b50b8",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-r96-validation-b2.json": "29f7dd48d3ef92aac48e90ca943b0dee341c0770cbb3805a06a055ecfe2ab9b5",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed1-test-b2.json": "16bdfceaa2261180409325db00771d779f66be6812da63a2bce8026105f4fff9",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed1-validation-b2.json": "00fa5852d772f6e7f0390f96291f7ba6494063b1fc31ed31d2b00c8e49611b4d",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed2-test-b2.json": "154836fd261859d8cd58d3eec887d7670784ce4ab5fae845a2dda98730678785",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed2-validation-b2.json": "8e6b0b24a019cf90180f986682edcc1fd5c7d604e1bca43298cce3b3f61b944a",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed3-test-b2.json": "094a9651e0276e26a70c349d1792380a06d69b5e261e6053f348df44796506eb",
+    "<local>/Project/quatrix/results/remote-core-v2/60m-savo-seed3-validation-b2.json": "e143419e403b731d34731e1ef3e6f76409933b5387c96d9fb4448a1bde93e1c5"
+  }
+}

@@ -1,0 +1,51 @@
+
+========================================================================
+  QUATRIX PoC
+  size=120m  steps=10000
+  device=cuda  batch=4  accum=16  eff_batch=64
+========================================================================
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[Datasets]
+  [TextDataset] 200,000 samples  (BOS/EOS wrapped)
+  [VisionDataset] 25,014 samples  (BOS/EOS wrapped)
+  [AudioDataset] 10,000 samples  (BOS/EOS wrapped)
+  [WorldDataset] 20,000 episodes
+
+[Model]
+  Model: Quatrix-120m [Q-value-content] | 122.2M params
+
+[Optimizers]
+  Muon params : 89.49M (156 tensors)
+  AdamW params: 32.72M (203 tensors)
+/home/abdur/Tesseractor/train_quatrix_poc.py:543: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler(enabled=cfg.use_amp)
+
+[Training] 10000 optimizer steps
+  Active modalities: ['text', 'vision', 'audio', 'world']
+  Mix: text=35% | vision=25% | audio=20% | world=20%
+------------------------------------------------------------------------
+    step      loss        mlr        alr                    per-modality      time
+------------------------------------------------------------------------
+/home/abdur/Tesseractor/train_quatrix_poc.py:605: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=cfg.use_amp):
+ 1000/10000    6.7491   2.48e-04   2.48e-05  t=8.755 v=7.465 a=8.495 w=0.590 wm=0.5902   36m20s
+ 2000/10000    4.9939   2.36e-04   2.36e-05  t=6.926 v=4.660 a=6.770 w=0.142 wm=0.1417   72m03s
+  Saved → staging_120m_quatrix_mm_savo/checkpoint-120m-step2000
+ 3000/10000    4.6576   2.14e-04   2.14e-05  t=6.619 v=4.252 a=6.415 w=0.193 wm=0.1928  109m29s
+ 4000/10000    4.5813   1.83e-04   1.83e-05  t=6.450 v=4.051 a=6.215 w=0.199 wm=0.1992  146m28s
+  Saved → staging_120m_quatrix_mm_savo/checkpoint-120m-step4000
+ 5000/10000    4.4300   1.47e-04   1.47e-05  t=6.349 v=3.930 a=6.106 w=0.169 wm=0.1687  182m51s
+ 6000/10000    4.4227   1.10e-04   1.10e-05  t=6.280 v=3.863 a=6.010 w=0.439 wm=0.4386  219m39s
+  Saved → staging_120m_quatrix_mm_savo/checkpoint-120m-step6000
+ 7000/10000    4.3552   7.60e-05   7.60e-06  t=6.232 v=3.783 a=5.967 w=0.244 wm=0.2445  257m01s
+ 8000/10000    4.3050   4.87e-05   4.87e-06  t=6.200 v=3.757 a=5.925 w=0.149 wm=0.1493  294m18s
+  Saved → staging_120m_quatrix_mm_savo/checkpoint-120m-step8000
+ 9000/10000    4.4125   3.11e-05   3.11e-06  t=6.184 v=3.726 a=5.902 w=0.676 wm=0.6757  332m03s
+10000/10000    4.3626   2.50e-05   2.50e-06  t=6.161 v=3.715 a=5.894 w=0.540 wm=0.5400  368m30s
+  Saved → staging_120m_quatrix_mm_savo/checkpoint-120m-step10000
+------------------------------------------------------------------------
+  Quatrix-120m COMPLETE  —  10000 steps
+  total time: 368.5 min
+========================================================================
+

@@ -1,0 +1,72 @@
+{
+  "method": "exact text matches after whitespace normalization; no near-duplicate claim",
+  "text": {
+    "train": {
+      "rows": 200000,
+      "file_sha256": "054dd0380e38a0349e849632065c28a245199cee6fab882d8f285be7eaf51ab9",
+      "empty_rows": 0,
+      "normalized_duplicate_rows": 689,
+      "characters_min": 512,
+      "characters_max": 4605,
+      "characters_median": 860.0,
+      "rows_lt512_chars": 0
+    },
+    "validation": {
+      "rows": 1038,
+      "file_sha256": "fc80e65920f5239ade9c645daf95d1da3d5a163855786920d0e7f49a3eec2560",
+      "empty_rows": 0,
+      "normalized_duplicate_rows": 0,
+      "characters_min": 512,
+      "characters_max": 2242,
+      "characters_median": 816.0,
+      "rows_lt512_chars": 0
+    },
+    "test": {
+      "rows": 1137,
+      "file_sha256": "1a46c3a15d55736db0beb3ec88f770efc8f3fb6cc7ef5499d3c69512aebdcc54",
+      "empty_rows": 0,
+      "normalized_duplicate_rows": 0,
+      "characters_min": 512,
+      "characters_max": 2584,
+      "characters_median": 808,
+      "rows_lt512_chars": 0
+    }
+  },
+  "cross_split_exact_overlaps": {
+    "train__validation": 0,
+    "train__test": 16,
+    "validation__test": 0
+  },
+  "multimodal": {
+    "vision": {
+      "rows": 25014,
+      "file_sha256": "719164d5ad866c921b424558536564abf7b53e2ff7b4fa2f636c43ca0e86b30e",
+      "nominal_tail_5pct_rows": 1250,
+      "tail_indices_are_in_full_file_training_pool": true,
+      "prefix_tail_same_input_entities": 58,
+      "current_existing_input_files": 25014,
+      "current_missing_input_files": 0,
+      "interpretation": "Training code loads full file. Tail is not an independent split unless historical training exclusions can be shown. Current missing-file counts do not establish historical corruption."
+    },
+    "audio": {
+      "rows": 10000,
+      "file_sha256": "e87e0c1575319d63463a59f4f740a3383791aaf214057c4a71fc56cadac9fe97",
+      "nominal_tail_5pct_rows": 500,
+      "tail_indices_are_in_full_file_training_pool": true,
+      "prefix_tail_same_input_entities": 0,
+      "current_existing_input_files": 10000,
+      "current_missing_input_files": 0,
+      "interpretation": "Training code loads full file. Tail is not an independent split unless historical training exclusions can be shown. Current missing-file counts do not establish historical corruption."
+    },
+    "world": {
+      "rows": 20000,
+      "file_sha256": "aa344274ac2d2a1cd7532289e2ff8a4da6c938e8ccddcac67dabc40c3a1f03c3",
+      "nominal_tail_5pct_rows": 1000,
+      "tail_indices_are_in_full_file_training_pool": true,
+      "prefix_tail_same_input_entities": 0,
+      "current_existing_input_files": 20000,
+      "current_missing_input_files": 0,
+      "interpretation": "Training code loads full file. Tail is not an independent split unless historical training exclusions can be shown. Current missing-file counts do not establish historical corruption."
+    }
+  }
+}
