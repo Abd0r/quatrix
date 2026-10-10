@@ -1,0 +1,12 @@
+{
+  "purpose": "Exact source version used by the repaired fixed-budget experiments. These SHA256 values are the ones recorded in every run manifest.",
+  "base_commit": "d109f6665d25785670662a822e112ccf0f6c004c",
+  "note": "master has since gained input-validation guards in model.py and transformer_lm.py (no attention math, loss, masking or initialization change; the runs used exactly the 1024 maximum context so the guard cannot affect any measured value). config.py still matches master.",
+  "sha256": {
+    "src/quatrix/model.py": "88d0fc8a5febcd6d643ed48104a9c80072adbaff63deadce45a61c031aa1bcf8",
+    "src/quatrix/transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+    "src/quatrix/config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059",
+    "driver/train_repaired_main.py": "28c81832b6688c06dd8671dde3d349b17a143e44c24062979a1b965cdcd01a16",
+    "driver/evaluation.py": "99bd9963bb8ecda4d9c20a5b3d195c7d52709d642514038637d830ad1d6d2100"
+  }
+}
