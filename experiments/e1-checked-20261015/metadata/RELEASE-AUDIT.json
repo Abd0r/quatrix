@@ -1,0 +1,16 @@
+{
+  "checks_passed": {
+    "completed_runs": 23,
+    "physical_final_checkpoint_hashes": 21,
+    "world_only_runs_no_checkpoints": 2,
+    "primary_pairs": 4,
+    "clean_prefix_examples_per_task": 400,
+    "clean_prefix_conditions": 4,
+    "unique_world_test_transitions": 6431,
+    "world_test_episodes": 6,
+    "active_training_run_excluded": true,
+    "frozen_provenance_hold_preserved": true,
+    "flash_status": "blocked, no timings"
+  },
+  "publication_scope": "Logs/results snapshot, not complete executable training reproduction; remaining SAVOseeds pending at snapshot."
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<remote-home>/quatrix-tmlr/run-20261010-e1/experiments/evaluate_savo_clean_checked.py", line 48, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "<remote-home>/quatrix-tmlr/run-20261010-e1/experiments/evaluate_savo_clean_checked.py", line 45, in main
+    return evaluate(argv)
+           ^^^^^^^^^^^^^^
+  File "<remote-home>/quatrix-tmlr/run-20261010-e1/experiments/evaluate_savo_clean_v2.py", line 683, in main
+    result = run_task(model, task, pop['data'], a.data_root, transform, tokenizer,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<remote-home>/quatrix-tmlr/run-20261010-e1/experiments/evaluate_savo_clean_v2.py", line 501, in run_task
+    donors = choose_shuffled_donors(identities, donor_rng)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<remote-home>/quatrix-tmlr/run-20261010-e1/experiments/evaluate_savo_clean_v2.py", line 314, in choose_shuffled_donors
+    raise ValueError('Internal error: shuffled donor shares the row source identity')
+ValueError: Internal error: shuffled donor shares the row source identity

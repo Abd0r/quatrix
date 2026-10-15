@@ -1,0 +1,232 @@
+{
+  "kind": "teacher-forced same-checkpoint SAVO inference implementation benchmark",
+  "smoke_only": false,
+  "seed": 17,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "dtype": "float32",
+  "checkpoint_sha256": "2142c1edfd3f676b8a48e543fb34fc462666aaa1e13c0af2da4cbd10122cb4ae",
+  "manifest_sha256": "8bab831ea2b2beb457c5f87d58efcdc58dfdfe6aec47b3e024c94fb6eb095eeb",
+  "validation_sha256": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9",
+  "source_hashes": {
+    "model.py": "cc0775fd07ccdd64a5c6e5b8d61ba6b1a9072976cedae22eca918497206749ab",
+    "config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059",
+    "transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca"
+  },
+  "reference_sha256": "e3f6d942a62f3cd7201f4f1993236e0099e948aecfb11a1441f162b65ace5d6f",
+  "benchmark_sha256": "f459ed96db699fa76c4aa9c42b960ca401f74011ee0d7b49db142f2faf2d424f",
+  "warmup": 3,
+  "repeats": 10,
+  "includes_prefill": true,
+  "records": [
+    {
+      "prefix_tokens": 64,
+      "teacher_forced_predictions": 16,
+      "max_abs_logit_error": 1.811981201171875e-05,
+      "cache_bytes_float32": 303360,
+      "expected_2r_cache_bytes": 303360,
+      "raw_seconds": {
+        "full_prefix_recompute": [
+          0.03334618196822703,
+          0.030938780051656067,
+          0.030855071963742375,
+          0.03100693301530555,
+          0.030932508991099894,
+          0.0310091869905591,
+          0.030911629961337894,
+          0.03303686098661274,
+          0.031012432009447366,
+          0.03095504199154675
+        ],
+        "cached_reference": [
+          0.030382791999727488,
+          0.030658308998681605,
+          0.03074405196821317,
+          0.02991489600390196,
+          0.03025226597674191,
+          0.030184192000888288,
+          0.03008358902297914,
+          0.030147904995828867,
+          0.03002304001711309,
+          0.029904609022196382
+        ]
+      },
+      "median_seconds": {
+        "full_prefix_recompute": 0.03098098750342615,
+        "cached_reference": 0.030166048498358577
+      },
+      "sample_sd_seconds": {
+        "full_prefix_recompute": 0.0009480443369895526,
+        "cached_reference": 0.00028863927680413087
+      },
+      "peak_cuda_allocated_bytes": {
+        "full_prefix_recompute": [
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200,
+          163955200
+        ],
+        "cached_reference": [
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744,
+          157471744
+        ]
+      }
+    },
+    {
+      "prefix_tokens": 256,
+      "teacher_forced_predictions": 16,
+      "max_abs_logit_error": 3.0517578125e-05,
+      "cache_bytes_float32": 1040640,
+      "expected_2r_cache_bytes": 1040640,
+      "raw_seconds": {
+        "full_prefix_recompute": [
+          0.06215448200237006,
+          0.062088690989185125,
+          0.06213536101859063,
+          0.062187178002204746,
+          0.06217984901741147,
+          0.06203177198767662,
+          0.06206607399508357,
+          0.06216722005046904,
+          0.0621542910230346,
+          0.062172486970666796
+        ],
+        "cached_reference": [
+          0.030305207008495927,
+          0.030182207992766052,
+          0.03008625895017758,
+          0.030189295997843146,
+          0.030125493998639286,
+          0.030252449039835483,
+          0.030183621041942388,
+          0.030284797016065568,
+          0.030207630014047027,
+          0.030175558000337332
+        ]
+      },
+      "median_seconds": {
+        "full_prefix_recompute": 0.06215438651270233,
+        "cached_reference": 0.030186458519892767
+      },
+      "sample_sd_seconds": {
+        "full_prefix_recompute": 5.3192191494910595e-05,
+        "cached_reference": 6.736925978006292e-05
+      },
+      "peak_cuda_allocated_bytes": {
+        "full_prefix_recompute": [
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832,
+          204984832
+        ],
+        "cached_reference": [
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392,
+          202235392
+        ]
+      }
+    },
+    {
+      "prefix_tokens": 456,
+      "teacher_forced_predictions": 16,
+      "max_abs_logit_error": 3.8623809814453125e-05,
+      "cache_bytes_float32": 1808640,
+      "expected_2r_cache_bytes": 1808640,
+      "raw_seconds": {
+        "full_prefix_recompute": [
+          0.09327587101142853,
+          0.09331993397790939,
+          0.09327211900381371,
+          0.09331250301329419,
+          0.09330877801403403,
+          0.0932793469983153,
+          0.09323472803225741,
+          0.09334044100251049,
+          0.09337461000541225,
+          0.09323335700901225
+        ],
+        "cached_reference": [
+          0.030218767991755158,
+          0.030075261020101607,
+          0.030389463005121797,
+          0.0301606259890832,
+          0.030161948991008103,
+          0.03044955403311178,
+          0.030430754995904863,
+          0.03090687101939693,
+          0.03017896000528708,
+          0.03009492199635133
+        ]
+      },
+      "median_seconds": {
+        "full_prefix_recompute": 0.09329406250617467,
+        "cached_reference": 0.03019886399852112
+      },
+      "sample_sd_seconds": {
+        "full_prefix_recompute": 4.4829663044924053e-05,
+        "cached_reference": 0.0002511320640838708
+      },
+      "peak_cuda_allocated_bytes": {
+        "full_prefix_recompute": [
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224,
+          251700224
+        ],
+        "cached_reference": [
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920,
+          251345920
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "not a transformer architecture speed comparison",
+    "timing repetition variability is not seed uncertainty",
+    "limited to trained absolute-position capacity; no1M-context claim",
+    "explicit cache tensor bytes separate from total CUDA allocation",
+    "teacher-forced logits, not a free-running generation quality test"
+  ]
+}
