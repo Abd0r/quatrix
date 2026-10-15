@@ -1,0 +1,108 @@
+{
+  "kind": "E1 v2 matched-text-budget joint versus text-only; windowed MineRL world branch",
+  "arm": "joint-4",
+  "mixture": {
+    "text": 0.35,
+    "vision": 0.25,
+    "audio": 0.2,
+    "world": 0.2
+  },
+  "active_modalities": [
+    "text",
+    "vision",
+    "audio",
+    "world"
+  ],
+  "seed": 43,
+  "world_window": 8,
+  "text_sampler_seed": 100043,
+  "modality_sampler_seed": 200043,
+  "target_text_tokens": 20000000,
+  "effective_batch": 16,
+  "micro_batch": 2,
+  "lr": 0.0003,
+  "optimizer": "AdamW, betas=(0.9,0.95), weight_decay=0.01, constant LR",
+  "loss_normalization": "summed text cross-entropy plus 0.5*summed world MSE, divided by the effective batch valid text-target count; world-only steps divide by the effective batch size because they carry no text labels",
+  "world_loss_weight": 0.5,
+  "world_action_space": "6-way steering buckets from convert_minerl.py scheme D",
+  "world_windows": "K consecutive transitions inside one episode; never cross an episode boundary",
+  "freeze_lm_on_modality": true,
+  "step_budget": 0,
+  "budget_rule": "text arm counts WikiText targets; modality text is extra",
+  "parameter_init": "Per-name SHA256-derived normal std=.02; shared query/key/embedding/FFN tensors matched",
+  "text_stream": "advances only on text steps; identical across arms within a seed",
+  "source_hashes": {
+    "model.py": "cc0775fd07ccdd64a5c6e5b8d61ba6b1a9072976cedae22eca918497206749ab",
+    "transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+    "config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059"
+  },
+  "driver_sha256": "9e8c5bddc5cd59e711e49c4f073106ed3a0a79df0461fa64a3b30629efe0346b",
+  "evaluation_sha256": "99bd9963bb8ecda4d9c20a5b3d195c7d52709d642514038637d830ad1d6d2100",
+  "world_root": "<remote-home>/quatrix-tmlr/run-20261010-e1/minerl_world_v3",
+  "data": {
+    "train": {
+      "path": "<remote-home>/quatrix-tmlr/run-20261009-repaired-pilot/repaired-data/text_train.jsonl",
+      "sha256": "959ec139471be82c378d4705198e9b32415d6db74fd6c7c40303382769c92f31"
+    },
+    "vision": {
+      "path": "<remote-home>/Tesseractor/poc_data/vision_coco.jsonl",
+      "sha256": "719164d5ad866c921b424558536564abf7b53e2ff7b4fa2f636c43ca0e86b30e"
+    },
+    "audio": {
+      "path": "<remote-home>/Tesseractor/poc_data/audio_librispeech.jsonl",
+      "sha256": "e87e0c1575319d63463a59f4f740a3383791aaf214057c4a71fc56cadac9fe97"
+    },
+    "world": {
+      "path": "<remote-home>/quatrix-tmlr/run-20261010-e1/minerl_world_v3/world_episodes.jsonl",
+      "sha256": "2a89fc9f46734fd80f517b531e492fffda1757c5259b04c5b18cd050b222ed1d"
+    },
+    "validation": {
+      "path": "<remote-home>/quatrix-tmlr/run-20261009-audit/data/validation.tokens.jsonl",
+      "sha256": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9"
+    }
+  },
+  "torch": "2.6.0+cu124",
+  "numpy": "2.3.5",
+  "device": "cuda",
+  "parameters": 57676288,
+  "config": {
+    "vocab_size": 50257,
+    "hidden_size": 384,
+    "num_layers": 10,
+    "max_seq_len": 1024,
+    "q_rank": 48,
+    "ffn_ratio": 4,
+    "dropout": 0.1,
+    "tie_embeddings": true,
+    "use_gradient_checkpointing": false,
+    "use_vision": true,
+    "use_audio": true,
+    "use_world_model": true,
+    "world_num_actions": 6,
+    "wm_layers": 0,
+    "q_heads": 1,
+    "q_value_content": false
+  },
+  "validation_manifest": {
+    "dataset": "legacy WikiText-103 JSONL; upstream revision unverified",
+    "source_revision": "raw-file-sha256:fc80e65920f5239ade9c645daf95d1da3d5a163855786920d0e7f49a3eec2560",
+    "raw_path": "<remote-home>/Tesseractor/poc_data/text_wikitext103_val.jsonl",
+    "upstream_revision_known": false,
+    "split": "validation",
+    "tokenizer_revision": "GPT2-backend-sha256:11e818f948f43497f364722def50c13f419158554961ee4bb095fbd3350895c3",
+    "tokenizer_repo": "openai-community/gpt2",
+    "tokenizer_upstream_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "legacy_tokenizer_identity_verified": false,
+    "tokenizer_backend_sha256": "11e818f948f43497f364722def50c13f419158554961ee4bb095fbd3350895c3",
+    "preprocessing": "legacy per-row BOS + first 1022 GPT2 tokens + EOS; right-pad masked by length; no packing",
+    "bos_id": 50256,
+    "eos_id": 50256,
+    "max_length": 1024,
+    "n_samples": 1038,
+    "n_supervised_tokens": 194461,
+    "n_truncated_rows": 0,
+    "data_sha256": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9"
+  },
+  "resumable": "checkpoints carry model, optimizer, all RNG states, counters and recorded sampler order",
+  "resume_events": []
+}

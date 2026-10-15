@@ -1,0 +1,8 @@
+usage: benchmark_savo_cache.py [-h] --source SOURCE --manifest MANIFEST
+                               --checkpoint CHECKPOINT --checkpoint-sha256
+                               CHECKPOINT_SHA256 --validation-data
+                               VALIDATION_DATA --output OUTPUT
+                               [--device {cuda,cpu}] [--smoke]
+                               [--lengths LENGTHS] [--new-tokens NEW_TOKENS]
+                               [--repeats REPEATS] [--warmup WARMUP]
+benchmark_savo_cache.py: error: No real validation sample long enough for prefix512

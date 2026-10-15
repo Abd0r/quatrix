@@ -1,0 +1,176 @@
+{
+  "kind": "same-checkpoint BF16 inference probe: Quatrix SAVO baseline vs Flash Q-Compass Triton SAVO via zero-padding adapter (prefill / full-forward; NOT cache decode)",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "dtype": "bfloat16",
+  "source": "<remote-home>/quatrix-tmlr/run-20261010-e1/source-fixed",
+  "source_hashes": {
+    "quatrix/__init__.py": "2455c8b54d334fd5a96a04dc4bc6986b21559e77427a2584d0648f5fa817df88",
+    "quatrix/audio.py": "d5bc2f57b1ae58bc5e28657959482ff8ce70ca4910ce9e68ed49238e8829dea4",
+    "quatrix/cancer_model.py": "1fac1ff8ed095b795125cd86a46d6c3e1d0f8960af4774497202a0477610a2a8",
+    "quatrix/config.py": "1502d1c6eb9bbd2aaabfdab3eded9a07b0deb2eb5edafd4ab6473c6a97427059",
+    "quatrix/edit_model.py": "a89f01643fcc7df38b630fb3e42271a722676b6262d6b183dc9323bc9043860f",
+    "quatrix/model.py": "cc0775fd07ccdd64a5c6e5b8d61ba6b1a9072976cedae22eca918497206749ab",
+    "quatrix/train.py": "5aab5d9b9ba19e3235df17baedc15b6a4abc944c9569b7ba368dc737a77d1c62",
+    "quatrix/transformer_lm.py": "d1b9dc16a48450b2dc22f4ba36de818263c8a09ebf4c10f5eda6b1245b8abeca",
+    "quatrix/vision.py": "ee1443f080d649b41fb2ca9068d4ff2593d2c232f5b5f12493d1e83009c39e70",
+    "quatrix/world.py": "dfe28ee1cafa87ce9068bdf1809b3ed576307f95675b1a9a41beaa122ca65acc",
+    "quatrix/world_generative.py": "2d02b0181f30632e5d240e75b6acde8ba028b33e8695ead7ea41e8b9fc18f981"
+  },
+  "n_quatrix_source_files": 11,
+  "flash_root": "<remote-home>/Tesseractor/flash-qcompass",
+  "snapshot_dir": "<remote-home>/quatrix-tmlr/run-20261010-e1/evidence/flash-qcompass-remote-snapshot",
+  "snapshot_sha256": {
+    "README.md": "81a80502cab831529ddc311008b5727df615a630d09d5b8fa755cd3331eefeae",
+    "pyproject.toml": "f73d6770dc97399d243b16eff4a5aa861404f868c19d54bbb1e6d4110ad1ae48",
+    "flash_qcompass/__init__.py": "0c22bbb2ecf3bd0f61bda2e5cdccbdf6aacd64b11196545f8e6d88b1f6f1fb2e",
+    "flash_qcompass/autograd.py": "da537a20fc981da47d460873bf4e3b307c8a237f25a6d3695a1ad736350872a5",
+    "flash_qcompass/reference.py": "ee2e90bd2fcccf9b18499deb3e1933b9e18cd38384322a6a8f6efde419918b97",
+    "flash_qcompass/triton_savo.py": "3050605e9ded4b5b954749bba532cbea481ac7b9009bae1e8b5af45b4490d502",
+    "flash_qcompass/triton_mh_qvc.py": "f03a7873b6e400a612d150ecc6c871122ed5a516006bce39bb3680093710addc"
+  },
+  "backend": {
+    "triton_available": true,
+    "cuda_available": true,
+    "flash_importable": true,
+    "dispatch": {
+      "triton_savo": true,
+      "triton_mh_qvc": true
+    },
+    "flash_source_hashes": {
+      "__init__.py": "0c22bbb2ecf3bd0f61bda2e5cdccbdf6aacd64b11196545f8e6d88b1f6f1fb2e",
+      "autograd.py": "da537a20fc981da47d460873bf4e3b307c8a237f25a6d3695a1ad736350872a5",
+      "reference.py": "ee2e90bd2fcccf9b18499deb3e1933b9e18cd38384322a6a8f6efde419918b97",
+      "triton_mh_qvc.py": "f03a7873b6e400a612d150ecc6c871122ed5a516006bce39bb3680093710addc",
+      "triton_savo.py": "3050605e9ded4b5b954749bba532cbea481ac7b9009bae1e8b5af45b4490d502"
+    },
+    "flash_source_matches_snapshot": true,
+    "triton_version": "3.2.0",
+    "flash_version": "0.0.1"
+  },
+  "config": {
+    "vocab_size": 50257,
+    "hidden_size": 384,
+    "num_layers": 10,
+    "max_seq_len": 1024,
+    "q_rank": 48,
+    "ffn_ratio": 4,
+    "dropout": 0.1,
+    "tie_embeddings": true,
+    "use_gradient_checkpointing": false,
+    "use_vision": false,
+    "use_audio": false,
+    "use_world_model": false,
+    "world_num_actions": 6,
+    "wm_layers": 0,
+    "q_heads": 1,
+    "q_value_content": true
+  },
+  "shape": {
+    "hidden_size": 384,
+    "q_rank": 48,
+    "n_heads": 1
+  },
+  "static_capability": {
+    "savo_direct": {
+      "supported": false,
+      "reasons": [
+        "q_rank=48 is not a power of two; tl.arange(0, q_rank) cannot compile",
+        "hidden_size=384 is not a power of two; tl.arange(0, H) cannot compile"
+      ]
+    },
+    "savo_padded": {
+      "supported": true,
+      "reasons": []
+    }
+  },
+  "padding_geometry": {
+    "r_logical": 48,
+    "r_padded": 64,
+    "H_logical": 384,
+    "H_padded": 512
+  },
+  "tolerances": {
+    "logit_atol": 0.05,
+    "logit_rtol": 0.02,
+    "nll_atol": 0.05
+  },
+  "checkpoint_sha256": "2142c1edfd3f676b8a48e543fb34fc462666aaa1e13c0af2da4cbd10122cb4ae",
+  "manifest_sha256": "8bab831ea2b2beb457c5f87d58efcdc58dfdfe6aec47b3e024c94fb6eb095eeb",
+  "validation_sha256": "7bfd2f01be0cf1405b200617d3dd86fe74429585edae60fb22c86ff5c6435fb9",
+  "kernel": {
+    "probe": {
+      "success": false,
+      "per_length": {
+        "64": {
+          "success": false,
+          "error_type": "OutOfResources",
+          "error": "out of resource: shared memory, Required: 135168, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+          "launches": [
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        "100": {
+          "success": false,
+          "error_type": "OutOfResources",
+          "error": "out of resource: shared memory, Required: 135168, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+          "launches": [
+            [
+              7,
+              1
+            ]
+          ]
+        }
+      },
+      "padding": {
+        "r_logical": 48,
+        "r_padded": 64,
+        "H_logical": 384,
+        "H_padded": 512
+      },
+      "scale_passed": 0.14433756729740646,
+      "scale_expected": 0.14433756729740646,
+      "launch_config": {
+        "BLOCK_M": 16,
+        "BLOCK_N": 32,
+        "num_warps": 4,
+        "num_stages": 1
+      },
+      "smem_estimate_bytes": 100352,
+      "launches": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    "jit_success": false,
+    "events": [
+      {
+        "kernel": "_savo_fwd_kernel",
+        "grid": [
+          7,
+          1
+        ]
+      }
+    ],
+    "adapter": "PaddedFlashSAVOAdapter: zero-pad state/action r->64, Wc [48,384]->[64,512]; O [B,L,512]; crop [..., :384]; original out_proj incl. bias; scale=1/sqrt(48) (logical rank)",
+    "package_modified": false,
+    "direct_kernel": "flash_qcompass.triton_savo._savo_fwd_kernel"
+  },
+  "records": [],
+  "limitations": [
+    "prefill / full-forward only; the Triton SAVO kernel has no incremental decode/cache API",
+    "no 2r cache-decode claim is made or measured here",
+    "training is never switched to Flash and the head count is never changed",
+    "the flash_qcompass package is imported unmodified; padding happens in the adapter",
+    "timing variability is not seed uncertainty",
+    "teacher-forced logits, not a free-running generation quality test"
+  ],
+  "blocked_reason": "padded Triton SAVO kernel probe failed at (r_pad=64, H_pad=512, scale=1/sqrt(48)): {'64': {'success': False, 'error_type': 'OutOfResources', 'error': 'out of resource: shared memory, Required: 135168, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.', 'launches': [(4, 1)]}, '100': {'success': False, 'error_type': 'OutOfResources', 'error': 'out of resource: shared memory, Required: 135168, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.', 'launches': [(7, 1)]}}",
+  "status": "blocked"
+}

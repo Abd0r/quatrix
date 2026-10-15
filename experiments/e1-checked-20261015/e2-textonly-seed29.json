@@ -1,0 +1,104 @@
+{
+  "arm": "text-only",
+  "checkpoint": "<remote-home>/quatrix-tmlr/run-20261010-e1/results/main-v3-text-only-seed29/resume-20000000.pt",
+  "checkpoint_sha256": "a47488117e36c83c597a2c09e559059ce5947ed61cd47d50b36eeb0f3f1daaec",
+  "window": 8,
+  "device": "cuda",
+  "captioning": {
+    "samples": 400,
+    "heldout_images": 500,
+    "split_policy": "group-disjoint by image path, every 10th path",
+    "conditions": {
+      "real": {
+        "nll_sum": 41055.95132446289,
+        "n_tokens": 5160,
+        "mean_nll": 7.956579714043196,
+        "perplexity": 2854.2937373971863
+      },
+      "none": {
+        "nll_sum": 37709.56058502197,
+        "n_tokens": 5160,
+        "mean_nll": 7.308054376942243,
+        "perplexity": 1492.2709661008366
+      },
+      "zero": {
+        "nll_sum": 45134.7477722168,
+        "n_tokens": 5160,
+        "mean_nll": 8.74704414190248,
+        "perplexity": 6292.062150948322
+      },
+      "shuffled": {
+        "nll_sum": 40968.07624053955,
+        "n_tokens": 5160,
+        "mean_nll": 7.939549659019293,
+        "perplexity": 2806.0965234495384
+      }
+    }
+  },
+  "audio": {
+    "samples": 400,
+    "split": "speaker-disjoint audio_validation",
+    "conditions": {
+      "real": {
+        "nll_sum": 118603.15663909912,
+        "n_tokens": 12257,
+        "mean_nll": 9.676360988749215,
+        "perplexity": 15936.398547209774
+      },
+      "none": {
+        "nll_sum": 94985.64852905273,
+        "n_tokens": 12257,
+        "mean_nll": 7.749502205193174,
+        "perplexity": 2320.417035514109
+      },
+      "zero": {
+        "nll_sum": 111106.32356643677,
+        "n_tokens": 12257,
+        "mean_nll": 9.06472412225151,
+        "perplexity": 8644.893875790847
+      },
+      "shuffled": {
+        "nll_sum": 118554.20044326782,
+        "n_tokens": 12257,
+        "mean_nll": 9.672366846966453,
+        "perplexity": 15872.873260858298
+      }
+    }
+  },
+  "world": {
+    "transitions": 96,
+    "episodes": 12,
+    "model_mse": 1.1424901485443115,
+    "copy_previous_mse": 0.0013216477818787098,
+    "predict_mean_mse": 0.5754477977752686,
+    "beats_copy_previous": false,
+    "beats_predict_mean": false,
+    "per_action_bucket": {
+      "0": {
+        "transitions": 19,
+        "model_mse": 1.1361805200576782,
+        "copy_previous_mse": 0.0027677910402417183
+      },
+      "1": {
+        "transitions": 58,
+        "model_mse": 1.1483423709869385,
+        "copy_previous_mse": 0.00020488823065534234
+      },
+      "2": {
+        "transitions": 5,
+        "model_mse": 1.1262949705123901,
+        "copy_previous_mse": 0.008324875496327877
+      },
+      "4": {
+        "transitions": 1,
+        "model_mse": 1.1404188871383667,
+        "copy_previous_mse": 0.00010075262980535626
+      },
+      "5": {
+        "transitions": 13,
+        "model_mse": 1.1319910287857056,
+        "copy_previous_mse": 0.0015908844070509076
+      }
+    }
+  }
+}

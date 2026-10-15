@@ -1,0 +1,1 @@
+{"output": "<remote-home>/quatrix-tmlr/run-20261010-e1/results/savo-next-v1/world-clean-seed17.json", "seed": 17, "transitions": 6431, "model_mse": 0.022419545606047902, "copy_previous_mse": 0.02268161601247244}

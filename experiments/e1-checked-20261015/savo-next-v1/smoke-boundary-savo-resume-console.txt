@@ -1,0 +1,1041 @@
+{"resumed": {"from": "<remote-home>/quatrix-tmlr/run-20261010-e1/results/savo-next-v1/smoke-boundary-savo/resume-1724.pt", "checkpoint_sha256": "815e23bf2eab560a3fa4073484a2620cd08be79f6c0d5fe814570669a41ba662", "resumed_at_text_targets": 1724, "resumed_at_step": 2, "resume_count": 1}}
+{
+  "kind": "E1-next v6; not evidence of convergence or universal adaptation",
+  "savo_core": true,
+  "snapshot_every_tokens": 15000000,
+  "arm": "text-only",
+  "seed": 17,
+  "completed": true,
+  "step_budget": 2,
+  "freeze_lm_on_modality": false,
+  "total_text_targets": 1724,
+  "extra_text_targets": 0,
+  "text_indices_sha256": "1dad281e4a7b7fadc213bd66c5b44ce1c7b68fba95d1fa726e5b30a3476a1b21",
+  "first_text_indices": [
+    92385,
+    119939,
+    60346,
+    95915,
+    74223,
+    177406,
+    63952,
+    91051
+  ],
+  "modality_sequence_sha256": "fc95ef9910c529931935a7c44267034dd0ce58ea2435f660cc6cda4462a4cb7c",
+  "per_modality_steps": {
+    "text": 2
+  },
+  "resume_events": [
+    {
+      "from": "<remote-home>/quatrix-tmlr/run-20261010-e1/results/savo-next-v1/smoke-boundary-savo/resume-1724.pt",
+      "checkpoint_sha256": "815e23bf2eab560a3fa4073484a2620cd08be79f6c0d5fe814570669a41ba662",
+      "resumed_at_text_targets": 1724,
+      "resumed_at_step": 2,
+      "resume_count": 1
+    }
+  ],
+  "world_window": 8,
+  "elapsed_total_seconds": 3.7026009522378445e-05,
+  "peak_cuda_allocated_bytes": 0,
+  "checkpoints": [
+    {
+      "text_targets": 962,
+      "step": 1,
+      "checkpoint": null,
+      "checkpoint_sha256": null,
+      "validation": {
+        "n_samples": 64,
+        "n_supervised_tokens": 11442,
+        "nll_sum": 120335.4842095375,
+        "mean_nll": 10.51699739639377,
+        "perplexity": 36938.047500743916,
+        "per_sample": [
+          {
+            "row": 0,
+            "nll_sum": 1636.704029083252,
+            "n_tokens": 156
+          },
+          {
+            "row": 1,
+            "nll_sum": 1631.2803001403809,
+            "n_tokens": 153
+          },
+          {
+            "row": 2,
+            "nll_sum": 1628.8653345108032,
+            "n_tokens": 155
+          },
+          {
+            "row": 3,
+            "nll_sum": 1193.7797355651855,
+            "n_tokens": 114
+          },
+          {
+            "row": 4,
+            "nll_sum": 1447.5732870101929,
+            "n_tokens": 137
+          },
+          {
+            "row": 5,
+            "nll_sum": 1451.6521582603455,
+            "n_tokens": 138
+          },
+          {
+            "row": 6,
+            "nll_sum": 1473.367642402649,
+            "n_tokens": 140
+          },
+          {
+            "row": 7,
+            "nll_sum": 2215.390139579773,
+            "n_tokens": 211
+          },
+          {
+            "row": 8,
+            "nll_sum": 1763.1658453941345,
+            "n_tokens": 167
+          },
+          {
+            "row": 9,
+            "nll_sum": 2394.056962490082,
+            "n_tokens": 227
+          },
+          {
+            "row": 10,
+            "nll_sum": 1247.0617027282715,
+            "n_tokens": 118
+          },
+          {
+            "row": 11,
+            "nll_sum": 2065.8510003089905,
+            "n_tokens": 196
+          },
+          {
+            "row": 12,
+            "nll_sum": 2543.521780014038,
+            "n_tokens": 240
+          },
+          {
+            "row": 13,
+            "nll_sum": 2046.3406538963318,
+            "n_tokens": 194
+          },
+          {
+            "row": 14,
+            "nll_sum": 3341.9684176445007,
+            "n_tokens": 317
+          },
+          {
+            "row": 15,
+            "nll_sum": 2235.015955924988,
+            "n_tokens": 213
+          },
+          {
+            "row": 16,
+            "nll_sum": 3016.280167579651,
+            "n_tokens": 287
+          },
+          {
+            "row": 17,
+            "nll_sum": 2396.527974128723,
+            "n_tokens": 227
+          },
+          {
+            "row": 18,
+            "nll_sum": 3135.9128289222717,
+            "n_tokens": 298
+          },
+          {
+            "row": 19,
+            "nll_sum": 1354.3579239845276,
+            "n_tokens": 129
+          },
+          {
+            "row": 20,
+            "nll_sum": 3097.0351390838623,
+            "n_tokens": 295
+          },
+          {
+            "row": 21,
+            "nll_sum": 1723.4634103775024,
+            "n_tokens": 164
+          },
+          {
+            "row": 22,
+            "nll_sum": 1864.2379999160767,
+            "n_tokens": 179
+          },
+          {
+            "row": 23,
+            "nll_sum": 2648.981785774231,
+            "n_tokens": 254
+          },
+          {
+            "row": 24,
+            "nll_sum": 1908.1584949493408,
+            "n_tokens": 181
+          },
+          {
+            "row": 25,
+            "nll_sum": 1393.5694761276245,
+            "n_tokens": 131
+          },
+          {
+            "row": 26,
+            "nll_sum": 2814.2424082756042,
+            "n_tokens": 266
+          },
+          {
+            "row": 27,
+            "nll_sum": 1533.0674171447754,
+            "n_tokens": 145
+          },
+          {
+            "row": 28,
+            "nll_sum": 2428.2606496810913,
+            "n_tokens": 229
+          },
+          {
+            "row": 29,
+            "nll_sum": 3578.313579559326,
+            "n_tokens": 341
+          },
+          {
+            "row": 30,
+            "nll_sum": 1358.3042268753052,
+            "n_tokens": 128
+          },
+          {
+            "row": 31,
+            "nll_sum": 1403.4008741378784,
+            "n_tokens": 132
+          },
+          {
+            "row": 32,
+            "nll_sum": 3323.1965913772583,
+            "n_tokens": 316
+          },
+          {
+            "row": 33,
+            "nll_sum": 2191.642921447754,
+            "n_tokens": 211
+          },
+          {
+            "row": 34,
+            "nll_sum": 1449.3110399246216,
+            "n_tokens": 139
+          },
+          {
+            "row": 35,
+            "nll_sum": 2106.7546548843384,
+            "n_tokens": 200
+          },
+          {
+            "row": 36,
+            "nll_sum": 1395.4311246871948,
+            "n_tokens": 132
+          },
+          {
+            "row": 37,
+            "nll_sum": 1758.0594625473022,
+            "n_tokens": 167
+          },
+          {
+            "row": 38,
+            "nll_sum": 1831.884783744812,
+            "n_tokens": 176
+          },
+          {
+            "row": 39,
+            "nll_sum": 1468.6477527618408,
+            "n_tokens": 141
+          },
+          {
+            "row": 40,
+            "nll_sum": 1320.5554523468018,
+            "n_tokens": 126
+          },
+          {
+            "row": 41,
+            "nll_sum": 1074.5631132125854,
+            "n_tokens": 102
+          },
+          {
+            "row": 42,
+            "nll_sum": 1830.124566078186,
+            "n_tokens": 174
+          },
+          {
+            "row": 43,
+            "nll_sum": 1323.509967803955,
+            "n_tokens": 126
+          },
+          {
+            "row": 44,
+            "nll_sum": 991.6906414031982,
+            "n_tokens": 95
+          },
+          {
+            "row": 45,
+            "nll_sum": 1234.8616333007812,
+            "n_tokens": 117
+          },
+          {
+            "row": 46,
+            "nll_sum": 1766.024829864502,
+            "n_tokens": 168
+          },
+          {
+            "row": 47,
+            "nll_sum": 1574.1554527282715,
+            "n_tokens": 151
+          },
+          {
+            "row": 48,
+            "nll_sum": 1037.1547536849976,
+            "n_tokens": 98
+          },
+          {
+            "row": 49,
+            "nll_sum": 1290.3786010742188,
+            "n_tokens": 124
+          },
+          {
+            "row": 50,
+            "nll_sum": 1595.1147780418396,
+            "n_tokens": 152
+          },
+          {
+            "row": 51,
+            "nll_sum": 1785.046555519104,
+            "n_tokens": 169
+          },
+          {
+            "row": 52,
+            "nll_sum": 2292.9270601272583,
+            "n_tokens": 218
+          },
+          {
+            "row": 53,
+            "nll_sum": 1749.6189260482788,
+            "n_tokens": 166
+          },
+          {
+            "row": 54,
+            "nll_sum": 1574.031725883484,
+            "n_tokens": 150
+          },
+          {
+            "row": 55,
+            "nll_sum": 2134.671067714691,
+            "n_tokens": 201
+          },
+          {
+            "row": 56,
+            "nll_sum": 2053.573718070984,
+            "n_tokens": 195
+          },
+          {
+            "row": 57,
+            "nll_sum": 1395.2258772850037,
+            "n_tokens": 133
+          },
+          {
+            "row": 58,
+            "nll_sum": 1497.4022312164307,
+            "n_tokens": 142
+          },
+          {
+            "row": 59,
+            "nll_sum": 1552.819179058075,
+            "n_tokens": 150
+          },
+          {
+            "row": 60,
+            "nll_sum": 1700.5699095726013,
+            "n_tokens": 162
+          },
+          {
+            "row": 61,
+            "nll_sum": 2004.7056875228882,
+            "n_tokens": 191
+          },
+          {
+            "row": 62,
+            "nll_sum": 1934.2812781333923,
+            "n_tokens": 185
+          },
+          {
+            "row": 63,
+            "nll_sum": 2127.8395709991455,
+            "n_tokens": 203
+          }
+        ]
+      }
+    },
+    {
+      "text_targets": 1724,
+      "step": 2,
+      "checkpoint": "<remote-home>/quatrix-tmlr/run-20261010-e1/results/savo-next-v1/smoke-boundary-savo/resume-1724.pt",
+      "checkpoint_sha256": "815e23bf2eab560a3fa4073484a2620cd08be79f6c0d5fe814570669a41ba662",
+      "validation": {
+        "n_samples": 64,
+        "n_supervised_tokens": 11442,
+        "nll_sum": 117572.72366714478,
+        "mean_nll": 10.275539561889946,
+        "perplexity": 29014.168594782775,
+        "per_sample": [
+          {
+            "row": 0,
+            "nll_sum": 1596.0554013252258,
+            "n_tokens": 156
+          },
+          {
+            "row": 1,
+            "nll_sum": 1608.2405791282654,
+            "n_tokens": 153
+          },
+          {
+            "row": 2,
+            "nll_sum": 1591.877727508545,
+            "n_tokens": 155
+          },
+          {
+            "row": 3,
+            "nll_sum": 1164.5038061141968,
+            "n_tokens": 114
+          },
+          {
+            "row": 4,
+            "nll_sum": 1411.33243227005,
+            "n_tokens": 137
+          },
+          {
+            "row": 5,
+            "nll_sum": 1423.1520366668701,
+            "n_tokens": 138
+          },
+          {
+            "row": 6,
+            "nll_sum": 1438.9424796104431,
+            "n_tokens": 140
+          },
+          {
+            "row": 7,
+            "nll_sum": 2161.0858426094055,
+            "n_tokens": 211
+          },
+          {
+            "row": 8,
+            "nll_sum": 1729.6354694366455,
+            "n_tokens": 167
+          },
+          {
+            "row": 9,
+            "nll_sum": 2351.9872155189514,
+            "n_tokens": 227
+          },
+          {
+            "row": 10,
+            "nll_sum": 1216.7794342041016,
+            "n_tokens": 118
+          },
+          {
+            "row": 11,
+            "nll_sum": 2021.9642853736877,
+            "n_tokens": 196
+          },
+          {
+            "row": 12,
+            "nll_sum": 2490.064583301544,
+            "n_tokens": 240
+          },
+          {
+            "row": 13,
+            "nll_sum": 2012.8397555351257,
+            "n_tokens": 194
+          },
+          {
+            "row": 14,
+            "nll_sum": 3286.795624256134,
+            "n_tokens": 317
+          },
+          {
+            "row": 15,
+            "nll_sum": 2189.902744293213,
+            "n_tokens": 213
+          },
+          {
+            "row": 16,
+            "nll_sum": 2936.283992767334,
+            "n_tokens": 287
+          },
+          {
+            "row": 17,
+            "nll_sum": 2353.0243878364563,
+            "n_tokens": 227
+          },
+          {
+            "row": 18,
+            "nll_sum": 3055.745849132538,
+            "n_tokens": 298
+          },
+          {
+            "row": 19,
+            "nll_sum": 1321.0330352783203,
+            "n_tokens": 129
+          },
+          {
+            "row": 20,
+            "nll_sum": 3036.160101413727,
+            "n_tokens": 295
+          },
+          {
+            "row": 21,
+            "nll_sum": 1686.221565246582,
+            "n_tokens": 164
+          },
+          {
+            "row": 22,
+            "nll_sum": 1823.4819703102112,
+            "n_tokens": 179
+          },
+          {
+            "row": 23,
+            "nll_sum": 2597.0858793258667,
+            "n_tokens": 254
+          },
+          {
+            "row": 24,
+            "nll_sum": 1867.688796043396,
+            "n_tokens": 181
+          },
+          {
+            "row": 25,
+            "nll_sum": 1372.2623291015625,
+            "n_tokens": 131
+          },
+          {
+            "row": 26,
+            "nll_sum": 2763.3334555625916,
+            "n_tokens": 266
+          },
+          {
+            "row": 27,
+            "nll_sum": 1493.0547914505005,
+            "n_tokens": 145
+          },
+          {
+            "row": 28,
+            "nll_sum": 2367.054135799408,
+            "n_tokens": 229
+          },
+          {
+            "row": 29,
+            "nll_sum": 3475.1407346725464,
+            "n_tokens": 341
+          },
+          {
+            "row": 30,
+            "nll_sum": 1328.2547869682312,
+            "n_tokens": 128
+          },
+          {
+            "row": 31,
+            "nll_sum": 1379.776795387268,
+            "n_tokens": 132
+          },
+          {
+            "row": 32,
+            "nll_sum": 3244.3778018951416,
+            "n_tokens": 316
+          },
+          {
+            "row": 33,
+            "nll_sum": 2127.630290031433,
+            "n_tokens": 211
+          },
+          {
+            "row": 34,
+            "nll_sum": 1414.6839056015015,
+            "n_tokens": 139
+          },
+          {
+            "row": 35,
+            "nll_sum": 2058.0324206352234,
+            "n_tokens": 200
+          },
+          {
+            "row": 36,
+            "nll_sum": 1366.8596892356873,
+            "n_tokens": 132
+          },
+          {
+            "row": 37,
+            "nll_sum": 1708.6295762062073,
+            "n_tokens": 167
+          },
+          {
+            "row": 38,
+            "nll_sum": 1778.3198471069336,
+            "n_tokens": 176
+          },
+          {
+            "row": 39,
+            "nll_sum": 1423.125259399414,
+            "n_tokens": 141
+          },
+          {
+            "row": 40,
+            "nll_sum": 1279.4248957633972,
+            "n_tokens": 126
+          },
+          {
+            "row": 41,
+            "nll_sum": 1040.8434438705444,
+            "n_tokens": 102
+          },
+          {
+            "row": 42,
+            "nll_sum": 1782.4548296928406,
+            "n_tokens": 174
+          },
+          {
+            "row": 43,
+            "nll_sum": 1289.9380683898926,
+            "n_tokens": 126
+          },
+          {
+            "row": 44,
+            "nll_sum": 960.5997977256775,
+            "n_tokens": 95
+          },
+          {
+            "row": 45,
+            "nll_sum": 1207.724446773529,
+            "n_tokens": 117
+          },
+          {
+            "row": 46,
+            "nll_sum": 1713.548581123352,
+            "n_tokens": 168
+          },
+          {
+            "row": 47,
+            "nll_sum": 1528.281750679016,
+            "n_tokens": 151
+          },
+          {
+            "row": 48,
+            "nll_sum": 1014.3775715827942,
+            "n_tokens": 98
+          },
+          {
+            "row": 49,
+            "nll_sum": 1252.765058040619,
+            "n_tokens": 124
+          },
+          {
+            "row": 50,
+            "nll_sum": 1562.4670491218567,
+            "n_tokens": 152
+          },
+          {
+            "row": 51,
+            "nll_sum": 1747.146951675415,
+            "n_tokens": 169
+          },
+          {
+            "row": 52,
+            "nll_sum": 2240.892252445221,
+            "n_tokens": 218
+          },
+          {
+            "row": 53,
+            "nll_sum": 1698.7563452720642,
+            "n_tokens": 166
+          },
+          {
+            "row": 54,
+            "nll_sum": 1540.7706661224365,
+            "n_tokens": 150
+          },
+          {
+            "row": 55,
+            "nll_sum": 2097.696195602417,
+            "n_tokens": 201
+          },
+          {
+            "row": 56,
+            "nll_sum": 2012.7448711395264,
+            "n_tokens": 195
+          },
+          {
+            "row": 57,
+            "nll_sum": 1358.4098720550537,
+            "n_tokens": 133
+          },
+          {
+            "row": 58,
+            "nll_sum": 1469.2026853561401,
+            "n_tokens": 142
+          },
+          {
+            "row": 59,
+            "nll_sum": 1503.4205470085144,
+            "n_tokens": 150
+          },
+          {
+            "row": 60,
+            "nll_sum": 1662.7586088180542,
+            "n_tokens": 162
+          },
+          {
+            "row": 61,
+            "nll_sum": 1966.8779511451721,
+            "n_tokens": 191
+          },
+          {
+            "row": 62,
+            "nll_sum": 1898.0266981124878,
+            "n_tokens": 185
+          },
+          {
+            "row": 63,
+            "nll_sum": 2071.173716068268,
+            "n_tokens": 203
+          }
+        ]
+      }
+    }
+  ],
+  "validation": {
+    "n_samples": 64,
+    "n_supervised_tokens": 11442,
+    "nll_sum": 117572.72366714478,
+    "mean_nll": 10.275539561889946,
+    "perplexity": 29014.168594782775,
+    "per_sample": [
+      {
+        "row": 0,
+        "nll_sum": 1596.0554013252258,
+        "n_tokens": 156
+      },
+      {
+        "row": 1,
+        "nll_sum": 1608.2405791282654,
+        "n_tokens": 153
+      },
+      {
+        "row": 2,
+        "nll_sum": 1591.877727508545,
+        "n_tokens": 155
+      },
+      {
+        "row": 3,
+        "nll_sum": 1164.5038061141968,
+        "n_tokens": 114
+      },
+      {
+        "row": 4,
+        "nll_sum": 1411.33243227005,
+        "n_tokens": 137
+      },
+      {
+        "row": 5,
+        "nll_sum": 1423.1520366668701,
+        "n_tokens": 138
+      },
+      {
+        "row": 6,
+        "nll_sum": 1438.9424796104431,
+        "n_tokens": 140
+      },
+      {
+        "row": 7,
+        "nll_sum": 2161.0858426094055,
+        "n_tokens": 211
+      },
+      {
+        "row": 8,
+        "nll_sum": 1729.6354694366455,
+        "n_tokens": 167
+      },
+      {
+        "row": 9,
+        "nll_sum": 2351.9872155189514,
+        "n_tokens": 227
+      },
+      {
+        "row": 10,
+        "nll_sum": 1216.7794342041016,
+        "n_tokens": 118
+      },
+      {
+        "row": 11,
+        "nll_sum": 2021.9642853736877,
+        "n_tokens": 196
+      },
+      {
+        "row": 12,
+        "nll_sum": 2490.064583301544,
+        "n_tokens": 240
+      },
+      {
+        "row": 13,
+        "nll_sum": 2012.8397555351257,
+        "n_tokens": 194
+      },
+      {
+        "row": 14,
+        "nll_sum": 3286.795624256134,
+        "n_tokens": 317
+      },
+      {
+        "row": 15,
+        "nll_sum": 2189.902744293213,
+        "n_tokens": 213
+      },
+      {
+        "row": 16,
+        "nll_sum": 2936.283992767334,
+        "n_tokens": 287
+      },
+      {
+        "row": 17,
+        "nll_sum": 2353.0243878364563,
+        "n_tokens": 227
+      },
+      {
+        "row": 18,
+        "nll_sum": 3055.745849132538,
+        "n_tokens": 298
+      },
+      {
+        "row": 19,
+        "nll_sum": 1321.0330352783203,
+        "n_tokens": 129
+      },
+      {
+        "row": 20,
+        "nll_sum": 3036.160101413727,
+        "n_tokens": 295
+      },
+      {
+        "row": 21,
+        "nll_sum": 1686.221565246582,
+        "n_tokens": 164
+      },
+      {
+        "row": 22,
+        "nll_sum": 1823.4819703102112,
+        "n_tokens": 179
+      },
+      {
+        "row": 23,
+        "nll_sum": 2597.0858793258667,
+        "n_tokens": 254
+      },
+      {
+        "row": 24,
+        "nll_sum": 1867.688796043396,
+        "n_tokens": 181
+      },
+      {
+        "row": 25,
+        "nll_sum": 1372.2623291015625,
+        "n_tokens": 131
+      },
+      {
+        "row": 26,
+        "nll_sum": 2763.3334555625916,
+        "n_tokens": 266
+      },
+      {
+        "row": 27,
+        "nll_sum": 1493.0547914505005,
+        "n_tokens": 145
+      },
+      {
+        "row": 28,
+        "nll_sum": 2367.054135799408,
+        "n_tokens": 229
+      },
+      {
+        "row": 29,
+        "nll_sum": 3475.1407346725464,
+        "n_tokens": 341
+      },
+      {
+        "row": 30,
+        "nll_sum": 1328.2547869682312,
+        "n_tokens": 128
+      },
+      {
+        "row": 31,
+        "nll_sum": 1379.776795387268,
+        "n_tokens": 132
+      },
+      {
+        "row": 32,
+        "nll_sum": 3244.3778018951416,
+        "n_tokens": 316
+      },
+      {
+        "row": 33,
+        "nll_sum": 2127.630290031433,
+        "n_tokens": 211
+      },
+      {
+        "row": 34,
+        "nll_sum": 1414.6839056015015,
+        "n_tokens": 139
+      },
+      {
+        "row": 35,
+        "nll_sum": 2058.0324206352234,
+        "n_tokens": 200
+      },
+      {
+        "row": 36,
+        "nll_sum": 1366.8596892356873,
+        "n_tokens": 132
+      },
+      {
+        "row": 37,
+        "nll_sum": 1708.6295762062073,
+        "n_tokens": 167
+      },
+      {
+        "row": 38,
+        "nll_sum": 1778.3198471069336,
+        "n_tokens": 176
+      },
+      {
+        "row": 39,
+        "nll_sum": 1423.125259399414,
+        "n_tokens": 141
+      },
+      {
+        "row": 40,
+        "nll_sum": 1279.4248957633972,
+        "n_tokens": 126
+      },
+      {
+        "row": 41,
+        "nll_sum": 1040.8434438705444,
+        "n_tokens": 102
+      },
+      {
+        "row": 42,
+        "nll_sum": 1782.4548296928406,
+        "n_tokens": 174
+      },
+      {
+        "row": 43,
+        "nll_sum": 1289.9380683898926,
+        "n_tokens": 126
+      },
+      {
+        "row": 44,
+        "nll_sum": 960.5997977256775,
+        "n_tokens": 95
+      },
+      {
+        "row": 45,
+        "nll_sum": 1207.724446773529,
+        "n_tokens": 117
+      },
+      {
+        "row": 46,
+        "nll_sum": 1713.548581123352,
+        "n_tokens": 168
+      },
+      {
+        "row": 47,
+        "nll_sum": 1528.281750679016,
+        "n_tokens": 151
+      },
+      {
+        "row": 48,
+        "nll_sum": 1014.3775715827942,
+        "n_tokens": 98
+      },
+      {
+        "row": 49,
+        "nll_sum": 1252.765058040619,
+        "n_tokens": 124
+      },
+      {
+        "row": 50,
+        "nll_sum": 1562.4670491218567,
+        "n_tokens": 152
+      },
+      {
+        "row": 51,
+        "nll_sum": 1747.146951675415,
+        "n_tokens": 169
+      },
+      {
+        "row": 52,
+        "nll_sum": 2240.892252445221,
+        "n_tokens": 218
+      },
+      {
+        "row": 53,
+        "nll_sum": 1698.7563452720642,
+        "n_tokens": 166
+      },
+      {
+        "row": 54,
+        "nll_sum": 1540.7706661224365,
+        "n_tokens": 150
+      },
+      {
+        "row": 55,
+        "nll_sum": 2097.696195602417,
+        "n_tokens": 201
+      },
+      {
+        "row": 56,
+        "nll_sum": 2012.7448711395264,
+        "n_tokens": 195
+      },
+      {
+        "row": 57,
+        "nll_sum": 1358.4098720550537,
+        "n_tokens": 133
+      },
+      {
+        "row": 58,
+        "nll_sum": 1469.2026853561401,
+        "n_tokens": 142
+      },
+      {
+        "row": 59,
+        "nll_sum": 1503.4205470085144,
+        "n_tokens": 150
+      },
+      {
+        "row": 60,
+        "nll_sum": 1662.7586088180542,
+        "n_tokens": 162
+      },
+      {
+        "row": 61,
+        "nll_sum": 1966.8779511451721,
+        "n_tokens": 191
+      },
+      {
+        "row": 62,
+        "nll_sum": 1898.0266981124878,
+        "n_tokens": 185
+      },
+      {
+        "row": 63,
+        "nll_sum": 2071.173716068268,
+        "n_tokens": 203
+      }
+    ]
+  }
+}
