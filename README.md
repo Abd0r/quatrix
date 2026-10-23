@@ -243,4 +243,4 @@ If you use Quatrix or Q-Compass in your work, please cite:
 
 ## License
 
-OpenRAIL-M — open use with behavioral restrictions (no military use, no mass surveillance). See `LICENSE` for details.
+MIT. Use it, modify it, ship it, including commercially. See `LICENSE` for the full text, and the Citation section above for how to credit the work.

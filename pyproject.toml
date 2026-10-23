@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,10 +7,12 @@ name = "quatrix"
 version = "0.2.1"
 description = "Q-Compass architecture — RL-grounded sequence mixing for text, vision, audio, world modeling, and cross-field tasks"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Syed Abdur Rehman Ali", email = "ra2157218@gmail.com" }]
 keywords = ["deep learning", "transformer", "attention", "reinforcement learning", "multimodal", "language model", "world model", "cancer genomics"]
 classifiers = [
+    "License :: OSI Approved :: MIT License",
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
