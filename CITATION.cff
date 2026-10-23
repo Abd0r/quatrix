@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use Quatrix or Q-Compass in your work, please cite the software and the accompanying preprints."
+title: "Quatrix"
+abstract: "Q-Compass architecture: value-projection-free sequence mixing for text, vision, audio, world modeling and cross-field tasks."
+type: software
+license: MIT
+repository-code: "https://github.com/Abd0r/quatrix"
+version: "0.2.1"
+date-released: "2026-10-23"
+authors:
+  - family-names: "Ali"
+    given-names: "Syed Abdur Rehman"
+    orcid: "https://orcid.org/0009-0004-6611-2918"
+preferred-citation:
+  type: article
+  title: "Quatrix: An Empirical Evaluation of Q-Compass and SAVO on Multimodal Sequence Modeling"
+  authors:
+    - family-names: "Ali"
+      given-names: "Syed Abdur Rehman"
+      orcid: "https://orcid.org/0009-0004-6611-2918"
+  year: 2026
+  doi: "10.5281/zenodo.19839718"
+  url: "https://zenodo.org/records/19839718"
+references:
+  - type: article
+    title: "Q-Compass: Grounding Sequence Mixing in Reinforcement Learning Navigation"
+    authors:
+      - family-names: "Ali"
+        given-names: "Syed Abdur Rehman"
+        orcid: "https://orcid.org/0009-0004-6611-2918"
+    year: 2026
+    doi: "10.5281/zenodo.19104202"
+    url: "https://zenodo.org/records/19104202"
